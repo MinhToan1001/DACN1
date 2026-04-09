@@ -1,0 +1,1135 @@
+[
+  {
+    "scientific_name": "Panthera tigris",
+    "ten_viet_nam": "Hổ",
+    "so_luong_anh": 468,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to, mõm rộng, tai tròn với đốm trắng nổi bật ở mặt sau. Cổ dày, họng màu trắng nhạt. Thân hình vạm vỡ, lớp lông nền màu vàng cam đặc trưng, điểm xuyết các sọc vằn dọc màu đen đậm và rõ nét. Bụng và phần dưới sườn có màu trắng. Bốn chi to khỏe, bàn chân lớn với móng vuốt sắc nhọn có thể co rút. Đuôi dài, phủ lông sọc vằn đen ngang, chóp đuôi màu đen. Con đực trưởng thành nặng 180–300 kg.",
+      "thuc_an": "Thú móng guốc lớn: hươu, nai, lợn rừng, bò tót. Cần 5–6 kg thịt/ngày.",
+      "tap_tinh": "Sống đơn độc, kiếm ăn đêm. Lãnh thổ rộng 20–100 km². Bơi và leo trèo tốt.",
+      "sinh_thai": "Rừng nhiệt đới, rừng ngập mặn, đồng cỏ rừng."
+    }
+  },
+  {
+    "scientific_name": "Elephas maximus",
+    "ten_viet_nam": "Voi châu Á",
+    "so_luong_anh": 352,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to với hai u lồi trên trán, tai tương đối nhỏ với mép trên gập về phía trước. Vòi dài linh hoạt có một mấu thịt ở chóp, con đực có ngà nhỏ hoặc lớn rủ xuống. Cổ ngắn và dày. Thân hình đồ sộ, da dày có màu xám đen, thưa thớt lông xù xì. Bụng phình to, màu xám nhạt hơn thân. Bốn chi to dạng hình trụ, chân trước có 5 móng, chân sau có 4 móng. Đuôi thon, chóp đuôi có túm lông đen cứng. Con đực cao 2.5–3 m, nặng 3.5–5 tấn.",
+      "thuc_an": "Cỏ, lá, cành, vỏ cây, rễ, quả. Ăn 100–200 kg/ngày.",
+      "tap_tinh": "Đàn gia đình do cái đầu đàn lãnh đạo. Trí nhớ tốt, thông minh cao. Di cư theo mùa.",
+      "sinh_thai": "Rừng nhiệt đới, đồng cỏ xavan, rừng thưa. Cần nguồn nước lớn."
+    }
+  },
+  {
+    "scientific_name": "Ursus thibetanus",
+    "ten_viet_nam": "Gấu ngựa",
+    "so_luong_anh": 209,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, mõm nhạt màu nâu nhạt, tai tròn và lớn. Cổ dày, họng đen phủ lông. Thân hình to béo, toàn thân phủ lớp lông đen tuyền, bóng mượt, trước ngực có mảng lông màu trắng hoặc vàng nhạt hình chữ V hay bán nguyệt đặc trưng. Bụng và sườn phủ lông đen sậm. Bàn chân to, năm ngón với móng vuốt ngắn, cứng cáp. Đuôi rất ngắn, lẩn khuất dưới lớp lông rậm. Khối lượng đạt 60–150 kg.",
+      "thuc_an": "Tạp ăn: quả, mật ong, côn trùng, thịt nhỏ, ngũ cốc.",
+      "tap_tinh": "Bán đêm, leo cây tốt. Đông miên một phần ở vùng lạnh.",
+      "sinh_thai": "Rừng núi, rừng hỗn giao ôn đới–nhiệt đới. Độ cao 1000–3500 m."
+    }
+  },
+  {
+    "scientific_name": "Bos gaurus",
+    "ten_viet_nam": "Bò tót",
+    "so_luong_anh": 204,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to, trán gồ, mõm xám nhạt, tai lớn vểnh. Sừng to, cong vút lên trên với gốc sừng màu xám lục và chóp đen. Cổ to, có yếm thịt nhỏ kéo dài xuống ngực. Thân hình cực kỳ vạm vỡ, gù lưng nhô cao rõ rệt, lông màu nâu sẫm đến đen bóng. Bụng có màu xám nhạt hoặc nâu nhạt. Bốn chi to khỏe, từ đầu gối trở xuống phủ lông màu trắng toát như mang tất, móng guốc đen chẻ đôi. Đuôi thon, túm lông chóp đuôi đen. Nặng 650–1500 kg.",
+      "thuc_an": "Cỏ, lá cây, chồi non, vỏ cây.",
+      "tap_tinh": "Đàn 8–40 con. Hoạt động sáng sớm và chiều tối.",
+      "sinh_thai": "Rừng nhiệt đới, bìa rừng, đồng cỏ. Cần khoáng mỏ và nước."
+    }
+  },
+  {
+    "scientific_name": "Manis javanica",
+    "ten_viet_nam": "Tê tê Java",
+    "so_luong_anh": 267,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ, thuôn nhọn hình nón, không có răng, mắt nhỏ, tai ẩn. Cổ ngắn nối liền thân. Toàn bộ lưng và thân trên phủ kín các vảy sừng cứng, xếp lợp lên nhau như vảy cá, màu nâu xám đến nâu nhạt. Bụng trần, có lớp da mềm phủ lông lơ phơ màu trắng đục. Bốn chi ngắn, mập, móng vuốt trước rất dài và cong quặp dùng để đào bới. Đuôi dài, rộng, phủ kín vảy cứng và có khả năng cầm nắm. Khối lượng 4–10 kg.",
+      "thuc_an": "Chuyên ăn kiến và mối. Phá tổ bằng móng, dùng lưỡi dài bắt mồi.",
+      "tap_tinh": "Đêm, đơn độc. Cuộn tròn khi bị đe dọa. Leo cây và bơi được.",
+      "sinh_thai": "Rừng nhiệt đới, vườn tược, đất canh tác có cây bụi."
+    }
+  },
+  {
+    "scientific_name": "Pygathrix nemaeus",
+    "ten_viet_nam": "Chà vá chân nâu",
+    "so_luong_anh": 346,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, mặt trần có da màu vàng nhạt, bao quanh bởi vòng râu cằm màu đỏ cam sặc sỡ và dải băng đen trên trán. Cổ có dải lông trắng nổi bật. Thân phủ lông xám nhạt xen lẫn vằn mịn. Bụng sáng màu. Chi trước có lông trắng từ khuỷu tay đến bàn tay đen, chi sau có đùi màu nâu đỏ và ống chân màu trắng. Đuôi dài, phủ lông trắng toát với chóp đuôi màu đen. Khối lượng đạt 5–10 kg.",
+      "thuc_an": "Chủ yếu lá non và chồi cây. Bổ sung quả và hạt.",
+      "tap_tinh": "Đàn 4–15 con. Di chuyển trên tán rừng. Hiền lành.",
+      "sinh_thai": "Rừng nhiệt đới thường xanh và rừng núi đá vôi."
+    }
+  },
+  {
+    "scientific_name": "Nycticebus pygmaeus",
+    "ten_viet_nam": "Cu li nhỏ",
+    "so_luong_anh": 50,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn trịa, mõm ngắn, mắt cực kỳ to và tròn màu nâu bao quanh bởi viền đen sẫm, tai nhỏ lẩn trong lông. Cổ ngắn. Thân mình phủ lông mềm mịn màu nâu vàng đến cam đất, có một sọc dọc màu nâu sẫm chạy thẳng từ đỉnh đầu dọc theo sống lưng. Bụng có màu xám vàng nhạt. Bốn chi mập mạp, ngón cái đối diện linh hoạt, khuỷu tay có tuyến độc. Đuôi gần như tiêu biến hoàn toàn. Khối lượng 360–580 g.",
+      "thuc_an": "Nhựa cây, mật hoa, côn trùng, trứng chim nhỏ.",
+      "tap_tinh": "Đêm, đơn độc. Chuyển động chậm chắc. Có tuyến độc ở khuỷu tay.",
+      "sinh_thai": "Rừng nhiệt đới thứ sinh và nguyên sinh."
+    }
+  },
+  {
+    "scientific_name": "Capricornis milneedwardsii",
+    "ten_viet_nam": "Sơn dương",
+    "so_luong_anh": 50,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon, sừng ngắn màu đen, dốc ngược ra sau và hơi cong (có ở cả đực và cái), tai vểnh cao. Cổ to, có bờm lông xù dài màu trắng đục đến xám dọc trên gáy. Thân nhỡ, bao phủ bởi lớp lông cứng cáp, thô ráp màu xám đen pha nâu sẫm. Bụng sáng màu hơn, hơi phớt xám. Bốn chi to khỏe, gốc móng guốc thích nghi cao để bám vách đá. Đuôi rất ngắn. Khối lượng 50–140 kg.",
+      "thuc_an": "Cỏ, lá cây, chồi non, địa y trên đá.",
+      "tap_tinh": "Đơn độc hoặc đôi. Bán đêm. Leo núi đá hiểm trở giỏi.",
+      "sinh_thai": "Núi đá dốc, rừng núi cao 500–2600 m."
+    }
+  },
+  {
+    "scientific_name": "Lutra lutra",
+    "ten_viet_nam": "Rái cá thường",
+    "so_luong_anh": 161,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt, mõm rộng với bộ ria mép dài và cứng, tai rất nhỏ nằm sát đầu. Cổ ngắn và dày dặn. Thân hình thon dài, uyển chuyển, phủ lớp lông kép màu nâu bóng mượt, không thấm nước. Họng và bụng dưới có màu trắng xám đến kem nhạt. Bốn chi ngắn, các ngón chân được nối với nhau bằng màng bơi rộng, vuốt nhọn. Đuôi rất dài, cơ bắp cuồn cuộn ở gốc và thon dần về chóp. Khối lượng 5–12 kg.",
+      "thuc_an": "Cá là chủ yếu. Thêm ếch, tôm cua, côn trùng nước.",
+      "tap_tinh": "Bơi lặn giỏi. Kiếm ăn đêm và sáng sớm. Đơn độc hoặc đôi.",
+      "sinh_thai": "Sông suối trong sạch, hồ, đầm lầy, bờ biển."
+    }
+  },
+  {
+    "scientific_name": "Arctictis binturong",
+    "ten_viet_nam": "Cầy mực",
+    "so_luong_anh": 240,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ, mõm nhọn màu xám nhạt, bộ ria mép rất dài và trắng toát, tai có cụm lông dài lòa xòa viền trắng. Cổ to rậm lông. Thân hình phục phịch, phủ lông thô, rất dài màu đen tuyền xen lẫn các sợi xám bạc (muối tiêu). Bụng lưa thưa lông màu đen nhạt. Bàn chân to, năm ngón với vuốt nửa co rút. Đuôi dài bằng chiều dài thân, rậm lông, đặc biệt cơ bắp và có khả năng quấn chặt để cầm nắm. Khối lượng 9–20 kg.",
+      "thuc_an": "Quả (đặc biệt sung), chim nhỏ, thú nhỏ, trứng.",
+      "tap_tinh": "Đêm, leo cây chậm. Mùi cơ thể giống bắp rang.",
+      "sinh_thai": "Tán rừng nhiệt đới dày."
+    }
+  },
+  {
+    "scientific_name": "Chrotogale owstoni",
+    "ten_viet_nam": "Cầy vằn bắc",
+    "so_luong_anh": 10,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhọn, mõm thon dài sọc sẫm, tai tù. Cổ dài, có các sọc đen chạy dọc xuống vai. Thân thon lẳn, lông nền màu kem xám nhạt, đặc trưng bởi 4 vệt vằn lớn màu đen vắt ngang qua lưng và sườn. Bụng có màu vàng nhạt hoặc cam kem. Chi ngắn, móng sắc bén, bàn chân tối màu. Đuôi dài, đốm đen ở nửa gốc và có các vòng đen bao quanh ở phần chóp. Khối lượng 1.5–3 kg.",
+      "thuc_an": "Giun đất, ếch nhái, côn trùng, thằn lằn nhỏ.",
+      "tap_tinh": "Đêm, đơn độc, rất ít gặp trong tự nhiên.",
+      "sinh_thai": "Rừng nhiệt đới thấp và trung du, gần nguồn nước."
+    }
+  },
+  {
+    "scientific_name": "Ratufa bicolor",
+    "ten_viet_nam": "Sóc lớn đen",
+    "so_luong_anh": 347,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, mắt to đen, tai vểnh có chùm lông đen nhỏ ở chóp. Cổ ngắn nối liền thân xám. Thân trên phủ lông màu đen tuyền bóng mượt. Họng, ngực và toàn bộ phần bụng dưới nổi bật với màu vàng kem đến cam nhạt. Bốn chi chắc khỏe, mặt ngoài đen, mặt trong vàng, vuốt dài cong. Đuôi rất dài (bằng hoặc hơn chiều dài thân), rậm lông và phủ màu đen bóng. Khối lượng 1–1.5 kg.",
+      "thuc_an": "Hạt, quả, nụ hoa, vỏ cây, nấm, trứng chim.",
+      "tap_tinh": "Ngày, trên tán cao. Nhảy xa. Đơn độc.",
+      "sinh_thai": "Rừng nguyên sinh tầng tán cao."
+    }
+  },
+  {
+    "scientific_name": "Hystrix brachyura",
+    "ten_viet_nam": "Nhím đuôi ngắn",
+    "so_luong_anh": 114,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tù, mõm ngắn có nhiều râu cứng, mắt nhỏ, tai mọc ẩn. Cổ rậm lông cứng. Thân hình tròn trịa, lưng và hai bên sườn phủ kín lớp lông gai cứng, sắc nhọn dài đến 30 cm, mỗi gai có vằn xen kẽ đen và trắng sọc. Bụng phủ lông mềm hơn, màu nâu sẫm. Chân ngắn, mập, móng đào bới chắc khỏe. Đuôi rất ngắn, chứa các lông gai rỗng ở chóp tạo ra tiếng lách cách khi rung lắc. Khối lượng 10–18 kg.",
+      "thuc_an": "Củ, rễ, quả, vỏ cây. Đào đất tìm củ.",
+      "tap_tinh": "Đêm, đơn độc hoặc đôi. Xù gai phòng thủ.",
+      "sinh_thai": "Rừng thứ sinh, đất nông nghiệp, núi thấp."
+    }
+  },
+  {
+    "scientific_name": "Petaurista philippensis",
+    "ten_viet_nam": "Sóc bay trâu",
+    "so_luong_anh": 231,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to tròn, mõm cùn, mắt cực to và lồi màu đen bọc viền da sậm, tai nhỏ. Cổ nối liền với màng da thừa. Lưng phủ lông màu nâu đỏ sậm, có lốm đốm xám. Có màng lượn bằng da phủ lông rậm trải dài từ cổ tay đến mắt cá chân. Bụng và mặt dưới màng lượn có màu vàng nhạt đến kem. Chi chắc chắn với móng vuốt nhọn quặp dính vỏ cây. Đuôi xù dài hơn thân, hình trụ màu nâu đen. Khối lượng 1–1.8 kg.",
+      "thuc_an": "Lá non, chồi, hoa, quả, vỏ cây.",
+      "tap_tinh": "Đêm, lượn từ cây sang cây đến 100 m. Đơn độc.",
+      "sinh_thai": "Rừng nguyên sinh và thứ sinh tầng tán cao."
+    }
+  },
+  {
+    "scientific_name": "Prionailurus bengalensis",
+    "ten_viet_nam": "Mèo rừng",
+    "so_luong_anh": 474,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ, mắt to, trên má nổi bật hai sọc trắng viền đen nằm ngang. Cổ điểm xuyết các sọc dọc gãy khúc. Thân hình thon thả, lớp lông lót màu vàng đất xám, bao phủ bởi vô số đốm đen đặc tròn xoe hoặc hình thoi giống da báo. Bụng và vùng họng có màu trắng toát, lác đác đốm đen nhỏ. Chân dài, thon, đốm nhạt dần về phía bàn chân. Đuôi dài vừa phải, điểm đốm đen và kết thúc bằng vài vòng đen quanh chóp. Khối lượng 2–8 kg.",
+      "thuc_an": "Chim, thú nhỏ, ếch, côn trùng, cá.",
+      "tap_tinh": "Đêm và tạng sáng. Leo cây và bơi giỏi. Đơn độc.",
+      "sinh_thai": "Rừng thứ sinh, đất canh tác, ven suối."
+    }
+  },
+  {
+    "scientific_name": "Cuon alpinus",
+    "ten_viet_nam": "Sói đỏ",
+    "so_luong_anh": 280,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon, mõm nhọn màu sẫm đen, tai lớn vểnh dựng đứng dạng tròn. Cổ dày phủ lông rậm. Thân lẳn, phần lưng và hông phủ lớp lông đỏ hung rực rỡ đến nâu đỏ. Vùng họng, ngực và bụng dưới có màu vàng nhạt đến trắng đục. Bốn chi gầy nhưng gân guốc, bàn chân trắng nhạt. Đuôi xù bông lộng lẫy, màu tối sẫm dần và kết thúc bằng chóp đen tuyền. Khối lượng 10–21 kg.",
+      "thuc_an": "Thú móng guốc (hươu, lợn rừng) – săn theo bầy đàn.",
+      "tap_tinh": "Bầy 5–12 con. Săn mồi ban ngày theo chiến thuật đuổi.",
+      "sinh_thai": "Rừng dày, rừng núi, rừng thứ sinh có mật độ con mồi cao."
+    }
+  },
+  {
+    "scientific_name": "Rusa unicolor",
+    "ten_viet_nam": "Nai",
+    "so_luong_anh": 555,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to dài, mắt có tuyến lệ lộ rõ, con đực có cặp sừng cành ba lớn, phân nhánh uy nghi. Cổ to, thô, con đực mọc bờm lông rậm rạp dưới hầu. Thân hình to lớn, bộ lông đơn sắc màu nâu xẫm đến nâu xám, thô ráp. Bụng và phần dưới có màu nhạt hơn một chút. Bốn chân thon dài chắc chắn, guốc chẻ đen. Đuôi tương đối dài so với các loài hươu khác, mặt dưới đuôi màu trắng. Khối lượng 100–260 kg.",
+      "thuc_an": "Cỏ, lá cây, chồi, quả rụng.",
+      "tap_tinh": "Hoàng hôn và ban đêm. Đơn độc hoặc nhóm nhỏ.",
+      "sinh_thai": "Rừng nhiệt đới, rừng thứ sinh, đồng cỏ ven rừng."
+    }
+  },
+  {
+    "scientific_name": "Nomascus leucogenys",
+    "ten_viet_nam": "Vượn đen má trắng",
+    "so_luong_anh": 262,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, chỏm lông trên đỉnh đầu mọc dựng đứng. Con đực đặc trưng bởi lông toàn thân màu đen tuyền và hai mảng lông má màu trắng toát hình tam giác kéo lên tận chóp tai. Con cái lông màu vàng kem rực rỡ, đỉnh đầu có chóp lông đen. Bụng tiệp màu với thân. Hai tay dài vượt trội so với thân, chân ngắn hơn. Hoàn toàn không có đuôi. Khối lượng 5–7 kg.",
+      "thuc_an": "Quả ngọt, lá non, hoa, côn trùng.",
+      "tap_tinh": "Ngày, gia đình 3–5 con. Hót vang lúc bình minh. Đu cành.",
+      "sinh_thai": "Rừng nhiệt đới nguyên sinh tầng cao."
+    }
+  },
+  {
+    "scientific_name": "Macaca arctoides",
+    "ten_viet_nam": "Khỉ cộc",
+    "so_luong_anh": 339,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, điểm nhận dạng rõ nhất là khuôn mặt không có lông, da trần màu đỏ hồng đến đỏ thẫm. Cổ ngắn. Thân hình chắc nịch, phủ bộ lông thô dài màu nâu đậm đến đen gụ, mọc lòa xòa. Bụng phủ lông mỏng manh hơn, lộ da sáng màu. Bốn chi mập mạp, chi trước và sau dài gần bằng nhau. Đuôi cực kỳ ngắn cộc, gần như bị che lấp trong lớp lông dày. Khối lượng 5–15 kg.",
+      "thuc_an": "Quả, lá, hạt, côn trùng, cua ven suối.",
+      "tap_tinh": "Ngày, bầy 15–30 con. Tính hung hăng cao.",
+      "sinh_thai": "Rừng dày ẩm, núi thấp đến 2000 m."
+    }
+  },
+  {
+    "scientific_name": "Dugong dugon",
+    "ten_viet_nam": "Bò biển (Dugong)",
+    "so_luong_anh": 188,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thuôn nhọn, mõm rộng và chĩa gập hẳn xuống dưới có nhiều lông xúc giác thô, lỗ mũi nằm trên đỉnh mõm, mắt nhỏ. Không có tai ngoài. Cổ không phân biệt rõ với thân. Thân hình khối trụ trục tròn, lớp da trần mịn màng màu xám hoặc xám đồng sẫm. Bụng phớt màu nhạt hơn. Chi trước biến đổi thành hai vây ngực dạng mái chèo linh hoạt, không có chi sau. Đuôi dẹp ngang, xẻ thùy chẻ hai giống đuôi cá heo. Khối lượng 230–400 kg.",
+      "thuc_an": "Cỏ biển (seagrass). Ăn cả rễ và thân.",
+      "tap_tinh": "Bơi chậm 10 km/h. Đơn độc hoặc đôi. Lên thở 1–6 phút/lần.",
+      "sinh_thai": "Vùng biển cạn ven bờ có thảm cỏ biển."
+    }
+  },
+  {
+    "scientific_name": "Neofelis nebulosa",
+    "ten_viet_nam": "Báo gấm",
+    "so_luong_anh": 211,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon, mõm vuông rộng chứa răng nanh trên rất dài, tai tròn xoe vạch đen sau gáy. Cổ thon dài. Thân mình vạm vỡ, nền lông màu vàng nhạt điểm xuyết các mảng hoa văn hình đám mây màu nâu được viền ngoài bằng dải đen đậm cực kỳ nổi bật. Bụng màu trắng điểm các đốm đen đặc lớn. Bốn chi ngắn nhưng bàn chân cực to, khớp cổ chân sau linh hoạt. Đuôi cực kỳ rậm lông, dài bằng hoặc hơn thân mình, có khoang đen. Khối lượng 11–23 kg.",
+      "thuc_an": "Khỉ, hươu nhỏ, lợn rừng non, chim lớn.",
+      "tap_tinh": "Đêm, leo cây xuất sắc. Đơn độc.",
+      "sinh_thai": "Rừng nguyên sinh nhiệt đới và cận nhiệt đới."
+    }
+  },
+  {
+    "scientific_name": "Catopuma temminckii",
+    "ten_viet_nam": "Báo lửa",
+    "so_luong_anh": 34,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, trên mặt nổi bật các sọc kẻ trắng và đen tinh tế uốn quanh mắt và má, tai chóp hơi nhọn. Cổ dài mảnh. Thân thon, bộ lông ngắn trơn mượt màu đỏ hung, nâu vàng sẫm hoặc xám đen đồng nhất, hầu như không có đốm hoa văn. Bụng sáng màu có phớt dải mờ. Bốn chân thon dài, móng vuốt co rút. Đuôi khá dài (chiếm 1/2 chiều dài thân), màu sắc đuôi dưới nhạt hơn vạch rõ ràng ranh giới đen trắng phần chóp. Khối lượng 5–12 kg.",
+      "thuc_an": "Thú nhỏ, chim, dê núi con, lợn rừng nhỏ.",
+      "tap_tinh": "Đêm, đơn độc. Ít được ghi nhận.",
+      "sinh_thai": "Rừng nhiệt đới và núi đến 3000 m."
+    }
+  },
+  {
+    "scientific_name": "Pteropus vampyrus",
+    "ten_viet_nam": "Dơi ngựa lớn",
+    "so_luong_anh": 278,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon dài mang nét giống loài cáo, mõm nhọn đen, mắt to tròn lộ rõ, tai nhọn nhô cao khỏi lông. Vùng cổ có một dải lông rậm đặc trưng màu vàng cam rực rỡ quấn quanh. Thân nhỏ phủ lông dày màu nâu sẫm đến đen tuyền. Bụng phủ lông đen thưa. Chi trước phát triển thành đôi cánh màng da mỏng rộng vươn dài (sải cánh 1.2–1.8 m), chi sau nhỏ có vuốt cong quặp sắc bén dùng để treo ngược. Không có đuôi. Khối lượng 0.7–1.1 kg.",
+      "thuc_an": "Quả chín, mật hoa, phấn hoa.",
+      "tap_tinh": "Đêm, đàn lớn (đến 100,000 con). Bay xa hàng chục km.",
+      "sinh_thai": "Rừng nhiệt đới, rừng ngập mặn, đảo."
+    }
+  },
+  {
+    "scientific_name": "Helarctos malayanus",
+    "ten_viet_nam": "Gấu chó",
+    "so_luong_anh": 379,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu rộng, mõm ngắn có màu vàng nhạt hoặc cam, tai nhỏ tròn. Lưỡi rất dài. Cổ ngắn, nhiều nếp nếp gấp da. Thân thon gọn, phủ lông ngắn, bóng mượt màu đen tuyền. Giữa ngực có mảng lông màu vàng đến trắng hình chữ U. Bụng ít lông, màu đen nhạt. Bốn chi thẳng, bàn chân nhẵn không có lông, móng vuốt rất dài và cong hình lưỡi liềm. Đuôi cực kỳ ngắn. Khối lượng từ 25–65 kg.",
+      "thuc_an": "Quả, mật ong, côn trùng, lưỡng cư nhỏ. Lưỡi dài chuyên lấy mật.",
+      "tap_tinh": "Leo cây giỏi, hoạt động ban ngày. Không đông miên. Sống đơn độc.",
+      "sinh_thai": "Rừng nhiệt đới thường xanh ẩm, đồi thấp đến 2400 m."
+    }
+  },
+  {
+    "scientific_name": "Rhinopithecus avunculus",
+    "ten_viet_nam": "Voọc mũi hếch",
+    "so_luong_anh": 9,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn, mặt trần có da nhăn màu xanh lam nhạt quanh hốc mắt, mũi kinh điển hếch ngược tòe lên trên, môi dày đỏ hồng. Cổ và yếm quanh hầu có dải lông cam đậm. Lưng phủ lông màu đen tuyền. Bụng và các phần mặt trong tứ chi phủ lông màu trắng ngà. Bốn tay chân thon dài, bàn tay bàn chân đen kịt. Đuôi rất dài, rậm rạp, thon nhọn có màu đen. Nặng 8–14 kg.",
+      "thuc_an": "Lá non, quả, hạt, hoa.",
+      "tap_tinh": "Ngày, đàn 20–30 con. Rất hiếm quan sát được.",
+      "sinh_thai": "Rừng núi đá vôi và rừng núi cao >400 m."
+    }
+  },
+  {
+    "scientific_name": "Prionodon pardicolor",
+    "ten_viet_nam": "Cầy linsang (Cầy gấm)",
+    "so_luong_anh": 32,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon nhỏ lươn lẹo, mõm nhọn, tai tròn nhỏ xíu. Cổ rất dài thon mảnh. Thân thon dài uyển chuyển, bộ lông mềm màu nền kem nhạt điểm xuyết các mảng đốm đen đặc lớn xếp dọc theo chiều dài cơ thể rất gọn gàng. Bụng màu vàng kem không đốm. Chi rất ngắn, bàn chân nhỏ, vuốt co rút. Đuôi có chiều dài bằng cơ thể, hình ống, xen kẽ 7-9 vòng đen trắng sắc nét. Khối lượng chỉ 0.4–0.7 kg.",
+      "thuc_an": "Côn trùng, thạch sùng, ếch, chim nhỏ.",
+      "tap_tinh": "Đêm, đơn độc. Leo cây giỏi.",
+      "sinh_thai": "Rừng nhiệt đới ẩm và bán thường xanh."
+    }
+  },
+  {
+    "scientific_name": "Cervus nippon",
+    "ten_viet_nam": "Hươu sao",
+    "so_luong_anh": 252,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon, mõm xám, đực có cặp sừng phân tối đa bốn nhánh cân đối, mảnh mai. Cổ thon dài lốm đốm. Thân hình nhỏ gọn, lớp lông nền màu nâu đỏ (hè) hoặc xám đen sẫm (đông), đặc trưng nổi bật bởi các đốm trắng rõ nét phân bố dọc sườn quanh năm. Bụng và vệt dọc hông màu trắng sáng. Chi mỏng manh gân guốc. Đuôi ngắn có vạch đen dọc giữa, xòe mảng lông trắng sau mông rõ rệt. Khối lượng 40–120 kg.",
+      "thuc_an": "Cỏ, lá, chồi, rong rêu.",
+      "tap_tinh": "Hoạt động sáng sớm và hoàng hôn. Đàn nhỏ.",
+      "sinh_thai": "Rừng hỗn giao và rừng nguyên sinh."
+    }
+  },
+  {
+    "scientific_name": "Pavo muticus",
+    "ten_viet_nam": "Công",
+    "so_luong_anh": 445,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ, trên đỉnh đầu vương miện là chùm mào lông thẳng đứng hình quạt hẹp, da trần hai bên mặt màu xanh da trời và vàng xen kẽ. Cổ thon dài phủ lớp lông xanh lục kim loại xếp vảy cá óng ánh. Thân trống lộng lẫy, ngực xanh lam-lục, mái có màu nâu xám lốm đốm. Bụng tối màu. Chân gân guốc màu xám đen, trống có cựa sắc bén. Đuôi trống đặc biệt dài (đến 2m) với lông che phủ có các 'mắt' màu đồng, lục và lam sặc sỡ. Khối lượng 3.5–5 kg.",
+      "thuc_an": "Hạt, côn trùng, thằn lằn, rễ, chồi cây.",
+      "tap_tinh": "Ngày, trên mặt đất. Múa đuôi mùa sinh sản. Bay thấp.",
+      "sinh_thai": "Rừng thưa, rừng khộp, bìa rừng có nước."
+    }
+  },
+  {
+    "scientific_name": "Buceros bicornis",
+    "ten_viet_nam": "Hồng hoàng",
+    "so_luong_anh": 252,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lớn, đặc trưng với mỏ vĩ đại màu vàng phớt đỏ cam, mép trên đội thêm chiếc mũ sừng (casque) hình nón loe chữ V ở phía trước, mắt viền đỏ (đực) hoặc trắng (cái). Cổ dài phủ lông trắng kem nhuốm vàng. Thân trên và ngực phủ lông đen nhánh. Bụng dưới màu trắng nhạt. Cánh đen vạch trắng, chân xù xì màu nâu đen xám. Đuôi trắng muốt nổi bật với một dải ngang rộng màu đen ở gần chóp đuôi. Khối lượng 2.5–4 kg.",
+      "thuc_an": "Quả cây rừng (đặc biệt sung đa), côn trùng, thằn lằn.",
+      "tap_tinh": "Cặp đôi trung thành. Con cái nhốt trong hốc cây mùa ấp.",
+      "sinh_thai": "Rừng nhiệt đới già có cây cổ thụ to."
+    }
+  },
+  {
+    "scientific_name": "Grus antigone",
+    "ten_viet_nam": "Sếu đầu đỏ",
+    "so_luong_anh": 283,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vươn cao, phần đầu và gáy phía trên không có lông để lộ lớp da trần sần sùi màu đỏ tươi rực rỡ, mỏ dài sắc nhọn màu xám xịt. Cổ cực kỳ dài, phần đỉnh cổ trắng, nửa dưới xám. Lông thân và cánh đồng màu xám bạc đến xám tro. Bụng nhạt màu. Bôi đôi chân dài lênh khênh, gầy guộc có màu đỏ hồng nhạt ở con trưởng thành. Đuôi ngắn. Là loài chim bay cao nhất, sải cánh 2.2–2.6 m, nặng 5–11 kg.",
+      "thuc_an": "Cá, ếch, côn trùng, hạt, củ sen.",
+      "tap_tinh": "Cặp đôi. Múa ve vãn đẹp. Di cư theo mùa.",
+      "sinh_thai": "Đồng lúa ngập nước, đồng cỏ ẩm, ao hồ nông."
+    }
+  },
+  {
+    "scientific_name": "Platalea minor",
+    "ten_viet_nam": "Cò thìa mặt đen",
+    "so_luong_anh": 409,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ, da mặt trần trụi màu đen lan đến tận mắt, mỏ màu đen xám thẳng tắp kết thúc bởi hình dạng dẹt loe ra hệt như một chiếc thìa lớn. Cổ thon dài. Bộ lông toàn thân trắng muốt, trong mùa sinh sản mọc thêm mào lông màu vàng chanh ở chóp đầu và dải vàng trước ngực. Bụng trắng. Đôi chân dài dầm nước màu đen kịt. Đuôi ngắn. Khối lượng 1.5–2 kg.",
+      "thuc_an": "Cá nhỏ, tôm, côn trùng nước – quét mỏ qua lại trong nước.",
+      "tap_tinh": "Đàn nhỏ. Di cư. Làm tổ tập thể.",
+      "sinh_thai": "Vùng triều, bãi bùn, đầm phá, cửa sông."
+    }
+  },
+  {
+    "scientific_name": "Pelecanus philippensis",
+    "ten_viet_nam": "Bồ nông chân xám",
+    "so_luong_anh": 303,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to, trên đỉnh đầu có túm lông xù nhẹ vểnh sau gáy. Mỏ trên dài dẹt, phần hàm dưới treo lủng lẳng một túi da co giãn màu hồng nhạt điểm xuyết đốm đen xám li ti. Cổ mập mạp nhô xám xịt. Toàn thân phủ lông màu trắng xám, nhạt nhòa, lông lưng có những đốm xám mờ. Bụng màu trắng bẩn. Chân ngắn bè dầm nước, màng bơi căng giữa bốn ngón màu xám nâu. Đuôi tù cộc lốc. Khối lượng 4–5 kg.",
+      "thuc_an": "Cá, dùng túi mỏ như vợt.",
+      "tap_tinh": "Đàn lớn. Làm tổ trên cây ven nước.",
+      "sinh_thai": "Hồ nước ngọt lớn, vùng ngập nước, cửa sông."
+    }
+  },
+  {
+    "scientific_name": "Lophura diardi",
+    "ten_viet_nam": "Gà lôi hông tía",
+    "so_luong_anh": 540,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu chim trống có mào lông đen rủ rũ, phần da trần trên mặt bạnh ra màu đỏ rực rỡ viền quanh mắt đen, mỏ sừng nhạt. Cổ và ngực chim đực xám đậm. Lưng trống tỏa sáng rực rỡ với màu lông xanh lam kim loại. Chim mái có bộ lông màu nâu điểm vạch xám để ngụy trang. Bụng trống thẫm đen. Đôi chân cao màu hồng nhạt có cựa mảnh. Đuôi trống cong vuốt, thon dài lấp lánh ánh thép xanh chàm đen. Khối lượng 0.9–1.5 kg.",
+      "thuc_an": "Hạt, quả, giun đất, côn trùng.",
+      "tap_tinh": "Trên mặt đất. Nhút nhát. Ngủ trên cành.",
+      "sinh_thai": "Rừng thứ sinh, bìa rừng, ven suối."
+    }
+  },
+  {
+    "scientific_name": "Rheinardia ocellata",
+    "ten_viet_nam": "Trĩ sao",
+    "so_luong_anh": 11,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ lẩn khuất, trống có chóp lông rủ sau gáy, mào tai trắng, vùng da má phớt hồng. Cổ dài, sọc nâu vàng. Thân trống thon dài, lông nền màu nâu sẫm, khảm kín bởi vô vàn đốm trắng li ti hoặc đốm vàng lấp lánh tựa như hàng nghìn con mắt. Bụng xám đen. Đôi chân vảy màu xám hồng không cựa. Đặc trưng vĩ đại nhất là bộ đuôi của chim đực cực rộng, xòe như quạt và dài vô địch (đến 1.9 m), có họa tiết chấm ocellated tinh vi. Khối lượng 1.8–2.5 kg.",
+      "thuc_an": "Hạt, quả, giun, côn trùng.",
+      "tap_tinh": "Mặt đất, nhút nhát. Gáy vang vào sáng sớm.",
+      "sinh_thai": "Rừng nguyên sinh núi thấp đến 1000 m."
+    }
+  },
+  {
+    "scientific_name": "Garrulax yersini",
+    "ten_viet_nam": "Khướu mỏ ngắn",
+    "so_luong_anh": 47,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu màu đen tuyền bao trùm trọn vẹn khuôn mặt đến tai, tạo tương phản với mảng da nhỏ dại màu vàng cam quanh hốc mắt, mỏ đen. Cổ có vòng lông đai họng màu bạc sáng viền rõ. Lưng và trên cánh phủ lông màu nâu xám ô-liu xỉn màu. Bụng và ngực rực rỡ với màu cam gỉ sắt sậm đến vàng úa. Chân khẳng khiu màu xám nâu. Đuôi thuôn dài ngang thân, màu nâu olive vạch mờ. Khối lượng ~80 g.",
+      "thuc_an": "Côn trùng, nhện, quả nhỏ.",
+      "tap_tinh": "Đàn nhỏ 5–10 con trong tán cây.",
+      "sinh_thai": "Rừng thông và rừng hỗn giao cao nguyên >1000 m."
+    }
+  },
+  {
+    "scientific_name": "Gracula religiosa",
+    "ten_viet_nam": "Yểng (Nhồng)",
+    "so_luong_anh": 115,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to, mỏ cứng chắc màu cam đỏ rực rỡ. Nổi bật hai dải yếm da trần màu vàng tươi kéo dài từ đuôi mắt vòng ra sau gáy thành các mấu da. Cổ rụt. Toàn thân khoác lớp lông màu đen tuyền, lóng lánh ánh kim màu tím và xanh lục dưới ánh sáng mặt trời. Bụng sẫm đen. Trên cánh nổi bật một mảng lông vạch trắng rộng. Đôi chân ngắn, màu vàng nghệ xù xì. Đuôi thẳng cộc. Khối lượng 150–260 g.",
+      "thuc_an": "Quả chín, côn trùng, mật hoa.",
+      "tap_tinh": "Ngày, đàn nhỏ. Bắt chước tiếng người cực giỏi.",
+      "sinh_thai": "Rừng nhiệt đới tầng cao."
+    }
+  },
+  {
+    "scientific_name": "Psittacula alexandri",
+    "ten_viet_nam": "Vẹt ngực đỏ",
+    "so_luong_anh": 272,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lớn xám bạc, mặt mang dải đen mảnh từ trán nối mỏ và dải viền dưới hàm đen sẫm, mỏ trên đỏ thắm, dưới đen. Cổ họng điểm viền đen xám. Lưng cánh toàn phần xanh lục diệp tươi sáng. Vùng ngực đặc biệt phớt dải lông màu hồng cánh sen nhạt. Bụng màu lam lục phớt vàng. Đôi bàn chân ngắn có móng cặp quặp. Đuôi hẹp, lông giữa thon dài thẳng tắp màu xanh ánh vàng mướt. Khối lượng 80–130 g.",
+      "thuc_an": "Hạt, quả, chồi hoa.",
+      "tap_tinh": "Đàn lớn, ồn ào. Làm tổ hốc cây.",
+      "sinh_thai": "Rừng thưa, đồi, vườn cây."
+    }
+  },
+  {
+    "scientific_name": "Spilornis cheela",
+    "ten_viet_nam": "Diều hoa Miến Điện",
+    "so_luong_anh": 291,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu xám, mặt lột vùng da trần quanh mắt màu vàng chanh chói, mỏ xám quặp nhọn, sau gáy có chỏm mào lông nhọn xếp dải trắng đen sẽ xòe rộng thành hình rẽ quạt khi bị kích động. Cổ ngắn. Lưng phủ lông nâu sậm. Ngực và bụng có màu nâu ấm, khảm vô số đốm tròn màu trắng đục đều đặn. Cặp chân cao dài bọc vảy vàng không lông. Đuôi vạch một dải ngang rộng màu trắng nhạt nổi rõ trên nền nâu khi dang rộng cánh. Khối lượng 420–1800 g.",
+      "thuc_an": "Rắn là chủ yếu, thằn lằn lớn, ếch.",
+      "tap_tinh": "Ngày, đơn độc. Bay cao vòng trên rừng. Kêu véo von.",
+      "sinh_thai": "Rừng nhiệt đới và đồi núi."
+    }
+  },
+  {
+    "scientific_name": "Pitta nympha",
+    "ten_viet_nam": "Đuôi cụt bụng đỏ",
+    "so_luong_anh": 540,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu có đỉnh lông nâu đen, sọc da mày mỏng dài xòe ra sau màu vàng kem sáng, mỏ nhọn đen. Cổ trắng lốm đốm. Lưng và lông bao cánh rực rỡ với màu xanh lá cây bóng nhẫy viền mảng ánh kim xanh lam. Ngực phủ lông màu vàng đất nhạt, dải bụng và hậu môn nhuộm màu đỏ thắm tươi rực. Đôi chân khẳng khiu màu hồng nhạt. Đuôi cực kỳ cộc cằn, ngắn tũn màu xanh lam. Khối lượng 65–80 g.",
+      "thuc_an": "Giun đất, sâu bọ, ốc sên.",
+      "tap_tinh": "Mặt đất trong bụi rậm. Nhút nhát. Di cư.",
+      "sinh_thai": "Rừng ẩm tầng thấp, rừng thứ sinh."
+    }
+  },
+  {
+    "scientific_name": "Berenicornis comatus",
+    "ten_viet_nam": "Niệc mỏ vằn",
+    "so_luong_anh": 641,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu chim có mỏ cong nhọn hoắt dải vằn trắng đen đặc trưng mờ, mang theo một chiếc mào lông trắng bù xù dài phất phơ che khuất cả trán và mắt. Cổ, ngực và bụng ở chim đực phủ lông trắng toát, mái đen gụ. Lưng và cánh màu đen óng. Đôi bàn chân ngắn màu xám đen bóng xỉn. Đuôi chia tầng thon dài, chủ yếu nổi lên một màu trắng muốt với gốc và mép lông đen nhánh. Khối lượng 180–280 g.",
+      "thuc_an": "Côn trùng lớn, thằn lằn, ếch nhái.",
+      "tap_tinh": "Cặp đôi hoặc nhóm nhỏ. Nhút nhát trong tán rừng.",
+      "sinh_thai": "Rừng nhiệt đới già nguyên sinh."
+    }
+  },
+  {
+    "scientific_name": "Leptoptilos javanicus",
+    "ten_viet_nam": "Già đẫy nhỏ",
+    "so_luong_anh": 267,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu và cổ gần như trụi lông hoàn toàn lộ da sần sùi màu đỏ ửng nhạt pha cam trên đỉnh đầu, mỏ cực lớn, dài nhọn hoắt màu vàng sừng, dưới cổ có một túi da trần xệ xuống màu hồng nhạt. Cổ cao lêu nghêu. Lưng và thân trên phủ bộ lông xám đen ánh kim loại xanh mờ. Vùng bụng thưa thớt lông tơ màu trắng đục. Cặp chân rất dài cẳng khẳng khiu màu xám bẩn hoặc nâu vảy. Đuôi cụt lủn. Cao 1.1 m, sải cánh 2.1–2.3 m, nặng 4–5 kg.",
+      "thuc_an": "Cá, ếch, bò sát, côn trùng, xác chết.",
+      "tap_tinh": "Đàn nhỏ. Làm tổ tập thể trên cây cao.",
+      "sinh_thai": "Đồng lúa, vùng ngập nước, bãi cạn ven sông."
+    }
+  },
+  {
+    "scientific_name": "Otis bengalensis",
+    "ten_viet_nam": "Ô tác Bengal",
+    "so_luong_anh": 66,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu xám, mắt vàng to tròn, mỏ xám nhạt hình chóp nón. Cổ chim trống cực dài thon thon, nổi bật với màu trắng phau chia cắt bằng dải sọc dọc màu đen đậm kéo suốt chiều dài. Thân mình to mập, lưng xám nâu ngụy trang vằn vện đen lốm đốm. Bụng trống phủ mảng lông đen mun sẫm màu. Bốn ngón chân to khỏe, không có móng vuốt sau, hoàn hảo để đi bộ liên tục. Đuôi lùn tịt. Khối lượng 3–7.5 kg.",
+      "thuc_an": "Côn trùng, hạt cỏ, thằn lằn.",
+      "tap_tinh": "Chạy nhanh. Bay nặng nề. Đàn nhỏ.",
+      "sinh_thai": "Đồng cỏ thảo nguyên và nương rẫy mở."
+    }
+  },
+  {
+    "scientific_name": "Tyto alba",
+    "ten_viet_nam": "Cú lợn lưng xám",
+    "so_luong_anh": 245,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt hình trái tim không có túm lông tai, đĩa mặt lông mềm màu trắng muốt được viền bởi vành đai mỏng màu nâu gỉ, mắt đen thẳm sắc lẹm, mỏ móc gập. Cổ rụt ngắn lẩn lông. Lưng xám bạc khảm các mảng nâu vàng nhạt điểm xuyết vết đốm trắng đen mảnh mai. Bụng lấp lánh tuyết trắng. Chân dài rậm lông mọc xuống tận gốc ngón, vuốt đen quặp. Đuôi cộc, vạch ngang xám mờ. Khối lượng 250–450 g.",
+      "thuc_an": "Chuột, thú nhỏ, chim nhỏ.",
+      "tap_tinh": "Đêm. Đơn độc. Bay im lặng. Nuốt con mồi nguyên con.",
+      "sinh_thai": "Đồng ruộng, làng xóm, đồng cỏ, rừng thưa."
+    }
+  },
+  {
+    "scientific_name": "Ketupa zeylonensis",
+    "ten_viet_nam": "Cú cá đùi vàng",
+    "so_luong_anh": 283,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lớn bẹt, mang cặp chóp lông tai vểnh lòa xòa ngang ra hai bên thay vì vểnh cao, mắt to nhãn cầu màu vàng chói rực lửa, mỏ sừng nhạt màu. Cổ rậm lông nếp gấp vàng nâu. Thân mình vạm vỡ lưng phủ lông nâu gỉ xỉn lốm đốm sọc vằn dọc sẫm. Bụng vàng nhạt nhòa kẻ các đường sọc đen thưa. Điểm nhấn là cặp đùi dài thon lộ rỡ màu vàng da bò không có lông. Đuôi tù ngắn. Khối lượng 1–1.6 kg.",
+      "thuc_an": "Cá, ếch, cua, thú nhỏ.",
+      "tap_tinh": "Đêm, ven suối. Lội nước bắt cá.",
+      "sinh_thai": "Rừng ven sông suối, rừng nhiệt đới ẩm."
+    }
+  },
+  {
+    "scientific_name": "Harpactes erythrocephalus",
+    "ten_viet_nam": "Nuốc bụng đỏ",
+    "so_luong_anh": 241,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu chim đực có mỏ ngắn mép rộng màu xanh lam xám, vòng hốc mắt da trần màu xanh nhạt. Đầu, gáy, ngực chim đực tỏa sáng màu đỏ cam tươi thắm mịn màng như nhung. Lưng áo và cánh màu nâu gỉ lốm đốm đen mờ. Bụng điểm màu hồng nhạt đào. Đôi chân ngắn li ti màu xám tái xỉn. Đuôi rất dài, hai bên mép chóp lông đuôi là những dải viền trắng ngà lộ rành rọt. Khối lượng 55–95 g.",
+      "thuc_an": "Côn trùng lớn, thằn lằn nhỏ.",
+      "tap_tinh": "Ngồi bất động rình mồi. Ngày. Đơn độc hoặc cặp.",
+      "sinh_thai": "Rừng nhiệt đới tầng giữa và thấp."
+    }
+  },
+  {
+    "scientific_name": "Copsychus malabaricus",
+    "ten_viet_nam": "Chích chòe lửa",
+    "so_luong_anh": 307,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ, mỏ đen nhọn thẳng, mắt đen hạt huyền. Cổ ngắn nối đầu ngực. Nửa thân trên của trống bao gồm đầu, lưng ngực phủ toàn bộ màu đen nhánh bóng bẩy ánh phớt thép xanh chàm (mái màu xám nâu). Bụng màu cam đỏ rực rỡ đến nâu hung sâu thẳm. Đôi chân dài thanh mảnh màu hồng da. Đuôi kéo thon siêu dài (hơn thân), lấp ló những vệt lông trắng tinh hai bên sườn đuôi nổi rõ khi bay lượn. Khối lượng 25–40 g.",
+      "thuc_an": "Côn trùng, giun, ấu trùng.",
+      "tap_tinh": "Hót hay bậc nhất. Ngày. Hoạt động dưới tán.",
+      "sinh_thai": "Rừng thứ sinh và rừng nguyên sinh ẩm."
+    }
+  },
+  {
+    "scientific_name": "Egretta eulophotes",
+    "ten_viet_nam": "Cò trắng Trung Quốc",
+    "so_luong_anh": 490,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thon nhỏ, mắt có da trần loang lổ xanh lam lơ, mỏ dài nhọn vút màu vàng cam rực nhưng đỉnh mỏ điểm vạch xám đen. Cổ uốn cong chữ S thon dài uyển chuyển. Toàn bộ cơ thể phủ lớp lông trắng tuyết, mùa sinh sản mọc tua tủa những chùm lông bờm dài ở gáy và ngực lòa xòa. Bụng trắng muốt. Cặp chân gầy dầm nước màu xám đen, đặc biệt các ngón chân lấp lánh màu vàng xanh diệp đặc trưng. Đuôi cực ngắn cộc. Khối lượng 350–550 g.",
+      "thuc_an": "Cá nhỏ, tôm, ếch.",
+      "tap_tinh": "Đàn. Di cư. Làm tổ tập thể.",
+      "sinh_thai": "Bãi bùn, vùng triều, đảo đá ven biển."
+    }
+  },
+  {
+    "scientific_name": "Falco peregrinus",
+    "ten_viet_nam": "Cắt lớn",
+    "so_luong_anh": 170,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn xoe nhọn, trên má hằn sâu một sọc đen to, rộng như giọt lệ lớn tương phản rõ trên nền cằm trắng, mỏ móc câu viền hàm da vàng. Cổ rụt, khỏe. Lưng và nắp cánh xuôi thuôn có màu xám xanh chì thép (blue-gray) láng mịn. Ngực và toàn bộ phần bụng dưới trắng ngà hoặc xám kem điểm xuyết các dải sọc mảnh vằn đen nằm ngang dày đặc. Cặp chân cơ bắp màu vàng nghệ quặp vuốt đen. Đuôi thon, cứng xám sọc nhạt. Khối lượng 600–1500 g.",
+      "thuc_an": "Chim đang bay – nhào bắt cao tốc 320 km/h.",
+      "tap_tinh": "Đơn độc. Làm tổ vách đá dựng đứng.",
+      "sinh_thai": "Đa dạng: vách đá, đô thị, đồng cỏ, ven biển."
+    }
+  },
+  {
+    "scientific_name": "Eurylaimus javanicus",
+    "ten_viet_nam": "Mỏ rộng xồm",
+    "so_luong_anh": 146,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt hình búa, đặc trưng lôi cuốn bởi chiếc mỏ khổng lồ siêu rộng bè bẹt sang hai bên màu xanh lam nhạt mép vàng, mắt vàng kim. Cổ ngắn ngủn rụt đầu. Lưng khoác áo len đen xỉn vạch lên vô số dải màu vàng chóe kéo dài trên vai cánh. Vùng hầu xám nhạt, ngực và bụng lấp lánh màu trắng hồng phớt vang nhạt, chẻ ngang một dải băng nhỏ màu đen hẹp trước ngực. Chân lùn tịt, xám nhạt. Đuôi cộc xòe. Khối lượng 50–80 g.",
+      "thuc_an": "Côn trùng lớn bắt trên không hoặc tán cây.",
+      "tap_tinh": "Đôi. Làm tổ treo hình quả lê trên cành.",
+      "sinh_thai": "Rừng nhiệt đới tầng giữa, rừng thứ sinh."
+    }
+  },
+  {
+    "scientific_name": "Columba punicea",
+    "ten_viet_nam": "Cu sen",
+    "so_luong_anh": 69,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu chim nổi bật với đỉnh ngự màu xám nhạt đến trắng bạc (pigeon gray) đối lập mỏ gốc tía đầu đỏ phớt vàng, đồng tử cam gắt. Cổ phủ lớp lông lóng lánh ánh xanh lục hoặc hồng thạch lựu phản chiếu ánh kim. Lưng và thân khoác tấm áo len màu nâu hạt dẻ đậm pha trộn sắc tía đỏ trầm đồng nhất. Bụng nhạt nhòa tía rỉ. Chân đỏ nhạt tía móng đen. Đuôi màu nâu xỉn nhạt chóp vạch vằn xám mờ. Khối lượng 250–350 g.",
+      "thuc_an": "Hạt, quả rừng.",
+      "tap_tinh": "Đàn nhỏ. Di chuyển trong tán cây.",
+      "sinh_thai": "Rừng nhiệt đới và rừng thưa cao nguyên."
+    }
+  },
+  {
+    "scientific_name": "Arborophila davidi",
+    "ten_viet_nam": "Gà so cổ hung",
+    "so_luong_anh": 3,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Lông vùng trước mắt màu đen rõ, nổi bật với dải lông màu trắng nhạt kéo dài từ phía trên mắt chạy dọc xuống hai bên cổ, sau đó chuyển dần sang màu hung vàng. Vùng họng phía trên có màu trắng, phần dưới họng chuyển sang hung vàng, tiếp nối là một dải lông màu đen đậm, rõ nét kéo dài từ phía sau tai xuống ngực, tạo thành yếm đặc trưng. Phần bụng có màu hung vàng nhạt, hơi phớt sáng. Hai bên sườn có các vệt ngang xen kẽ giữa màu đen và trắng tạo hoa văn rõ ràng. Mỏ màu đen, phần gốc mỏ có sắc đỏ. Mắt màu nâu, vùng da trần quanh mắt có màu đỏ nổi bật. Chân có màu tím nhạt hoặc hồng nhạt. Khối lượng 280–380 g.",
+      "thuc_an": "Giun đất, côn trùng cánh cứng, quả mềm và hạt nhỏ trong rừng.",
+      "tap_tinh": "Đàn nhỏ 3–5 con trên sườn đồi tre nứa. Ngày kiếm ăn mặt đất, đêm đậu cành.",
+      "sinh_thai": "Sườn đồi rừng tre nứa, rừng hỗn giao, độ cao 200–600 m."
+    }
+  },
+  {
+    "scientific_name": "Polyplectron bicalcaratum",
+    "ten_viet_nam": "Gà tiền mặt vàng",
+    "so_luong_anh": 412,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ lẩn khuất với đỉnh đầu lởm chởm nhô mào lông thẳng rũ phía trước, mắt xám bạc, mặt da trần loang hồng nhạt. Cổ thon dài lốm đốm. Lưng và đôi cánh trải một màu xám nâu nhạt lấm tấm tiêu đen, khảm nạm chi chít các đốm 'mắt' kim tuyến tròn xoe màu xanh lục ngọc bích óng ả viền nâu. Bụng xám mun tối màu. Chân gân guốc màu xám có rành rành hai cựa nhọn ở trống. Đuôi lớn trải rộng như quạt, kín đặc mắt điểm ánh kim. Khối lượng 600–1000 g.",
+      "thuc_an": "Hạt, côn trùng, quả rừng nhỏ.",
+      "tap_tinh": "Trên mặt đất. Đực đơn độc hoặc 1 đực nhiều cái.",
+      "sinh_thai": "Rừng nhiệt đới núi thấp đến 1500 m."
+    }
+  },
+  {
+    "scientific_name": "Aquila nipalensis",
+    "ten_viet_nam": "Đại bàng thảo nguyên",
+    "so_luong_anh": 207,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vạm vỡ, mỏ móc xám đen với màng da mép màu vàng dày thô viền sâu quá mắt, gáy xù xì lốm đốm hung vàng nhạt. Cổ ngắn sừng sững. Thân hình vĩ đại, phủ một màu nền nâu sẫm đồng nhất, một dải xám hoặc trắng ở gốc lông bao cánh xòe. Bụng lốm đốm nâu đất nhạt hơn chút ít. Chân to khỏe mọc lông dài rậm rạp xuống tận sát ngón, cặp móng vuốt vuốt cong đen nhánh. Đuôi quạt xòe xám vằn mờ. Sải cánh 1.6–1.9 m, nặng 1.6–3 kg.",
+      "thuc_an": "Chim, thú nhỏ, bò sát, xác chết.",
+      "tap_tinh": "Ngày. Đơn độc. Bay lượn cao.",
+      "sinh_thai": "Đồng cỏ thảo nguyên, rừng thưa, bán sa mạc."
+    }
+  },
+  {
+    "scientific_name": "Ciconia episcopus",
+    "ten_viet_nam": "Hạc cổ trắng",
+    "so_luong_anh": 239,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu trụi lông lộ vùng da nhăn đen sần nhăn nheo đặc trưng, mỏ rất dài chóp nhọn mang màu đỏ huyết sẫm với chóp đen, mắt đỏ. Cổ phủ lớp lông len lòa xòa dày dặn màu trắng sáng lóa như cổ cồn trắng. Lưng, cánh và hông phủ bộ áo khoác lông đen thẳm ánh lên các tia phản chiếu kim loại tím và lục. Bụng mảng lông trắng lấp lánh xòe dần về hậu môn. Chân dài kều màu đỏ nâu tía móng tù. Đuôi đen cộc xẻ chẻ. Khối lượng 2–3 kg.",
+      "thuc_an": "Cá, ếch, côn trùng lớn.",
+      "tap_tinh": "Cặp đôi. Làm tổ cây cao.",
+      "sinh_thai": "Đồng ngập nước, ven sông, lúa nước."
+    }
+  },
+  {
+    "scientific_name": "Loriculus vernalis",
+    "ten_viet_nam": "Vẹt lùn",
+    "so_luong_anh": 326,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vát cong tù đằng trước, mỏ ngắn quặp màu cam đỏ sáp nhạt, mắt vàng. Cổ họng trống thon với mảng dải lông đỏ tươi chói gắt lọt thỏm giữa lườn ngực (mái vắng vệt này). Lưng chói lòa sắc xanh lá mạ đọt diệp mịn màng, trên phao câu lấp ló mảng hông phủ màu đỏ cờ thắm. Bụng xanh lơ nhạt, nách vàng mờ nhạt. Chân siêu ngắn màu cam ngả nâu, móng xám. Đuôi lùn tịt cắt cụt, lông xanh rì. Khối lượng 25–35 g.",
+      "thuc_an": "Mật hoa, phấn hoa, quả mềm.",
+      "tap_tinh": "Đàn nhỏ. Treo ngược đầu khi ngủ.",
+      "sinh_thai": "Rừng nhiệt đới tầng cao."
+    }
+  },
+  {
+    "scientific_name": "Anthracoceros albirostris",
+    "ten_viet_nam": "Cao cát bụng trắng",
+    "so_luong_anh": 336,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu đen, nổi bần bật với một chiếc mỏ lớn màu trắng ngà nhạt cõng một mũ sừng đội phồng hình lưỡi búa dẹt phết màu đen trên đỉnh mép, viền mắt trắng ngà trần lồi. Cổ gầy nhẳng phủ lông đen tuyền. Lưng, nắp cánh và phần yếm ngực đặc một màu đen bóng láng mịn ánh rêu. Toàn bộ bụng và đùi khoác màu trắng trong vắt thuần khiết. Đôi chân xù xì màu nâu tro tịt móng. Đuôi đen tuyền bao trọn bằng dải viền ngoài mép trắng dày lộ. Khối lượng 500–900 g.",
+      "thuc_an": "Quả cây rừng, thằn lằn, côn trùng lớn.",
+      "tap_tinh": "Đàn nhỏ ồn ào. Con cái nhốt trong hốc cây.",
+      "sinh_thai": "Rừng nhiệt đới, bìa rừng, vườn cây."
+    }
+  },
+  {
+    "scientific_name": "Garrulax milleti",
+    "ten_viet_nam": "Khướu đầu đen",
+    "so_luong_anh": 30,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu đội toàn mảng lông đen sẫm đặc trùm kín từ trán qua tai xuống hầu, tương phản gắt gao với đôi mắt đỏ ruby rực rỡ và vành khuyên màu da lam xám nhạt tẻ. Cổ tạo một ranh giới dải mờ giữa đen cằm trắng ngực xám. Lưng cánh khoác chiếc áo choàng màu xám nâu pha chút olive xỉn mịn. Bụng nhạt đi lộ rõ các phần vệt kem cam dưới đùi. Chân màu xám đen bóng chắc chắn lẩn khuất dưới gầm. Đuôi dài mướt nâu nhạt dần ở chóp. Khối lượng 80–100 g.",
+      "thuc_an": "Côn trùng, quả nhỏ.",
+      "tap_tinh": "Đàn nhỏ, ồn ào.",
+      "sinh_thai": "Rừng hỗn giao núi trung bình."
+    }
+  },
+  {
+    "scientific_name": "Crocodylus siamensis",
+    "ten_viet_nam": "Cá sấu xiêm",
+    "so_luong_anh": 191,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt hình nón tù, mõm rộng với răng nanh lộ ở hàm dưới khi khép miệng, sau gáy có một gờ ngang gồ vảy nhô lên. Cổ ngắn nối liền thân bọc giáp gai lưng, vảy xếp thành hàng cộm sắc nhọn. Thân thuôn dẹt phủ tông màu xanh ô-liu đến xám nâu đất tối với các lốm đốm chấm sậm. Bụng trắng ngà nhạt, vảy phẳng mịn tắp. Chi ngắn choãi cong sang hai bên dầm trong nước móng bén có màng bơi. Đuôi cơ bắp vĩ đại lợp gai dọc sống vây ép dẹt hai bên. Nặng 40–120 kg, dài 2.5–4 m.",
+      "thuc_an": "Cá, ếch, rắn, thú nhỏ.",
+      "tap_tinh": "Chủ yếu đêm. Phục kích con mồi ven nước.",
+      "sinh_thai": "Đầm lầy nước ngọt, sông chậm, ao hồ."
+    }
+  },
+  {
+    "scientific_name": "Varanus salvator",
+    "ten_viet_nam": "Kỳ đà hoa",
+    "so_luong_anh": 314,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thuôn dài nhọn dẹt, mõm dài thò thụt cái lưỡi thon chẻ đôi chóp cực sâu màu xanh đen dính, mũi sát chóp nhọn mõm. Cổ dài linh hoạt bọc lớp vảy gồ lấm tấm. Thân hình to xác cuồn cuộn phủ màu lưng đen xám chì lẩn khuất điểm hàng trăm vòng đốm màu vàng tươi hoặc hoa thị xòe đối xứng chạy dọc cơ thể. Bụng sáng nhạt lấp lóa mảng kem vàng. Chi cồng kềnh với ngón dài, móng vuốt xé cong dài đanh. Đuôi nén dẹt dẹp sang hai bên như một mái chèo, sọc ngang đen nhạt. Dài đến 2 m, nặng 20 kg.",
+      "thuc_an": "Xác chết, cua, cá, trứng, ếch, rắn.",
+      "tap_tinh": "Ngày. Leo cây, bơi giỏi. Đơn độc.",
+      "sinh_thai": "Rừng ven sông, đầm lầy, bờ biển, đô thị."
+    }
+  },
+  {
+    "scientific_name": "Physignathus cocincinus",
+    "ten_viet_nam": "Rồng đất",
+    "so_luong_anh": 303,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vuông vát hình hộp, mắt tròn xoe, dưới tai nổi mảng da lốm đốm và đặc biệt là mào cằm lủng lẳng nếp gấp màng thịt. Cổ chạy dọc gờ nổi gai sừng cao hình răng cưa vuốt tận chóp lưng. Thân phủ vảy li ti rực rỡ màu xanh lục tươi diệp lóng lánh (đực điểm xuyết các dải chéo xám ngọc ngang sườn). Bụng nhạt trắng phớt cam mờ nhạt xanh lơ. Chân gân màng mỏng xòe vảy móng đen bám. Đuôi vút siêu dài, chiếm 2/3 tổng chiều dài cơ thể sọc ngang đen mờ. Dài 90–100 cm.",
+      "thuc_an": "Lá, côn trùng, cá, ếch.",
+      "tap_tinh": "Ngày. Bám cành ven suối. Nhảy xuống nước khi bị đe dọa.",
+      "sinh_thai": "Ven suối rừng nhiệt đới."
+    }
+  },
+  {
+    "scientific_name": "Python bivittatus",
+    "ten_viet_nam": "Trăn đất",
+    "so_luong_anh": 396,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to hình mũi tên có sọc da mặt chữ V nổi chạy lướt qua mắt đen láy xẹt gáy, dọc môi xẻ các rãnh lỗ cảm biến nhiệt nhỏ xíu. Cổ bó hẹp thuôn mỏng nối thân. Thân khổng lồ trục cơ ống dài, da vảy mịn màng bóng nhẫy xếp khảm nền vàng nâu xỉn khoanh các mảng vằn da báo hình tam giác đa giác màu đen nâu gụ viền vàng nhạt. Bụng màu vàng kem trần nhẵn vảy ngang tắp. Không chi hằn gốc móng nhỏ chìm. Đuôi ngắn thuôn tóp nhọn dần lốc xoáy. Dài 3.5–5 m, nặng 30–90 kg.",
+      "thuc_an": "Thú vừa (hươu, lợn), chim lớn, thú nhỏ – siết cổ con mồi.",
+      "tap_tinh": "Đêm và tạng sáng. Bơi, leo cây giỏi. Phục kích.",
+      "sinh_thai": "Rừng nhiệt đới, ven sông, đầm lầy."
+    }
+  },
+  {
+    "scientific_name": "Ophiophagus hannah",
+    "ten_viet_nam": "Rắn hổ mang chúa",
+    "so_luong_anh": 246,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vĩ đại dẹt tù với cặp tấm vảy sừng xếp đỉnh chỏm to lốm đốm, mắt đen lừ. Cổ và phần vai phồng mang ra rộng rành rành bành lớn khi đe dọa, thường lờ mờ lộ mảng vảy chữ V dẹt nằm ngang sau gáy không có họa tiết mặt kính. Thân ống cơ bắp dài tuốt, da xám đen xanh chì hoặc nâu ô-liu phủ vô số dải sọc chữ V hình cung màu vàng nhạt hay trắng vắt chéo kéo thẳng tắp. Bụng xám vảy lớn vàng nhạt. Đuôi trơn tru xám chóp nhọn hoắt. Dài lớn nhất thế giới đến 5.4 m.",
+      "thuc_an": "Chuyên ăn rắn khác.",
+      "tap_tinh": "Ngày. Chủ động tấn công khi bị đe dọa. Làm tổ đẻ trứng.",
+      "sinh_thai": "Rừng nhiệt đới, ven suối, đồng ruộng."
+    }
+  },
+  {
+    "scientific_name": "Ptyas mucosa",
+    "ten_viet_nam": "Rắn ráo trâu",
+    "so_luong_anh": 220,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ lẩn vào cổ, trán lồi nhẹ, đôi mắt to thao láo tròn, mõm có đường vạch đen len dọc khe môi. Cổ mảnh. Thân trục ống thon dài thườn thượt, mang một bộ áo xám nhạt phớt xanh ô-liu với lớp vảy lưng lớn. Từ giữa thân rải dần xuống cuống đuôi nổi cộm các đường mép vảy viền đen đan chéo thành mạng lưới vằn vện đen nhe nhem mờ xám. Bụng bóng loáng vảy ngang màu vàng nghệ đến trắng mờ. Đuôi dài nhọn vuốt thuôn linh hoạt. Dài 1.5–3 m.",
+      "thuc_an": "Chuột, ếch, tắc kè, rắn nhỏ.",
+      "tap_tinh": "Ngày. Bơi và leo giỏi. Di chuyển nhanh.",
+      "sinh_thai": "Đồng ruộng, rừng thưa, đất canh tác."
+    }
+  },
+  {
+    "scientific_name": "Gekko gecko",
+    "ten_viet_nam": "Tắc kè",
+    "so_luong_anh": 301,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt bạnh bẹt hình tam giác trán lồi, mắt to thao láo không mí màu cam lấm chấm con ngươi xẻ dọc như sợi chỉ. Cổ hẹp vằn da xám. Thân mập dẹt phủ vảy sừng gai sần sùi sờ ráp như giấy nhám, nền da xanh lam xám loang lổ hàng loạt các đốm đỏ tươi, chấm cam gắt nhấp nháy đặc trưng lốm đốm. Bụng nhẵn trắng bệch tẻ nhạt rải vảy. Bàn chân khum xòe các ngón bản rộng xếp thảm lông đệm bám riết. Đuôi sần rụng tái sinh sọc ngang cam đen tái xám. Dài 25–35 cm.",
+      "thuc_an": "Côn trùng, nhện, thạch sùng nhỏ.",
+      "tap_tinh": "Đêm. Bám tường leo cây. Kêu 'tắc–kè' vang.",
+      "sinh_thai": "Hốc cây, nhà ở, rừng thứ sinh."
+    }
+  },
+  {
+    "scientific_name": "Cuora galbinifrons",
+    "ten_viet_nam": "Rùa hộp trán vàng",
+    "so_luong_anh": 57,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ gồ cao, phần trán đắp một mảng màu vàng tươi sáng chói lóa nổi bật thuôn xuống sát mũi mỏ quặp nhọn, mắt nâu đen. Cổ vảy sần nâu hạt. Mai rùa (lưng) vồng khum phồng cong lên như cái gáo, mai mang hoa văn loang dọc lấm tấm màu nâu gụ, xám đen điểm vạch dải vàng dọc chóp sống trơn tru. Yếm (bụng) hoàn toàn vảy đen kịt xám tro có trang bị một bản lề ngang khớp gấp có thể đóng nắp hộp kín bưng. Bốn chi vảy sừng nhỏ đen pha đỏ nhạt. Đuôi lùn xịt. Dài 16–20 cm.",
+      "thuc_an": "Giun, ốc sên, quả rụng.",
+      "tap_tinh": "Đất ẩm trong rừng. Di chuyển chậm.",
+      "sinh_thai": "Rừng núi ẩm, dốc núi đá vôi."
+    }
+  },
+  {
+    "scientific_name": "Pelochelys cantorii",
+    "ten_viet_nam": "Giải (Rùa mai mềm khổng lồ)",
+    "so_luong_anh": 20,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu rất nhỏ so với cơ thể thò ra với cái mõm ống thịt bẹt loe tẹt ngóc mũi lên dài thượt đặc thù, mắt lồi tụt trên đỉnh lốc. Cổ thụt rụt màng da dư xệ. Lưng khổng lồ trải dẹp dẹt mỏng lợp một tấm mai màng da sần sùi có ráp nhám mềm xèo xèo màu xám bùn pha nâu bùn tẻ, mép mai mềm như sụn viền nhăn. Bụng màng yếm màu trắng ngà trơn nhẵn mỏng dính. Chân bè to như cặp mái chèo đính màng xòe 3 móng vuốt tịt. Đuôi lùn hủi lấp dưới mai. Có thể dài 1.8 m, nặng 100+ kg.",
+      "thuc_an": "Cá, tôm, ốc, mực.",
+      "tap_tinh": "Nước. Ẩn trong bùn. Ra bờ đẻ trứng.",
+      "sinh_thai": "Sông lớn nước ngọt và cửa biển."
+    }
+  },
+  {
+    "scientific_name": "Chelonia mydas",
+    "ten_viet_nam": "Vích",
+    "so_luong_anh": 257,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu ngắn bo tròn cụt với cặp vảy trán lớn trên đỉnh, mỏ không có móc câu mấu nhọn mà thuôn rìa răng cưa mép, hốc mắt lớn. Cổ ngắn thụt. Mai vòm bầu dục hình trái tim dẹt cong nhẵn nhụi bóng mịn trải màu xanh olive hoặc nâu gỉ hòa vân khảm xám tia sáng rẻ quạt ngụy trang. Yếm ngực bụng phẳng lỳ nhạt toát màu trắng ngà úa vàng. Chi trước dẹp thẳng băng thành mái chèo vây vươn, chi sau ngắn dầm cụt bơi có 1 móng vuốt. Đuôi thò cụt (đực dài hơn xíu). Nặng 80–190 kg.",
+      "thuc_an": "Cỏ biển và rong biển.",
+      "tap_tinh": "Di cư hàng ngàn km. Cái lên bờ đẻ trứng ban đêm.",
+      "sinh_thai": "Biển nhiệt đới, bãi đẻ cát, thảm cỏ biển."
+    }
+  },
+  {
+    "scientific_name": "Platysternon megacephalum",
+    "ten_viet_nam": "Rùa đầu to",
+    "so_luong_anh": 353,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu khổng lồ cứng ngắc bọc nguyên một tấm khiên sừng hình tam giác xám vĩ đại, to bành bất thường hoàn toàn không thể rụt lọt vào trong mai, mỏ khoằm móc câu xé nhọn gắt sắc lẻm hệt mỏ vẹt. Cổ lồi vảy thô xám đen. Mai vô cùng dẹt, tẹt gí nằm phẳng lỳ ép sát màu nâu đen tẻ nhạt điểm vạch khía viền gai nhẹ sườn rìa. Yếm bụng màu vàng nhạt sọc khía chữ thập. Bốn chân cục mịch rộp sần vảy cứng với móng quặp cong lòi tói. Đuôi rồng rậm vảy dài ngoẵng bằng cả thân mai. Dài 16–20 cm.",
+      "thuc_an": "Côn trùng nước, cua, cá nhỏ.",
+      "tap_tinh": "Đêm. Leo đá suối giỏi nhờ móng sắc.",
+      "sinh_thai": "Suối sỏi đá núi cao, nước trong lạnh."
+    }
+  },
+  {
+    "scientific_name": "Eretmochelys imbricata",
+    "ten_viet_nam": "Đồi mồi",
+    "so_luong_anh": 237,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thuôn nhọn dẹt, hai bên trán lộ bốn tấm vảy rành rành đặc trưng, phần mõm khoằm sắc sảo cong quặp nhọn hoắt hệt chóp mỏ chim ưng. Cổ rụt rụt dính mai. Lưng mang tấm mai bầu dục khảm hàng loạt vảy đồi sừng xếp đè lợp chồng lấp cộm lên nhau như lợp ngói mái nhà, mép sau mai khía lởm chởm gai răng cưa sặc sỡ vân họa tiết mai rùa màu nâu tía phối vàng hổ phách vằn vện lấp lánh rực rỡ dưới nắng biển. Yếm bụng vàng trong nhạt nhẽo. Cặp chân bơi mái chèo khảm vảy sừng điểm hai móng ở mỗi vây trước. Nặng 40–80 kg.",
+      "thuc_an": "Bọt biển (sponge) là thức ăn chính.",
+      "tap_tinh": "Đơn độc. Di cư biển. Đẻ trứng trên bãi cát.",
+      "sinh_thai": "Vùng san hô nhiệt đới."
+    }
+  },
+  {
+    "scientific_name": "Dermochelys coriacea",
+    "ten_viet_nam": "Rùa da",
+    "so_luong_anh": 195,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lớn dầm xám đen chóp lốm đốm sao trắng, hai hàm mang cúp chẻ răng sừng không răng mỏ quặp yếu. Cổ nối lền khối xám. Là loài rùa vĩ đại nhất, hoàn toàn không có mai sừng, lưng là một lớp da thuộc cao su dai ngoách đen tuyền nhám điểm li ti hạt chấm trắng xám xen mờ và được chống đỡ bằng 7 sống gờ rãnh chạy xẻ dọc theo suốt chiều dọc khum. Bụng trắng nhạt gợn xám xen mờ phớt hồng. Chân vây trước khổng lồ bơi mái chèo cong mỏng không có móng vuốt. Đuôi vuốt nhọn dẹt che giấu. Nặng 250–700 kg, dài 1.8–2.2 m.",
+      "thuc_an": "Sứa và sinh vật phù du.",
+      "tap_tinh": "Bơi sâu đến 1200 m. Di cư cực dài. Đẻ 6–10 lần/mùa.",
+      "sinh_thai": "Đại dương mở, bờ biển nhiệt đới đẻ trứng."
+    }
+  },
+  {
+    "scientific_name": "Shinisaurus crocodilurus",
+    "ten_viet_nam": "Thằn lằn cá sấu",
+    "so_luong_anh": 133,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lồi, mõm thuôn ngắn mập hộp vuông, mắt đen hạt huyền. Cổ ngắn điểm vài núm vảy gai. Thân mình thon lẳng dẹt dẹp gập hai bên, lưng phủ da nâu đất pha xanh xám rêu xen lẫn các dải cam vạch nhạt hai mạn sườn nổi dọc dải gai sừng răng cưa trên sống gù cao. Bụng nhẵn vảy phẳng lỳ mang sắc kem trắng phớt cam vằn viền rìa đen sẫm. Chi ngắn tũn xòe móng đen lồi thò. Đuôi khổng lồ mập ú ép dẹt hai bên dọc lởm chởm hai hàng gai xù xì vuốt tận ngọn hệt như cái đuôi cá sấu thực thụ. Dài 30–40 cm.",
+      "thuc_an": "Cá, tôm, ếch.",
+      "tap_tinh": "Bán thủy sinh, ngày. Leo cành ven suối.",
+      "sinh_thai": "Suối nhỏ trong rừng núi đá."
+    }
+  },
+  {
+    "scientific_name": "Eutropis multifasciata",
+    "ten_viet_nam": "Thằn lằn bóng hoa",
+    "so_luong_anh": 203,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt mũi vát, mặt mõm thuôn nhọn nhô dài bọc vảy sừng đè lấp lánh không gờ, mắt ti hí đen xì viền vảy xám. Cổ trụ ống luồn chui. Thân bóng nhẫy bóng loáng, da vảy mịn màng xếp san sát trơn tuột phủ một màu nâu đồng bóng đến xám gỉ mạ dọc hai dải sườn hông sọc cam xẹt lấp lánh (ở con đực) hoặc vạch vàng sáng sọc dọc đan lấm tấm trắng sẫm hai mép. Bụng trắng ngà vàng nhạt tắp tắp nhẵn thin. Bốn chi mỏng manh rải 5 ngón xòe tẽ nhọn móng quặp. Đuôi bóng láng tròn vót vuốt kim chóp siêu lẹ. Dài 25–30 cm.",
+      "thuc_an": "Côn trùng, sâu bọ, thạch sùng nhỏ.",
+      "tap_tinh": "Ngày, mặt đất và đá. Nhanh nhẹn.",
+      "sinh_thai": "Rừng thứ sinh, vườn nhà, bìa rừng."
+    }
+  },
+  {
+    "scientific_name": "Indotestudo elongata",
+    "ten_viet_nam": "Rùa núi vàng",
+    "so_luong_anh": 473,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vừa cụt, da đầu nhăn nheo được phủ vảy cứng một màu vàng tươi chanh nhạt nổi bật (đặc biệt khi vào mùa giao phối), mũi tù. Cổ gập rụt màu vàng xám. Mai khum vòm cao tròn thuôn dài hẹp, nổi bật tấm áo màu vàng kem nhạt rực ánh điểm giữa mỗi tấm khiên giáp sừng nở rộ một họa tiết mảng đốm hay hoa thị màu nâu đen nhạt tỏa lem nhem viền tâm gạch, mép rìa mai vuốt xuôi không răng cưa gai. Yếm bụng vảy vàng loang mảng đốm đen thẫm to bản lồi ở trống dẹt móp lún kẹp. Chân ống voi gập vảy cộm vàng móng dày sừng cục. Dài 25–35 cm.",
+      "thuc_an": "Cỏ, lá rụng, nấm, quả.",
+      "tap_tinh": "Ngày, trên cạn. Chậm. Ăn sáng sớm và chiều.",
+      "sinh_thai": "Sườn đồi núi rừng thưa và rừng khô."
+    }
+  },
+  {
+    "scientific_name": "Ahaetulla prasina",
+    "ten_viet_nam": "Rắn lục cườm (Rắn roi xanh)",
+    "so_luong_anh": 239,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt dài như chiếc lá vuốt một cái mõm nhọn hoắt tẹt siêu dài có chóp mút gờ thịt dài chĩa như mũi giáo, mắt vàng ngang có con ngươi nằm ngang khía lỗ khóa hình keyhole dị thường, tầm nhìn nổi đa diện cực rộng. Cổ mảnh dẻ thon teo co thắt. Thân như sợi dây leo dẹt hai mạn cực gầy siêu mỏng khoác một màu xanh lá mạ rực sáng lục diệp, mép da dưới vảy có sọc dọc trắng phớt cam vạch lấp ló khi bành. Bụng lườn dưới xanh nhạt hoặc vàng hanh tẻ. Không chi. Đuôi tót dài tắp mút như sợi cước vút quất đọt. Dài đến 1.9 m.",
+      "thuc_an": "Thằn lằn, ếch, chim nhỏ.",
+      "tap_tinh": "Ngày, trên cành cây. Giả chết khi bị bắt.",
+      "sinh_thai": "Tán cây rừng và bụi rậm."
+    }
+  },
+  {
+    "scientific_name": "Palea steindachneri",
+    "ten_viet_nam": "Ba ba gai",
+    "so_luong_anh": 61,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to cồng kềnh với cái mõm tịt gắn một ống thịt mũi vòi heo ngóc ngoẹo đặc thù chóp tẹt lồi thò, da hốc cổ có hai đốm sáng nhạt loang sẫm mờ sau gáy. Cổ rụt gập gân màng lùng bùng nhiều nếp gấp nhăn. Lưng trải rộng vát dẹp phủ lớp da mai xù xì bọc viền sụn nổi lốm đốm các cục u sần cộm nhô nhám nổi chóp gờ màu xanh xám bùn tẻ nhạt điểm vạch nâu đen mờ. Yếm bụng da trắng nhạt mềm tèo mỏng mỡ phớt gân hồng. Bàn chân bẹp lợp màng xòe rộng với 3 móng sắt chẻ xé cong vút dầm nhám gai. Đuôi cụt nấm tịt nhô. Dài đến 40 cm.",
+      "thuc_an": "Cá, giáp xác.",
+      "tap_tinh": "Dưới nước. Phục kích. Ra bờ đẻ trứng.",
+      "sinh_thai": "Sông suối nước ngọt, núi thấp."
+    }
+  },
+  {
+    "scientific_name": "Gekko badenii",
+    "ten_viet_nam": "Tắc kè núi Bà Đen",
+    "so_luong_anh": 51,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to chóp tẹt bạnh trán hai bên, mắt lốm đốm tròn xoe con ngươi sổ dọc vạch kim khâu. Cổ vằn vện xám trắng nhạt co. Thân mập dẹt phủ vảy gai hạt sần nhám rải rác một màu nền xám gụ đến nâu đất xỉn, điểm xuyết rải rác các hàng nốt chấm đốm trắng đục nhỏ ti li li lấm tấm như phủ bụi vắt sọc trên lưng dọc sống. Bụng nhẵn trắng ngà mờ vảy trơn phớt. Bàn ngón xòe tẽ nhọn móng quặp miếng đệm lá vảy lông bám dính siêu hạng tẻ ngang rộng. Đuôi gốc mập tóp dần điểm xuyết các khoang vòng vằn đai ngang sáng tối luân phiên cắt lớp. Dài ~15 cm.",
+      "thuc_an": "Côn trùng, nhện.",
+      "tap_tinh": "Đêm. Bám đá và vỏ cây.",
+      "sinh_thai": "Vách đá và rừng núi cô lập."
+    }
+  },
+  {
+    "scientific_name": "Paramesotriton deloustali",
+    "ten_viet_nam": "Cá cóc Tam Đảo",
+    "so_luong_anh": 18,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt hình bẹt trán thon có mõm tẹt tù và nhẵn nhụi phớt vảy li ti, mắt hai bên trố hạt na. Cổ khía nhẹ nếp lằn dẹp. Thân trục ống thon gân guốc sần sùi cộm da có một đường gờ gân dọc vút nổi cao lốm đốm nối từ gáy dọc sống chóp lưng, lớp áo màu nâu gụ đen xỉn tối xám. Bụng là một kiệt tác cảnh báo bọc đắp mảng da cam rực rỡ đến đỏ tươi chót lác đác thả vào những cục đốm vằn loang đen mun lộn xộn dọc lườn bụng. Chi ngắn dập tẹt yếu xìu 4 ngón trước 5 ngón sau. Đuôi nén dẹp lép sang hai bên bơi chèo có mép viền nhô cam gợn dưới rìa. Dài 12–16 cm.",
+      "thuc_an": "Tôm, côn trùng nước, giun, ấu trùng.",
+      "tap_tinh": "Bán thủy sinh. Đẻ trứng trong nước.",
+      "sinh_thai": "Suối trong rừng núi, độ cao 300–1000 m."
+    }
+  },
+  {
+    "scientific_name": "Theloderma corticale",
+    "ten_viet_nam": "Ếch cây sần Bắc Bộ",
+    "so_luong_anh": 109,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lùn xịt trán tẹt, mắt đen ngòm tàng hình lồi thao láo. Cổ tiêu biến liền khối sần sùi cục u. Cả cơ thể nhái là một tuyệt tác giả danh tàng hình ngụy trang hoàn hảo thành một nhúm rêu mốc meo, toàn bộ da lưng và sườn nổi bần bật các nốt u cục gai sần sùi tua tủa gai thịt có vạch khía rải một mảng xanh rêu mốc diệp lốm đốm xen lẫn các chấm loang lổ nâu đen, đỏ sậm gỉ bám dính mốc sần cộm lên hệt lớp vỏ cây rừng. Bụng phớt da mỏng xám bẩn lốm đốm xám mờ. Bốn chân gai tủa cộm khía xòe ngón đĩa bám hút nhọn dính ốp vỏ bẹp dúm. Dài 6–9 cm.",
+      "thuc_an": "Côn trùng, giun, nhện.",
+      "tap_tinh": "Đêm. Bất động hoàn toàn khi ngụy trang.",
+      "sinh_thai": "Vùng ven suối, rừng núi ẩm."
+    }
+  },
+  {
+    "scientific_name": "Kaloula pulchra",
+    "ten_viet_nam": "Ếch ương",
+    "so_luong_anh": 182,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu rất nhỏ cụt ngắn rụt lọt cắm ngập vào trong hai bờ vai mập lùn trán tròn xoe mũi tịt. Cổ không rõ ngấn dính thụt lù lù. Thân hình phồng tướng mập mạp béo trục béo tròn như trái bóng hơi bọc da trơn nhẵn nhụi, lưng khoác mảng màu nâu thẫm tối sậm đè dọc ở giữa điểm lót viền vắt chéo hai vệt sọc băng bản siêu rộng khảm ngang từ sau mắt xuống sườn màu vàng đất phớt cam đỏ rực rỡ tươi lóa viền đen chói dọc sườn cực bắt mắt. Bụng mỡ màng nhẵn thín trắng vàng ngà đục. Chân lùn tịt sau guốc vảy sừng dày sần cộm móng quặp lồi xẻ dọc chuyên đào xới bới dầm đất bẹp. Dài 5–7 cm.",
+      "thuc_an": "Kiến và mối.",
+      "tap_tinh": "Đêm mưa. Kêu vang. Đào đất.",
+      "sinh_thai": "Đất ẩm, vườn tược, gần mô kiến và mối."
+    }
+  },
+  {
+    "scientific_name": "Amolops",
+    "ten_viet_nam": "Ếch suối",
+    "so_luong_anh": 174,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhọn bẹt trán dẹp, mõm vát cằm xẻ mắt ếch to nhô thao láo con ngươi ngang. Cổ liền ngực. Thân thon lẳn gọn ghẽ, da lưng mịn màng trơn mướt nhẵn thín khoác màu áo thay đổi từ tông nâu đất sét xỉn lốm đốm rêu đến xanh rêu lá mạ tươi sặc sỡ bám đá ngụy trang lấm tấm hạt li ti nhạt sần gai cực vi. Bụng trắng xám bạc trơn phẳng căng. Điểm nhấn là bàn tay chân dài loằng ngoằng màng bơi căng xé rách sụn tẽ tận cùng, nhưng mỗi đầu mút ngón xòe loe bẹt đĩa hút chân không bám dính sừng hóa cực lớn để đu bám ngược thác đá tảng xiết ầm ầm. Đùi đốm ngang. Dài 4–8 cm.",
+      "thuc_an": "Côn trùng nước và ven suối.",
+      "tap_tinh": "Đêm. Bám đá trong dòng chảy mạnh.",
+      "sinh_thai": "Suối núi đá, dòng chảy xiết."
+    }
+  },
+  {
+    "scientific_name": "Hylarana",
+    "ten_viet_nam": "Ếch bám đá",
+    "so_luong_anh": 151,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhọn vót hình thoi trán mỏng, mũi dài tẹt gí mõm dài thẳng lồi hai mắt tròn thao láo lộ vành màng nhĩ tai lồi xám tẻ mờ vạch hốc sừng. Cổ liền vai mảnh. Thân gọn nhẹ thon dài mướt rượt trơn láng bóng mỡ, lớp áo nền đắp màu nâu đất sét mờ đến nâu đồng, nạm dọc hai mép viền lưng xẻ sườn là dải nếp gấp gờ da lồi chạy chỉ màu vàng chóe sáng rực rỡ xẹt từ sau mắt dọc mông. Bụng ngực phẳng phiu nhẵn nhụi áo trắng ngà trong lấm tấm vạch đen nhạt hàm. Cẳng chân nhái siêu dài gấp lại đùi sau lốm đốm sọc vằn nâu chéo bạt xòe tẽ ngón thon dài màng đĩa dẹt lồi. Dài 5–10 cm.",
+      "thuc_an": "Côn trùng, sâu bọ.",
+      "tap_tinh": "Đêm. Ven bờ suối đá.",
+      "sinh_thai": "Suối đá rừng thứ sinh."
+    }
+  },
+  {
+    "scientific_name": "Teinopalpus aureus",
+    "ten_viet_nam": "Bướm phượng đuôi kiếm vàng",
+    "so_luong_anh": 49,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu bướm nhỏ phủ lông tơ xanh, đôi ăng ten xòe mảnh lùn mắt trố đen. Ngực bụng bọc nhung mướt lông xù nhạt xám xanh tẻ. Kiệt tác nằm ở bộ đôi cánh rộng thênh thang đắp lớp vảy kim tuyến xanh lục lam sẫm mượt nhung, cánh trước xám phớt lấm tấm diệp lam, cánh sau bùng nổ điểm mảng vàng chanh rực rỡ chói lọi hắt sáng (đực có viền ngọc lồi rộng lấp ló), rìa mép cánh vạch khía lởm chởm gai góc. Điểm vĩ đại là một đôi đuôi kiếm mỏng dài thượt xé gió cong nhọn hoắt hệt phi tiêu vuốt từ mút cánh sau chéo. Sải cánh vĩ đại 9–12 cm.",
+      "thuc_an": "Ấu trùng: lá cây Magnolia. Trưởng thành: mật hoa.",
+      "tap_tinh": "Ngày. Bay nhanh ở tán cao. Hiếm gặp.",
+      "sinh_thai": "Rừng núi cao nguyên 1000–2000 m."
+    }
+  },
+  {
+    "scientific_name": "Troides helena",
+    "ten_viet_nam": "Bướm phượng cánh chim ban mai",
+    "so_luong_anh": 321,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lùn mắt đen xì râu ăng ten xòe mảnh gập nhọn. Cổ rực rỡ có một dải lông nhung tua tủa màu đỏ hồng rực rỡ lót viền sau gáy nổi bần bật. Ngực lót nhung đen bụng phủ tơ vàng nhạt. Đôi cánh trước nhung tuyết bao một màu đen xì tuyền sẫm có các gân trắng mờ nhạt nổi gờ vuốt vạch. Cánh sau đối lập gắt với màu vàng tươi chói lọi lấp lánh như dát vàng kim loại lốm đốm chóp viền vành lượn sóng viền đen mun đặc sệt viền sò răng cưa mép lởm lởm cộm nhấp nhô ranh giới nhọn hắt sắc sảo xẻ viền sò (cái đốm đen to và rải dày cộm hơn mảng vàng phớt thưa nhạt). Sải cánh 12–15 cm.",
+      "thuc_an": "Ấu trùng: lá cây Aristolochia. Trưởng thành: mật hoa.",
+      "tap_tinh": "Ngày, bay chậm. Đẻ trứng đơn trên mặt lá.",
+      "sinh_thai": "Rừng nhiệt đới thấp, bìa rừng, vườn."
+    }
+  },
+  {
+    "scientific_name": "Dorcus curvidens",
+    "ten_viet_nam": "Bọ sừng hươu",
+    "so_luong_anh": 243,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu kẹp bẹp rộng xòe bạnh nhô cằm, cặp ăng ten ngắn tịt bẻ gập khấc chữ L ở chóp mắt đen nhánh lẩn. Ngực vỏ sừng tấm mảng đen nhẵn lỳ cộm phẳng nắp cứng bo viền. Giáp lưng thân bọc hai mảnh vỏ cánh cứng lỳ lợm bóng nhẫy màu đen gụ sẫm tịt như hạt na, mép cánh dập các sọc dọc li ti rãnh mảnh. Bụng đệm giáp sừng trơn bóng lỳ xám gụ có các khía vòng vảy. Chân mọc gai nhọn tua tủa như bàn chải móc cắm ngoặm vỏ. Điểm tuyệt diệu là con đực trang bị một cặp sừng hàm (mandible) khổng lồ uốn cong kẹp hình vòng cung vĩ đại mang mấu răng sừng nhô gai kẹp siết chĩa vô giữa. Dài 3–7 cm.",
+      "thuc_an": "Ấu trùng: gỗ mục. Trưởng thành: nhựa cây.",
+      "tap_tinh": "Đêm. Con đực dùng sừng đấu tranh lãnh thổ.",
+      "sinh_thai": "Rừng gỗ cứng có cây gỗ mục."
+    }
+  },
+  {
+    "scientific_name": "Lethocerus indicus",
+    "ten_viet_nam": "Cà cuống",
+    "so_luong_anh": 322,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu dẹt bẹp trán nhô hai hốc mắt khổng lồ tròn xoe thao láo ngả đen, lấp ló phía dưới cụp một cái vòi mỏ chích hút sắc nhọn như kim tiêm lôi bẹp vào gầm cổ. Ngực bản rộng lợp giáp bẹp tam giác đốm mờ nâu xám cộm dọc sống. Thân cánh xếp dẹp lép hình khiên elip thuôn bọc một màu nâu xỉn nhạt xám đất bùn, lợp gân vạch mạng nhện lỳ lợm. Bụng dẹp xẹp màng xám vạch sọc chéo phớt kem. Nổi bật cặp chân trước hóa kẹp răng cưa gập vuông góc y hệt càng cua bọ ngựa khổng lồ đầy gai cộm sắc nhọn ngóc kẹp xé, hai cặp chân sau lợp lông bơi mái chèo bẹt lép dầm nước xòe lướt móng tịt. Dài đến 8 cm.",
+      "thuc_an": "Cá nhỏ, ếch, nòng nọc, côn trùng nước.",
+      "tap_tinh": "Đêm. Bay đến đèn sáng. Hút dịch con mồi.",
+      "sinh_thai": "Ao hồ, ruộng lúa, đầm lầy."
+    }
+  },
+  {
+    "scientific_name": "Charonia tritonis",
+    "ten_viet_nam": "Ốc tù và",
+    "so_luong_anh": 309,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu ốc thân mềm thò nắp có hai râu xúc tu xòe đính mắt gốc mồm rụt vòi nhai sắc nhọn thò hốc. Toàn thân bọc gọn trong một cái vỏ vĩ đại vặn xoắn ốc hình tháp nhọn hoắt vươn khổng lồ trơn láng nhẵn bóng như men sứ. Vỏ lấp lánh nền màu kem sáng ngà pha cam lợt mờ, khảm nạm vô số các mảng hoa văn vằn vện viền sóng dải vạch hình chữ V nửa vầng trăng xẻ chéo màu nâu gụ hạt dẻ sậm đến tía gắt vắt ngang đều tắp các tầng xoắn. Miệng ốc loe rộng bên trong trơn lụa cam rực phớt hồng lóng lánh viền mép môi sọc răng cưa đốm tía. Dài đến 40 cm.",
+      "thuc_an": "Sao biển gai (Acanthaster) – thiên địch quan trọng bảo vệ san hô.",
+      "tap_tinh": "Bò chậm. Phun nước đuổi kẻ thù. Đơn độc.",
+      "sinh_thai": "Rạn san hô nhiệt đới."
+    }
+  },
+  {
+    "scientific_name": "Tachypleus tridentatus",
+    "ten_viet_nam": "Sam biển",
+    "so_luong_anh": 173,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Cơ thể chia ba khối cộm, đầu ngực hợp nhất mang khiên móng ngựa khổng lồ tròn xoe lồi khum bóng láng bọc giáp chitin màu nâu xanh ô-liu đến lục đất sậm, trên mu lưng lấp ló 2 mắt lồi to và hàng loạt mắt phụ li ti ẩn mép gờ. Thân bụng hình lục giác lợp rìa gai ngạnh lởm chởm gai sừng vuốt dọc rìa viền chỉ xẻ gờ răng cưa. Gầm bụng lợp 6 đôi chân kẹp càng tua tủa ngọ nguậy lấp chân bơi lá màng vây mỏng tang tẽ quạt nhịp nhàng. Đuôi là một thanh kiếm sừng dài ngoẵng hình tam giác chuôi nhọn hoắt sắc như chông chĩa thẳng vuốt chóp dài cộm giúp sam lật xấp. Dài ~60 cm.",
+      "thuc_an": "Giun đa tơ, nhuyễn thể, cua nhỏ.",
+      "tap_tinh": "Đêm. Lên bãi đẻ trứng theo thủy triều.",
+      "sinh_thai": "Bãi biển cát, vùng triều nông."
+    }
+  },
+  {
+    "scientific_name": "Panulirus ornatus",
+    "ten_viet_nam": "Tôm hùm bông",
+    "so_luong_anh": 243,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu lợp vỏ cứng nhô hai hốc mắt tròn lồi trên cuống đính cặp ăng ten vĩ đại siêu dài gốc dập chi chít gai nhọn đinh bọc viền sọc vằn dọc rành rọt. Đầu ngực mai giáp màu xanh ngọc lam lục lam nhạt lợp phủ rậm rạp vô số các chóp gai nhọn hoắt cộm lốm đốm cam rực rỡ lốm đốm vàng nghệ. Bụng đuôi cong gập xẻ các đốt khía xanh diệp lam lốm đốm tàn nhang viền vành lởm mép rìa chấm tròn đen trắng. Chân cẳng mảnh dẻ vạch sọc dọc ngựa vằn trắng đen lấm tấm nâu đốm mảng sắc nét gai vuốt kẹp nhọn tẽ ngoặm không càng khổng lồ. Dài 30–50 cm.",
+      "thuc_an": "Nhuyễn thể, cua, cá chết.",
+      "tap_tinh": "Đêm. Di cư hàng loạt dưới đáy biển.",
+      "sinh_thai": "Vùng rạn san hô và đá ngầm."
+    }
+  },
+  {
+    "scientific_name": "Birgus latro",
+    "ten_viet_nam": "Cua dừa",
+    "so_luong_anh": 281,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu rụt chóp cộm mang cặp mắt kép xẻ ngóc trên cuống dài lồi xòe cặp râu khía cảm biến vẫy. Khối ngực lợp giáp bọc mai chitin cứng ngắc khum gù phình màu xanh tím sẫm ánh đỏ mận xỉn đến nâu gỉ đỏ cam loang lổ sần sùi lỗ rỗ hốc chấm gờ nếp rãnh. Bụng teo bọc giáp cong móp rụt tịt lốm đốm tàn nhang mỏng viền. Cặp chân càng trước là cỗ máy khổng lồ bất đối xứng kẹp siêu khỏe sắc lẹm gờ sừng xé cộm vảy. Các chân đi cồng kềnh lợp vuốt vuốt đinh sắc lẹm leo trèo móc kẹp quặp thân dừa xù xì đinh gai tua tủa mép lởm chởm. Nặng đến 4 kg.",
+      "thuc_an": "Quả dừa, quả cây rừng, xác chết.",
+      "tap_tinh": "Đêm. Trèo cây dừa. Đơn độc.",
+      "sinh_thai": "Rừng dừa và rừng ven biển nhiệt đới."
+    }
+  },
+  {
+    "scientific_name": "Actias selene",
+    "ten_viet_nam": "Bướm mặt trăng",
+    "so_luong_anh": 536,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu bướm tí hon bọc tơ nhung bông trắng xù xù mắt hạt đỗ đen lẩn, râu ăng ten xòe lá lược răng cưa tua tủa vĩ đại ở đực. Ngực nhung bông trắng toát bụng lợp lông bông nhạt xám mờ. Bộ cánh siêu khủng lợp màu diệp lục nhạt xanh lam ngọc nhạt nhòa thanh tao xẻ đường vảy như ngọc thạch mờ sương, mép chóp cánh viền vạch hồng rực sậm. Ở chính giữa mỗi cánh khảm một họa tiết 'mắt trăng' hình lưỡi liềm khuyết cực kỳ sắc sảo viền hồng cam điểm đen gắt kỳ ảo. Mép cánh sau vuốt ra một cặp đuôi dải lụa mượt xoắn tít xòe lượn dợn bay rũ lôi nhọn hoắt chéo kéo dài tượt. Sải cánh 8–12 cm.",
+      "thuc_an": "Ấu trùng: lá cây gỗ. Trưởng thành: không ăn (miệng tiêu biến).",
+      "tap_tinh": "Đêm. Bay đến ánh sáng.",
+      "sinh_thai": "Rừng nhiệt đới và cận nhiệt đới."
+    }
+  },
+  {
+    "scientific_name": "Canis familiaris",
+    "ten_viet_nam": "Chó nhà",
+    "so_luong_anh": 251,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu đa hình vát dài hay tẹt gí (tùy giống), mõm đen nhô mũi ẩm lộ, mắt to xoe nâu đen (hoặc xanh) tai rủ cụp gập hoặc dựng vểnh lồi thò. Cổ đa dạng phủ bờm hay thon gọn cổ tay. Thân hình vóc dáng biến thiên từ lùn tịt đến cao lêu nghêu, lợp áo lông muôn màu sắc từ xám mun, đen, vàng bò, trắng tuyết đến khoang đốm vằn vện đốm rải rác lấm tấm phớt lông xoăn hay thẳng tắp rụng lỳ. Bụng mềm lót lông tơ nhạt vảy mỏng. Chân đệm thịt xòe ngón gập móng sừng cứng đơ cùn không thò thụt co rút nhọn. Đuôi thẳng vuốt chóp xoăn tít bồng xù hoặc cụt hủi. Kích thước cực đa dạng.",
+      "thuc_an": "Tạp ăn: thịt, rau, tinh bột. Thức ăn công nghiệp hoặc bếp.",
+      "tap_tinh": "Bầy phân cấp xã hội. Trung thành với chủ.",
+      "sinh_thai": "Sống cùng con người, thích nghi mọi môi trường."
+    }
+  },
+  {
+    "scientific_name": "Felis catus",
+    "ten_viet_nam": "Mèo nhà",
+    "so_luong_anh": 315,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn vo mõm ngắn cụt, trán lồi vát đính cặp tai tam giác nhọn vểnh dựng chóp lồi thò, râu ria mép xúc giác xúc tu trắng dài vút vút bạnh cong cực nhạy, mắt lồi con ngươi sổ dọc vệt kim khâu ban ngày. Cổ lẩn khuất thon dẻo linh hoạt. Thân mình lắt léo uốn lượn uốn dẻo siêu việt phủ áo lông màu đơn sắc, vằn vện mướp, nhị thể tam thể khoang lốm đốm loang rải lấm tấm xù bông hoặc trụi lủi lỳ xám. Bụng xệ mềm lót tơ xù xốp lòa xòa. Bàn chân bọc đệm êm ru cục thịt xòe giấu giếm vuốt kim sắc nhọn quặp quắp lòi tói có thể thu rụt hoàn toàn. Đuôi vót dài lòa xòa linh hoạt giữ thăng bằng hoặc cụt hủi.",
+      "thuc_an": "Ăn thịt: thịt, cá, thức ăn công nghiệp. Cần taurine.",
+      "tap_tinh": "Lãnh thổ. Độc lập hơn chó. Hoạt động bình minh–hoàng hôn.",
+      "sinh_thai": "Nhà ở, vườn tược, đô thị."
+    }
+  },
+  {
+    "scientific_name": "Bos taurus",
+    "ten_viet_nam": "Bò nhà",
+    "so_luong_anh": 199,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vĩ đại trán bẹt dẹt tẹt nhô mồm móm vuông mõm to bạnh ẩm ướt lồi bẹt mũi, tai to xòe bẹt ngang lủng lẳng lòa xòa lông vạch vành đính sừng ngắn nhọn chĩa sang hai ngang cong vênh (nhiều giống trụi sừng). Cổ cộm bự cộm rụt yếm thịt treo xệ thò lùng bùng lùng nhùng lũng nhũng lấp dưới cằm. Thân vuông vức bệ vệ bè u cục lưng nhẵn thín lợp áo lông sát da tịt rải lấm tấm đốm loang khoang đen trắng, vàng bò, đỏ tía hay xám sẫm gụ đồng nhất. Bụng béo phệ lồi thò núm vú u lồi phình mập to bự xệ sát đất. Chân trụ cột lóng khóng xẻ guốc chẻ đôi to bự cục sừng đen. Đuôi dài như sợi roi chóp túm lông xù phẩy nhịp đuổi ruồi. Nặng 500–900 kg.",
+      "thuc_an": "Cỏ, rơm, cám ngô. Dạ dày 4 ngăn nhai lại.",
+      "tap_tinh": "Đàn, phân cấp xã hội. Hiền lành.",
+      "sinh_thai": "Đồng cỏ, trang trại chăn nuôi."
+    }
+  },
+  {
+    "scientific_name": "Sus domesticus",
+    "ten_viet_nam": "Lợn nhà",
+    "so_luong_anh": 207,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu to nêm chóp vót mũi mõm mõm vòi thịt lợn hồng hồng tẹt gí dẹp bẹt vát xéo xẻ khe lỗ mũi cảm biến dũi, mắt hí lẩn xì tịt ti hí lọt thỏm mỡ, tai bẹt khổng lồ rủ cụp rũ rượi xệ che sấp xõa mắt. Cổ ngắn tũn lẩn nọng mỡ dính thụt vai u thịt lồi béo. Thân thù lù trục xilanh tròn ủm thịt mỡ núc ních láng bóng da trần lộ mỡ hồng đào, đen tuyền khoang loang lốm đốm cộm thưa thớt sợi lông cứng đơ lơ phơ tẻ nhạt cắm tịt lỗ chân lông. Bụng sệ sát rệt đất lồi lằn vú hai hàng ti tắp lự dài thò xệ gầm. Chân nhón ngắn lùn tịt móng guốc chẻ lốc cốc thò lồi khấc xẻ. Đuôi xoắn tít thò lò như lò xo cụt tịt ngọ nguậy. Nặng 50–200 kg.",
+      "thuc_an": "Tạp ăn: ngũ cốc, cám, thực phẩm thừa, rau củ.",
+      "tap_tinh": "Thông minh. Thích bùn làm mát. Đàn.",
+      "sinh_thai": "Chuồng trại nông nghiệp."
+    }
+  },
+  {
+    "scientific_name": "Gallus gallus domesticus",
+    "ten_viet_nam": "Gà nhà",
+    "so_luong_anh": 240,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ lắt léo mỏ ngắn sắc quặp tù, đội chóp mào thịt lởm chởm gai cưa đỏ tươi rực thắm chói lọi đính kèm tích dái tai đỏ nhăn xệ treo lòng thòng hốc mỏ (trống vĩ đại xòe cộm mái tịt rụt). Cổ thon phủ bờm lông dải nhọn chỉa tua tủa xòe quàng cổ chói lóa ánh kim tía đồng đỏ cam bóng. Thân bọc xòe cánh ôm sườn múp lợp lông vàng, đen xám trắng tẻ đốm loang. Bụng phồng ức lồi tròn phễu xốp nhạt tơ phủ. Chân dầm vảy xừng vàng bóng cộm nếp vảy xẻ rãnh lồi móng mọc cựa nhọn chĩa đâm hoắt phía sau gót sắc nhọn (trống có mái không cựa). Đuôi trống vút xòe vòng cung cao vút cong vòng lưỡi liềm dài lấp lánh lam lục xỉn (mái cộc). Nặng 1.5–4 kg.",
+      "thuc_an": "Hạt ngũ cốc, côn trùng, giun, cỏ.",
+      "tap_tinh": "Đàn phân cấp. Gáy sáng sớm. Bới đất kiếm ăn.",
+      "sinh_thai": "Chuồng gia cầm, vườn, đất trống."
+    }
+  },
+  {
+    "scientific_name": "Anas platyrhynchos domesticus",
+    "ten_viet_nam": "Vịt nhà",
+    "so_luong_anh": 436,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tù thuôn nhọn mỏ xẻng dẹp bẹt bạnh to ngang màu vàng cam rực hay xám chì lỗ mũi khoét trên gốc, mắt đen lẩn. Trống nổi bật cổ thon lợp nhung lục mạ ánh kim chói lóa xòe vòng cổ nhẫn trắng ngấn cổ, mái loang lổ nâu bùn lốm đốm tẻ nhạt rụt rụt cổ lùn. Thân phình mập lùn bè như chiếc xuồng nước lợp kín lông xốp dày phết dầu chống nước vằn vện xám nâu sọc rằn ri nắp cánh lộ mảng viền xanh lam vạch vạt lam ngọc. Bụng sệ dầm lót bông gòn xốp trắng lóa lấp bẹp phềnh. Chân lùn tịt sau đuôi vảy cam chóe tẽ xòe 3 ngón màng bơi căng xé lá chân vịt bẹp. Đuôi lùn hủi vểnh chóp móc nhọn cong xòe quặp. Nặng 1.5–4 kg.",
+      "thuc_an": "Hạt, rau nước, côn trùng, cá nhỏ, cám.",
+      "tap_tinh": "Đàn, bơi. Kêu quang quác.",
+      "sinh_thai": "Ao hồ, ruộng lúa, chuồng nuôi."
+    }
+  },
+  {
+    "scientific_name": "Equus caballus",
+    "ten_viet_nam": "Ngựa",
+    "so_luong_anh": 177,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu thuôn dài vát hình nêm chóp mũi vuông rộng lỗ mũi xòe bạnh phập phồng, mắt lồi hai mạn thao láo góc nhìn tẹt rộng, tai dựng vểnh lồi xẻ hình lá thon bạnh nhọn chóp. Cổ cao vươn thẳng đứng oai phong sống gáy đính dải bờm lông dài thướt tha mềm mượt rủ rượi xõa bay vắt ngang xệ xuống gáy. Thân hình vạm vỡ gân guốc lườn cuồn cuộn múp cơ bắp eo thắt bóng mượt lợp bộ lông da sát tịt mịn màng muôn hình vạn trạng màu hồng mã đỏ, ô dâu đen tuyền xám bạch kim loang lốm đốm khoang. Bụng thon hóp căng cơ mượt phẳng. Bốn cẳng chân thon lêu nghêu đính gân xé lồi điểm nhấn là móng guốc liền khối sừng vòng cung hình bán nguyệt hình bát úp tịt bọc gót cộm dầm cục đinh móng. Đuôi vút chỏm thả rủ một chùm cọ lông thướt tha quét cọ rũ rượi chóp nhọn. Nặng 380–1000 kg.",
+      "thuc_an": "Cỏ, cỏ khô, ngũ cốc.",
+      "tap_tinh": "Đàn, phân cấp. Di chuyển nhanh. Ngủ đứng.",
+      "sinh_thai": "Đồng cỏ, trang trại."
+    }
+  },
+  {
+    "scientific_name": "Ovis aries",
+    "ten_viet_nam": "Cừu",
+    "so_luong_anh": 188,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vát hẹp lót lông xoăn xù mặt mỏ tẹt vát mũi hẹp hếch khe chữ Y chia hàm, mắt vàng ngang ti hí, tai lủng lẳng cụp gập lòa xòa ngang, cừu đực vĩ đại đội trên đầu một cặp sừng sừng xoắn ốc vĩ đại cuộn xoáy khía rãnh xoắn bạnh quặp ra hai bên uốn cong vành đai (mái nhỏ hủi hoặc trụi). Cổ cụt lủn rụt xù bông cục lẩn. Thân trục phình ních một khối len lông cừu xù xốp xoăn tít lùng nhùng lòa xòa dày đặc bịt kín mít tịt toàn thân trắng muốt ngà đục xám xịt hoặc đen nâu lốm đốm loang gụ xoăn nếp. Bụng sệ giấu tịt trong mớ len bùi nhùi xệ sệt. Chân lóng khóng mảnh mai xẻ guốc chẻ đôi thò lồi cụt dưới lớp len gấu rụt rụt. Đuôi mập phình sệ tích mỡ lù lù rủ cụp xù xì lẩn bông. Nặng 25–100 kg.",
+      "thuc_an": "Cỏ, cỏ khô, cành lá.",
+      "tap_tinh": "Đàn, bầy cao. Nhút nhát.",
+      "sinh_thai": "Đồng cỏ, đồi núi, trang trại."
+    }
+  },
+  {
+    "scientific_name": "Capra hircus",
+    "ten_viet_nam": "Dê",
+    "so_luong_anh": 129,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu nhỏ hẹp vát lồi mõm tẹt mũi chữ T bạnh lòi, mắt con ngươi khe xẻ ngang tịt, tai xòe vểnh lủng lẳng hoặc rủ cụp (tùy giống), đặc điểm là chỏm cằm lủng lẳng một chòm râu xồm xàm tua tủa chĩa dài lòa xòa, trên đỉnh vương trán đính cặp sừng cứng đanh dẹt sần sùi khía rãnh dốc ngược cong vút dốc ra sau hất chóp dao kiếm (cả hai giới). Cổ thẳng đứng lót bờm lông chóp tẻ. Thân gọn gàng thon chắc cơ bắp khoác áo lông sát mình thô ráp chóp thẳng tịt khoang trắng đen đốm lốm đốm xám mờ tẻ nhạt nâu gỉ. Bụng thon căng dẹt hóp mượt xệ vú cộm bự. Chân lẳng khẳng gầy xọc đính đôi móng guốc chẻ siêu linh hoạt khía kẹp lồi góc tì lồi kẹp khe đinh đá bám vách nhọn hoắt. Đuôi cụt lủn tịt vểnh ngóc nhọn lên trời te tua tịt tắp. Nặng 20–80 kg.",
+      "thuc_an": "Cỏ, lá, cành, vỏ cây – ăn được thực vật khô cằn.",
+      "tap_tinh": "Đàn. Leo núi giỏi. Tò mò.",
+      "sinh_thai": "Đồi núi khô, đất canh tác."
+    }
+  },
+  {
+    "scientific_name": "Oryctolagus cuniculus",
+    "ten_viet_nam": "Thỏ nhà",
+    "so_luong_anh": 219,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu tròn vo mõm tẹt lồi khe mũi chữ Y phập phồng run rẩy dũi, mắt lồi thò hai bên hông to tròn thao láo lộ đen nâu hốc xòe hoặc đỏ ruby rực (bạch tạng), đặc trưng bởi cặp tai khổng lồ dài ngoẵng hình bầu dục xẻ loa kèn mao mạch hồng rực dựng đứng vểnh vút lên trời hay rủ cụp che cụp lẩn. Cổ siêu ngắn rụt thót dính đầu lòa xòa mỡ nọng vai cộm cục yếm. Thân hình vòm phồng gù lưng mập ú lợp lớp len lông tơ siêu mềm mịn mượt xốp nhẹ hẫng bung trắng tuyết loang lốm đốm xám tro đen gụ khoang đốm loang lổ. Bụng lót màng tơ mỏng lòa xòa trắng ngà mềm xụp phệ bệt. Chân trước lùn tịt móng đào bới dũi dài, chân sau siêu dài vĩ đại bọc đệm lông nhám không có đệm thịt dày gấp gập bật nhảy lò cò đinh móng quặp. Đuôi lùn tịt cục bông tròn xoe tịt chóp hủi vểnh cụp lấm tấm trắng. Nặng 1.5–4 kg.",
+      "thuc_an": "Cỏ, rau, lá cây, cà rốt, cỏ khô.",
+      "tap_tinh": "Đào hang. Đàn. Sinh sản nhanh.",
+      "sinh_thai": "Chuồng nuôi, đồng cỏ."
+    }
+  },
+  {
+    "scientific_name": "Meleagris gallopavo",
+    "ten_viet_nam": "Gà tây",
+    "so_luong_anh": 200,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu hói trọc trụi lủi vắng lông hoàn toàn lộ trần trụi lớp da nhăn nheo xù xì lồi mấu hột cộm u cục sần sùi biến ảo đa sắc đỏ rực, xanh lam nhạt pha tím lợt, điểm nhấn là cái yếm thịt dái tai thòng lọng xệ dài vắt vẻo lủng lẳng từ trán vắt xuống ngực đỏ choét. Cổ trụi lông thon vươn dài lốm đốm mụn sần thịt đỏ bầm. Thân vĩ đại núc ních lợp bộ áo choàng lông màu nâu đồng xỉn gụ hắt tia ánh kim loại xanh đồng ánh lục diệp lấp lóa dưới nắng viền mép vạch vảy trắng đen tẻ xẻ dọc cánh vạch rằn ri. Bụng ức nhô phễu phồng chổi lông đen cứng tua tủa chĩa gáy ức lồi râu tủa. Chân dài kều vảy xừng đỏ xám xù xì đính cựa đâm đinh nhọn chĩa xọc (trống). Đuôi tuyệt tác khi ve vãn xòe bung như chiếc quạt tròn xoe khổng lồ nan hoa xẻ viền trắng ngà chóp mép lốm đốm nâu vằn vện đai rộng. Nặng 4–11 kg.",
+      "thuc_an": "Hạt, côn trùng, cỏ non.",
+      "tap_tinh": "Đàn. Kêu 'gobble' vang.",
+      "sinh_thai": "Trang trại gia cầm, rừng thưa."
+    }
+  },
+  {
+    "scientific_name": "Bubalus bubalis",
+    "ten_viet_nam": "Trâu nước",
+    "so_luong_anh": 162,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vĩ đại xương xẩu trán dẹt bẹt tẹt mõm vuông bạnh nhô mũi rộng tẻ, lồi hốc mắt lẩn cụp đính cặp sừng trâu khổng lồ khía vòng khấc ngang bạnh gập dẹt cong vút bẻ ngoặt vuốt vành lưỡi liềm chĩa ra sau hất lên vòng cung. Cổ ngắn tũn lẩn cơ bắp cuồn cuộn gân u nọng lồi thịt sệ. Thân vạm vỡ cục mịch lưng trũng phệ khổng lồ lợp da xám đen sì bùn đất đến chì lỳ lợm thưa thớt lông lơ phơ tẻ nhạt cắm tịt rải lác đác thưa rớt lỗ chỗ lộ da trần tịt bóng bóng mỡ gồ gề gân xương. Bụng béo sệ lồi lằn căng thõng lòi ngực lép trắng mờ một vệt băng ngang yếm ngực hình chữ V nhạt lốm đốm phớt. Chân cột đình đi ủng bọc khớp trắng lót vảy xừng móng guốc chẻ đôi bè tẹt xòe lầy bùn lún sụt bẹt khổng lồ. Đuôi lùn hủi roi thò túm chóp cọ lông đen phe phẩy nhịp đập. Nặng 300–700 kg.",
+      "thuc_an": "Cỏ, rơm rạ, thức ăn nông nghiệp.",
+      "tap_tinh": "Thích ngâm bùn. Khỏe, hiền. Dùng cày ruộng.",
+      "sinh_thai": "Đồng ruộng lúa nước, bãi cỏ ẩm."
+    }
+  },
+  {
+    "scientific_name": "Melopsittacus undulatus",
+    "ten_viet_nam": "Vẹt Yến Phụng",
+    "so_luong_anh": 286,
+    "dac_diem_nhan_dang": {
+      "mo_ta_ngoai_hinh": "Đầu vo tròn trán lồi vát đính mỏ quặp ngoặm móc câu tịt cong cớn giấu gầm cằm có lợp cục mào da gốc mũi sáp xanh lam (đực) hay nâu sần nhám nhạt nhạt (mái), mắt đen lẩn đính vành khuyên trắng xoe tịt, hai má phớt đốm tím lam giọt lệ đốm đen lốm đốm hạt. Cổ tịt rụt đính sọc vằn ngựa vằn gợn sóng li ti vạch xẻ đen trắng vàng mờ nhạt từ trán vuốt dọc gáy lượn. Thân nhỏ lợp lông nền bụng ngực diệp lục tươi xanh lam ngọc nhạt chói lóa lam nhạt (hoặc vàng nhạt), lưng cánh khoác áo vằn vện sóng ngựa vằn đen khảm viền vàng xẻ rãnh vảy cá lốm đốm đen vạch sọc ngang cộm cánh. Bụng mướt rượt trơn lông mịn màng nhạt lòa xòa. Chân lùn tịt nhạt hồng vảy xám 4 ngón tẽ hai trước hai sau quặp leo trèo móc kẹp móng kim nhọn. Đuôi vút siêu dài thon kiếm vuốt nhọn vót thẳng tắp lợp viền xanh lam thẫm nhạt lốm đốm vạch. Nặng 25–35 g.",
+      "thuc_an": "Hạt nhỏ, rau, quả.",
+      "tap_tinh": "Đàn lớn. Bắt chước tiếng người. Thân thiện.",
+      "sinh_thai": "Lồng cảnh, trong nhà."
+    }
+  }
+]

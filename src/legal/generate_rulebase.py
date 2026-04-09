@@ -97,6 +97,26 @@ laws_config = {
             "hinh_thuc_bo_sung": "Tịch thu tang vật, dụng cụ, công cụ[cite: 28]. Tịch thu phương tiện vi phạm đối với hành vi bị phạt từ mức 25.000.000 đồng trở lên[cite: 29].",
             "khac_phuc_hau_qua": "Buộc thực hiện biện pháp khắc phục tình trạng ô nhiễm môi trường, lây lan dịch bệnh [cite: 30]; buộc tiêu hủy hàng hóa, vật phẩm gây hại[cite: 31]."
         }
+    },
+    "1": {
+        "group_name": "Danh mục loài thủy sản nguy cấp, quý, hiếm (Nhóm I)",
+        "administrative_penalties": {
+            "Vi_pham_khai_thac_trong_vung_thoi_gian_cam": [
+                "Phạt tiền đến 100.000.000 đồng đối với hành vi khai thác thủy sản trong vùng cấm, thời gian cấm (Điều 7 Nghị định 42/2019/NĐ-CP).",
+                "Hình phạt bổ sung: Tịch thu ngư cụ khai thác thủy sản.",
+                "Biện pháp khắc phục: Buộc thả thủy sản còn sống trở lại môi trường; buộc chuyển giao số thủy sản thuộc Nhóm I đã chết cho cơ quan có thẩm quyền xử lý."
+            ],
+            "Vi_pham_khong_giay_phep_hoac_ngoai_vung_bien": [
+                "Phạt tiền đến 1.000.000.000 đồng đối với chủ tàu cá khai thác không có giấy phép hoặc khai thác trái phép trong vùng biển quốc gia/vùng lãnh thổ khác (Điều 20, 23 Nghị định 42/2019/NĐ-CP).",
+                "Hình phạt bổ sung: Tịch thu thủy sản khai thác, tịch thu ngư cụ, tịch thu tàu cá, tước quyền sử dụng văn bằng, chứng chỉ thuyền trưởng.",
+                "Biện pháp khắc phục: Buộc chủ tàu cá chi trả toàn bộ kinh phí đưa ngư dân bị nước ngoài bắt giữ về nước và các chi phí liên quan."
+            ]
+        },
+        "criminal_penalties": {
+            "Truy_cuu_trach_nhiem_hinh_su": [
+                "Tùy theo mức độ vi phạm khai thác thủy sản bất hợp pháp (khoản 2 Điều 60 Luật Thủy sản 2017), tổ chức cá nhân có thể bị truy cứu trách nhiệm hình sự (thường chiếu theo Điều 244 Bộ luật Hình sự về tội vi phạm quy định bảo vệ động vật nguy cấp, quý, hiếm)."
+            ]
+        }
     }
 }
 rulebase = {}

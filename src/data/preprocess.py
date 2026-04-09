@@ -164,63 +164,76 @@ class TieredAugmentationStrategy:
         self.image_size = image_size
 
     def get_transforms(self, tier: str, is_train: bool = True) -> T.Compose:
-        """Trả về transform phù hợp với tier và phase."""
+            """Trả về transform phù hợp với tier và phase."""
 
-        imagenet_mean = [0.485, 0.456, 0.406]
-        imagenet_std  = [0.229, 0.224, 0.225]
+            imagenet_mean = [0.485, 0.456, 0.406]
+            imagenet_std  = [0.229, 0.224, 0.225]
 
-        if not is_train:
-            return T.Compose([
-                T.Resize((self.image_size, self.image_size)),
-                T.ToTensor(),
-                T.Normalize(mean=imagenet_mean, std=imagenet_std)
-            ])
+            if not is_train:
+                return T.Compose([
+                    T.Resize((self.image_size, self.image_size)),
+                    T.ToTensor(),
+                    T.Normalize(mean=imagenet_mean, std=imagenet_std)
+                ])
 
-        base = [
-            T.Resize((int(self.image_size * 1.1), int(self.image_size * 1.1))),
-            T.RandomCrop(self.image_size),
-        ]
-        normalize = [T.ToTensor(), T.Normalize(mean=imagenet_mean, std=imagenet_std)]
-
-        if tier == "critical":
-            # Cực hiếm: augment tối đa để tạo diversity
-            augments = [
-                T.RandomHorizontalFlip(p=0.5),
-                T.RandomVerticalFlip(p=0.3),
-                T.RandomRotation(degrees=45),
-                T.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.15),
-                T.RandomGrayscale(p=0.1),
-                T.RandomPerspective(distortion_scale=0.3, p=0.4),
-                T.GaussianBlur(kernel_size=3, sigma=(0.1, 1.5)),
-                T.RandomErasing(p=0.3, scale=(0.02, 0.15)),
-            ]
-        elif tier == "rare":
-            # Hiếm: augment trung bình
-            augments = [
-                T.RandomHorizontalFlip(p=0.5),
-                T.RandomRotation(degrees=25),
-                T.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.2, hue=0.1),
-                T.RandomPerspective(distortion_scale=0.2, p=0.3),
-                T.GaussianBlur(kernel_size=3, sigma=(0.1, 1.0)),
-                T.RandomErasing(p=0.2, scale=(0.02, 0.1)),
-            ]
-        elif tier == "medium":
-            # Trung bình: augment nhẹ
-            augments = [
-                T.RandomHorizontalFlip(p=0.5),
-                T.RandomRotation(degrees=15),
-                T.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1),
-            ]
-        else:  # abundant
-            # Nhiều ảnh: chỉ augment cơ bản
-            augments = [
-                T.RandomHorizontalFlip(p=0.5),
-                T.ColorJitter(brightness=0.1, contrast=0.1),
+            base = [
+                T.Resize((int(self.image_size * 1.1), int(self.image_size * 1.1))),
+                T.RandomCrop(self.image_size),
             ]
 
-        return T.Compose(base + augments + normalize)
+            # Khởi tạo 2 mảng riêng biệt cho PIL Image và Tensor
+            pil_augments = []
+            tensor_augments = []
 
+            if tier == "critical":
+                # Cực hiếm: augment tối đa để tạo diversity
+                pil_augments = [
+                    T.RandomHorizontalFlip(p=0.5),
+                    T.RandomVerticalFlip(p=0.3),
+                    T.RandomRotation(degrees=45),
+                    T.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.3, hue=0.15),
+                    T.RandomGrayscale(p=0.1),
+                    T.RandomPerspective(distortion_scale=0.3, p=0.4),
+                    T.GaussianBlur(kernel_size=3, sigma=(0.1, 1.5)),
+                ]
+                # RandomErasing CẦN TENSOR
+                tensor_augments = [T.RandomErasing(p=0.3, scale=(0.02, 0.15))]
+                
+            elif tier == "rare":
+                # Hiếm: augment trung bình
+                pil_augments = [
+                    T.RandomHorizontalFlip(p=0.5),
+                    T.RandomRotation(degrees=25),
+                    T.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.2, hue=0.1),
+                    T.RandomPerspective(distortion_scale=0.2, p=0.3),
+                    T.GaussianBlur(kernel_size=3, sigma=(0.1, 1.0)),
+                ]
+                # RandomErasing CẦN TENSOR
+                tensor_augments = [T.RandomErasing(p=0.2, scale=(0.02, 0.1))]
+                
+            elif tier == "medium":
+                # Trung bình: augment nhẹ
+                pil_augments = [
+                    T.RandomHorizontalFlip(p=0.5),
+                    T.RandomRotation(degrees=15),
+                    T.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1),
+                ]
+            else:  # abundant
+                # Nhiều ảnh: chỉ augment cơ bản
+                pil_augments = [
+                    T.RandomHorizontalFlip(p=0.5),
+                    T.ColorJitter(brightness=0.1, contrast=0.1),
+                ]
 
+            # SẮP XẾP LẠI THỨ TỰ CHUẨN: 
+            # Base(PIL) -> PIL Augments -> ToTensor -> Tensor Augments -> Normalize
+            return T.Compose(
+                base + 
+                pil_augments + 
+                [T.ToTensor()] + 
+                tensor_augments + 
+                [T.Normalize(mean=imagenet_mean, std=imagenet_std)]
+            )
 class MixUpAugmentation:
     """
     MixUp - trộn 2 ảnh theo tỷ lệ beta để tăng generalization.
@@ -336,7 +349,6 @@ class RareAnimalDataset(Dataset):
                  class_names: List[str],
                  tier_map: Dict[str, str],
                  augmentation_strategy: TieredAugmentationStrategy,
-                 knowledge_base: Optional[Dict] = None,
                  is_train: bool = True):
 
         self.image_paths = image_paths
@@ -344,7 +356,6 @@ class RareAnimalDataset(Dataset):
         self.class_names = class_names
         self.tier_map = tier_map
         self.aug_strategy = augmentation_strategy
-        self.knowledge_base = knowledge_base or {}
         self.is_train = is_train
 
         # Cache transforms theo tier để tránh tạo lại
@@ -375,16 +386,8 @@ class RareAnimalDataset(Dataset):
         tensor = transform(image)
 
         # Lấy đặc điểm sinh học từ knowledge base (dùng cho Expert System)
-        bio_features = self.knowledge_base.get(class_name, {})
 
-        return {
-            "image": tensor,
-            "label": torch.tensor(label, dtype=torch.long),
-            "class_name": class_name,
-            "image_path": str(img_path),
-            "tier": self.tier_map.get(class_name, "medium"),
-            "bio_features": bio_features
-        }
+        return tensor, torch.tensor(label, dtype=torch.long)
 
 
 # ============================================================
@@ -451,12 +454,21 @@ class StratifiedDataSplitter:
 
         # Stratified split: val vs test
         val_ratio_of_temp = self.val_ratio / (self.val_ratio + self.test_ratio)
-        val_paths, test_paths, val_labels, test_labels = train_test_split(
-            temp_paths, temp_labels,
-            test_size=(1.0 - val_ratio_of_temp),
-            stratify=temp_labels,
-            random_state=self.seed
-        )
+        try:
+                    val_paths, test_paths, val_labels, test_labels = train_test_split(
+                        temp_paths, temp_labels,
+                        test_size=(1.0 - val_ratio_of_temp),
+                        stratify=temp_labels,
+                        random_state=self.seed
+                    )
+        except ValueError:
+            logger.warning("⚠️ Tắt stratify ở tập Val/Test do có class quá ít ảnh.")
+            val_paths, test_paths, val_labels, test_labels = train_test_split(
+                temp_paths, temp_labels,
+                test_size=(1.0 - val_ratio_of_temp),
+                stratify=None,
+                random_state=self.seed
+            )
 
         logger.info(f"Train: {len(train_paths)} ảnh | Val: {len(val_paths)} ảnh | Test: {len(test_paths)} ảnh")
         logger.info(f"Tổng classes: {len(class_names)}")
@@ -807,7 +819,6 @@ class RareAnimalPipeline:
 
     def __init__(self,
                  data_dir: str,
-                 knowledge_base_path: Optional[str] = None,
                  image_size: int = 224,
                  batch_size: int = 32,
                  num_workers: int = 4,
@@ -826,12 +837,6 @@ class RareAnimalPipeline:
         self.splitter = StratifiedDataSplitter()
         self.aug_strategy = TieredAugmentationStrategy(image_size)
         self.quality_checker = DataQualityChecker()
-
-        self.knowledge_base = {}
-        if knowledge_base_path and Path(knowledge_base_path).exists():
-            kb_loader = KnowledgeBaseLoader(knowledge_base_path)
-            self.knowledge_base = kb_loader.load()
-
         self.stats = None
         self.class_names = None
         self.tier_map = None
@@ -868,15 +873,15 @@ class RareAnimalPipeline:
         # Bước 5: Tạo Datasets
         train_dataset = RareAnimalDataset(
             train_paths, train_labels, class_names, self.tier_map,
-            self.aug_strategy, self.knowledge_base, is_train=True
+            self.aug_strategy, is_train=True
         )
         val_dataset = RareAnimalDataset(
             val_paths, val_labels, class_names, self.tier_map,
-            self.aug_strategy, self.knowledge_base, is_train=False
+            self.aug_strategy, is_train=False
         )
         test_dataset = RareAnimalDataset(
             test_paths, test_labels, class_names, self.tier_map,
-            self.aug_strategy, self.knowledge_base, is_train=False
+            self.aug_strategy, is_train=False
         )
 
         # Bước 6: Tạo DataLoaders
@@ -911,7 +916,7 @@ class RareAnimalPipeline:
         )
 
         # Bước 7: Tính loss function
-        loss_fn = self._build_loss_function()
+        loss_fn = None
 
         # Bước 8: Gợi ý Few-shot cho lớp cực hiếm
         self._recommend_fewshot()
@@ -926,7 +931,6 @@ class RareAnimalPipeline:
             "tier_map": self.tier_map,
             "stats": self.stats,
             "quality": quality_result,
-            "knowledge_base": self.knowledge_base
         }
 
         logger.info("=" * 60)
@@ -998,11 +1002,6 @@ class RareAnimalPipeline:
 def main():
     """Demo pipeline với dataset mẫu."""
 
-    # 1. Tạo knowledge base mẫu nếu chưa có
-    kb_path = "species_knowledge_base.json"
-    if not Path(kb_path).exists():
-        KnowledgeBaseLoader.generate_example_json(kb_path)
-
     # 2. Khởi tạo và chạy pipeline
     # Thay "path/to/your/dataset" bằng đường dẫn thực của bạn
     # Cấu trúc thư mục cần như sau:
@@ -1014,7 +1013,7 @@ def main():
     #   │   └── ...
     #   └── ...
 
-    DATA_DIR = "dataset/images"
+    DATA_DIR = "images"
 
     if not Path(DATA_DIR).exists():
         logger.info("Thư mục dataset chưa tồn tại. Vui lòng cung cấp đường dẫn đúng.")
@@ -1023,7 +1022,6 @@ def main():
 
     pipeline = RareAnimalPipeline(
         data_dir=DATA_DIR,
-        knowledge_base_path=kb_path,
         image_size=224,        # 224 cho CNN; đổi sang 640 cho YOLOv8
         batch_size=32,
         num_workers=4,

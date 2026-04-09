@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
 import numpy as np
 from pathlib import Path
+from tqdm import tqdm  # <-- Đã thêm thư viện tạo thanh tiến trình
 
 class ModelTrainer:
     def __init__(self, model, train_loader, val_loader, criterion, optimizer, device):
@@ -22,7 +23,11 @@ class ModelTrainer:
     def train_epoch(self):
         self.model.train()
         running_loss = 0.0
-        for inputs, labels in self.train_loader:
+        
+        # Thêm tqdm để tạo thanh tiến trình cho tập Train
+        progress_bar = tqdm(self.train_loader, desc="Training Batch", leave=False)
+        
+        for inputs, labels in progress_bar:
             inputs, labels = inputs.to(self.device), labels.to(self.device)
             
             self.optimizer.zero_grad()
@@ -32,6 +37,10 @@ class ModelTrainer:
             self.optimizer.step()
             
             running_loss += loss.item() * inputs.size(0)
+            
+            # Cập nhật thông số loss hiển thị trực tiếp trên thanh tiến trình
+            progress_bar.set_postfix({'loss': f"{loss.item():.4f}"})
+            
         return running_loss / len(self.train_loader.dataset)
 
     def validate_epoch(self):
@@ -39,8 +48,11 @@ class ModelTrainer:
         val_loss = 0.0
         all_preds, all_labels, all_probs = [], [], []
 
+        # Thêm tqdm để tạo thanh tiến trình cho tập Validation
+        progress_bar = tqdm(self.val_loader, desc="Validating Batch", leave=False)
+
         with torch.no_grad():
-            for inputs, labels in self.val_loader:
+            for inputs, labels in progress_bar:
                 inputs, labels = inputs.to(self.device), labels.to(self.device)
                 outputs = self.model(inputs)
                 
@@ -53,6 +65,9 @@ class ModelTrainer:
                 all_probs.extend(probs.cpu().numpy())
                 all_preds.extend(preds.cpu().numpy())
                 all_labels.extend(labels.cpu().numpy())
+                
+                # Hiển thị loss của tập val trên thanh tiến trình
+                progress_bar.set_postfix({'val_loss': f"{loss.item():.4f}"})
 
         # Tính toán Metrics
         val_loss = val_loss / len(self.val_loader.dataset)
@@ -81,6 +96,7 @@ class ModelTrainer:
             history['val_f1'].append(f1)
             history['val_auc'].append(auc)
 
+            # In ra kết quả tổng quát sau khi chạy xong cả 1 Epoch
             print(f"Epoch {epoch+1}/{epochs} | Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | Acc: {acc:.4f} | F1: {f1:.4f}")
 
             # Lưu best model theo F1-Score

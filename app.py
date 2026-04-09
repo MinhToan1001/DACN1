@@ -1,45 +1,48 @@
 import torch
 import torch.optim as optim
 
-# Import các module đã tách biệt
 from src.models.model_resnet import build_resnet50_model
-from src.utils.loss import FocalLoss
+from src.utils.loss import FocalLoss  
 from src.utils.train import ModelTrainer
 
-# Import Pipeline Data (Giả sử bạn lấy từ preprocess.py của bạn)
-# from src.data.preprocess import RareAnimalPipeline 
+# IMPORT THÊM DÒNG NÀY: Gọi pipeline từ file preprocess.py cùng thư mục
+from src.data.preprocess import RareAnimalPipeline 
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    NUM_CLASSES = 103 # Sửa thành số lượng loài thực tế của bạn
     EPOCHS = 20
     
-    # 1. Chuẩn bị Dữ liệu (Load từ tiền xử lý)
-    print("⏳ Đang chuẩn bị Dữ liệu...")
-    # pipeline = RareAnimalPipeline(...)
-    # result = pipeline.run()
-    # train_loader = result['train_loader']
-    # val_loader = result['val_loader']
+    print("⏳ Đang chuẩn bị Dữ liệu qua Pipeline...")
+    # BỎ COMMENT VÀ KHỞI TẠO PIPELINE
+    pipeline = RareAnimalPipeline(
+        data_dir="images", # Đảm bảo bạn thay bằng đường dẫn thư mục ảnh thật
+        image_size=224,
+        batch_size=32,
+        use_focal_loss=True
+    )
+    result = pipeline.run()
     
-    # (Mock data loaders để code không báo lỗi khi bạn test)
-    train_loader = [] 
-    val_loader = []
+    # Lấy dữ liệu trực tiếp từ RAM sang app.py
+    train_loader = result['train_loader']
+    val_loader = result['val_loader']
+    
+    # Dùng FocalLoss riêng
+    criterion = FocalLoss(alpha=1.0, gamma=2.0)
+    NUM_CLASSES = result['num_classes']
 
-    # 2. Khởi tạo Mô hình (Gọi từ file model.py)
-    print("🧠 Đang khởi tạo kiến trúc Mô hình...")
+    print(f"🧠 Đang khởi tạo kiến trúc ResNet50 cho {NUM_CLASSES} classes...")
     model = build_resnet50_model(num_classes=NUM_CLASSES, pretrained=True)
     model = model.to(device)
 
-    # 3. Khởi tạo Hàm Loss và Optimizer (Gọi từ file loss.py)
-    criterion = FocalLoss(gamma=2.0)
+    # Khởi tạo Optimizer
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
-    # 4. Truyền vào Trainer và bắt đầu huấn luyện (Gọi từ file train.py)
+    print("🚀 Bắt đầu huấn luyện...")
     trainer = ModelTrainer(
         model=model,
         train_loader=train_loader,
         val_loader=val_loader,
-        criterion=criterion,
+        criterion=criterion, # Truyền loss_fn đã lấy từ pipeline vào đây
         optimizer=optimizer,
         device=device
     )

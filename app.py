@@ -25,6 +25,8 @@ def main():
     # Lấy dữ liệu trực tiếp từ RAM sang app.py
     train_loader = result['train_loader']
     val_loader = result['val_loader']
+    test_loader = result['test_loader']   
+    class_names = result['class_names']   
     
     # Dùng FocalLoss riêng
     criterion = FocalLoss(alpha=1.0, gamma=2.0)
@@ -42,9 +44,11 @@ def main():
         model=model,
         train_loader=train_loader,
         val_loader=val_loader,
-        criterion=criterion, # Truyền loss_fn đã lấy từ pipeline vào đây
+        test_loader=test_loader,
+        criterion=criterion, 
         optimizer=optimizer,
-        device=device
+        device=device,
+        class_names=class_names
     )
     
     trainer.fit(epochs=EPOCHS)

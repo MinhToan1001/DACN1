@@ -6,6 +6,8 @@ import numpy as np
 from pathlib import Path
 from tqdm import tqdm
 import json
+from pytorch_grad_cam import GradCAM
+from pytorch_grad_cam.utils.image import show_cam_on_image
 
 
 class ModelTrainer:
@@ -39,56 +41,56 @@ class ModelTrainer:
     # HELPER: MixUp
     # ----------------------------------------------------------------
 
-    @staticmethod
-    def mixup_data(inputs: torch.Tensor, targets: torch.Tensor,
-                   alpha: float = 0.2):
-        """
-        [YÊU CẦU 5] MixUp Augmentation (Zhang et al., 2018).
+    # @staticmethod
+    # def mixup_data(inputs: torch.Tensor, targets: torch.Tensor,
+    #                alpha: float = 0.2):
+    #     """
+    #     [YÊU CẦU 5] MixUp Augmentation (Zhang et al., 2018).
 
-        Nguyên lý:
-            x_mixed = λ * x_i + (1-λ) * x_j
-            Không có label y_mixed rõ ràng → loss = λ*L(x_mixed, y_i) + (1-λ)*L(x_mixed, y_j)
+    #     Nguyên lý:
+    #         x_mixed = λ * x_i + (1-λ) * x_j
+    #         Không có label y_mixed rõ ràng → loss = λ*L(x_mixed, y_i) + (1-λ)*L(x_mixed, y_j)
 
-        Tại sao MixUp trị được memorization trên class hiếm?
-        - Model nhìn thấy các "ảnh pha trộn" thay vì ảnh thực → không thể học
-          thuộc lòng pixel-level pattern của 3-9 ảnh gốc.
-        - Buộc model học decision boundary tuyến tính giữa các classes
-          → generalize tốt hơn thay vì overfit vào ảnh cụ thể.
+    #     Tại sao MixUp trị được memorization trên class hiếm?
+    #     - Model nhìn thấy các "ảnh pha trộn" thay vì ảnh thực → không thể học
+    #       thuộc lòng pixel-level pattern của 3-9 ảnh gốc.
+    #     - Buộc model học decision boundary tuyến tính giữa các classes
+    #       → generalize tốt hơn thay vì overfit vào ảnh cụ thể.
 
-        Args:
-            inputs:  Tensor [B, C, H, W]
-            targets: Tensor [B] - ground truth labels
-            alpha:   Tham số phân phối Beta. alpha=0.2 → λ thường gần 0 hoặc 1
-                     (tức là pha trộn nhẹ, bảo toàn phần lớn ảnh gốc)
+    #     Args:
+    #         inputs:  Tensor [B, C, H, W]
+    #         targets: Tensor [B] - ground truth labels
+    #         alpha:   Tham số phân phối Beta. alpha=0.2 → λ thường gần 0 hoặc 1
+    #                  (tức là pha trộn nhẹ, bảo toàn phần lớn ảnh gốc)
 
-        Returns:
-            inputs_mixed: Tensor [B, C, H, W]
-            targets_a:    Tensor [B] - labels của ảnh gốc
-            targets_b:    Tensor [B] - labels của ảnh pha trộn
-            lam:          float      - tỷ lệ pha trộn
-        """
-        if alpha > 0:
-            lam = float(np.random.beta(alpha, alpha))
-        else:
-            lam = 1.0
+    #     Returns:
+    #         inputs_mixed: Tensor [B, C, H, W]
+    #         targets_a:    Tensor [B] - labels của ảnh gốc
+    #         targets_b:    Tensor [B] - labels của ảnh pha trộn
+    #         lam:          float      - tỷ lệ pha trộn
+    #     """
+    #     if alpha > 0:
+    #         lam = float(np.random.beta(alpha, alpha))
+    #     else:
+    #         lam = 1.0
 
-        batch_size = inputs.size(0)
-        # Tạo index ngẫu nhiên để ghép cặp ảnh trong cùng batch
-        rand_index = torch.randperm(batch_size, device=inputs.device)
+    #     batch_size = inputs.size(0)
+    #     # Tạo index ngẫu nhiên để ghép cặp ảnh trong cùng batch
+    #     rand_index = torch.randperm(batch_size, device=inputs.device)
 
-        targets_a = targets
-        targets_b = targets[rand_index]
-        inputs_mixed = lam * inputs + (1 - lam) * inputs[rand_index]
+    #     targets_a = targets
+    #     targets_b = targets[rand_index]
+    #     inputs_mixed = lam * inputs + (1 - lam) * inputs[rand_index]
 
-        return inputs_mixed, targets_a, targets_b, lam
+    #     return inputs_mixed, targets_a, targets_b, lam
 
-    @staticmethod
-    def mixup_criterion(criterion, pred, targets_a, targets_b, lam):
-        """
-        Tính loss MixUp: loss = λ * L(pred, y_a) + (1-λ) * L(pred, y_b)
-        Đây là unbiased estimate của loss trên không gian pha trộn.
-        """
-        return lam * criterion(pred, targets_a) + (1 - lam) * criterion(pred, targets_b)
+    # @staticmethod
+    # def mixup_criterion(criterion, pred, targets_a, targets_b, lam):
+    #     """
+    #     Tính loss MixUp: loss = λ * L(pred, y_a) + (1-λ) * L(pred, y_b)
+    #     Đây là unbiased estimate của loss trên không gian pha trộn.
+    #     """
+    #     return lam * criterion(pred, targets_a) + (1 - lam) * criterion(pred, targets_b)
 
     # ----------------------------------------------------------------
     # METRICS
@@ -110,27 +112,11 @@ class ModelTrainer:
             auc = 0.0
 
         return acc, f1, auc
-
     # ----------------------------------------------------------------
-    # TRAIN EPOCH (với MixUp)
+    # TRAIN EPOCH (ĐÃ TẮT MIXUP)
     # ----------------------------------------------------------------
 
     def train_epoch(self):
-        """
-        [YÊU CẦU 5] MixUp được áp dụng ngay sau khi load batch.
-
-        Flow:
-            1. Load batch (inputs, targets) từ DataLoader
-            2. Áp dụng MixUp → inputs_mixed, targets_a, targets_b, lam
-            3. Forward pass với inputs_mixed
-            4. Tính loss = λ*L(pred, y_a) + (1-λ)*L(pred, y_b)
-            5. Backward + optimize
-
-        Lưu ý metrics:
-            - Loss được tính với MixUp loss (chính xác)
-            - Acc/F1/AUC được tính trên targets_a (ảnh gốc) để có thể
-              so sánh với val/test metrics (val/test không dùng MixUp)
-        """
         self.model.train()
         running_loss = 0.0
         all_preds, all_labels, all_probs = [], [], []
@@ -141,21 +127,13 @@ class ModelTrainer:
             inputs  = inputs.to(self.device)
             targets = targets.to(self.device)
 
-            # ------------------------------------------------------------
-            # [YÊU CẦU 5] MixUp: trộn ảnh ngay sau khi load batch
-            # alpha=0.2 được khuyến nghị từ paper gốc cho classification
-            # ------------------------------------------------------------
-            inputs_mixed, targets_a, targets_b, lam = self.mixup_data(
-                inputs, targets, alpha=0.2
-            )
-
             self.optimizer.zero_grad()
 
-            # Forward với ảnh đã pha trộn
-            outputs = self.model(inputs_mixed)
+            # 1. Forward trực tiếp ảnh gốc (Không dùng inputs_mixed)
+            outputs = self.model(inputs)
 
-            # Loss MixUp: tổ hợp lồi của 2 losses
-            loss = self.mixup_criterion(self.criterion, outputs, targets_a, targets_b, lam)
+            # 2. Tính Loss tiêu chuẩn (Không dùng mixup_criterion)
+            loss = self.criterion(outputs, targets)
 
             loss.backward()
             self.optimizer.step()
@@ -166,10 +144,10 @@ class ModelTrainer:
             probs = torch.softmax(outputs, dim=1)
             _, preds = torch.max(outputs, 1)
 
-            # Dùng targets_a (label ảnh gốc) để metrics có ý nghĩa thực tế
+            # 3. Lưu lại nhãn gốc (Dùng targets thay vì targets_a)
             all_probs.extend(probs.detach().cpu().numpy())
             all_preds.extend(preds.detach().cpu().numpy())
-            all_labels.extend(targets_a.detach().cpu().numpy())
+            all_labels.extend(targets.detach().cpu().numpy()) 
 
             progress_bar.set_postfix({'loss': f"{loss.item():.4f}"})
 
@@ -177,7 +155,6 @@ class ModelTrainer:
         acc, f1, auc = self._calculate_metrics(all_labels, all_preds, all_probs)
 
         return epoch_loss, acc, f1, auc, all_labels, all_preds
-
     # ----------------------------------------------------------------
     # EVALUATE (Val / Test - KHÔNG dùng MixUp)
     # ----------------------------------------------------------------
@@ -211,6 +188,54 @@ class ModelTrainer:
         acc, f1, auc = self._calculate_metrics(all_labels, all_preds, all_probs)
 
         return epoch_loss, acc, f1, auc, all_labels, all_preds
+    def save_gradcam_sample(self, epoch: int):
+        """
+        Lấy ngẫu nhiên 1 ảnh từ tập Validation, chạy Grad-CAM và lưu lại 
+        để theo dõi quá trình học tập trung của model qua từng epoch.
+        """
+        self.model.eval()
+        
+        # 1. Lấy 1 batch ngẫu nhiên từ val_loader
+        inputs, labels = next(iter(self.val_loader))
+        
+        # Lấy ảnh đầu tiên trong batch
+        input_tensor = inputs[0:1].to(self.device)
+        label_idx = labels[0].item()
+        class_name = self.class_names[label_idx] if self.class_names else str(label_idx)
+
+        # 2. Khởi tạo Grad-CAM với layer cuối của ResNet50
+        target_layers = [self.model.layer4[-1]]
+        cam = GradCAM(model=self.model, target_layers=target_layers)
+
+        # 3. Chạy Grad-CAM (không truyền targets thì nó lấy class có xác suất cao nhất)
+        grayscale_cam = cam(input_tensor=input_tensor, targets=None)[0, :]
+
+        # 4. Denormalize (Giải chuẩn hóa) Tensor về ảnh RGB để hiển thị
+        img_np = input_tensor.cpu().squeeze().numpy().transpose(1, 2, 0)
+        mean = np.array([0.485, 0.456, 0.406])
+        std = np.array([0.229, 0.224, 0.225])
+        img_np = std * img_np + mean
+        img_np = np.clip(img_np, 0, 1) # Ép giá trị về khoảng [0, 1]
+
+        # 5. Phủ Heatmap lên ảnh gốc
+        visualization = show_cam_on_image(img_np, grayscale_cam, use_rgb=True)
+
+        # 6. Lưu ảnh
+        cam_dir = self.results_dir / "gradcam_epochs"
+        cam_dir.mkdir(parents=True, exist_ok=True)
+        
+        save_path = cam_dir / f"epoch_{epoch:02d}_class_{class_name}.png"
+        
+        # Plot lên matplotlib để thêm tiêu đề cho xịn xò
+        fig, ax = plt.subplots(figsize=(6, 6))
+        ax.imshow(visualization)
+        ax.set_title(f"Epoch: {epoch} | Truth: {class_name}")
+        ax.axis('off')
+        
+        plt.savefig(save_path, bbox_inches='tight', pad_inches=0.1)
+        plt.close()
+        
+        print(f"👁️ Đã lưu Grad-CAM theo dõi tại: {save_path}")
 
     # ----------------------------------------------------------------
     # FIT

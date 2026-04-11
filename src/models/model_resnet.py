@@ -59,14 +59,13 @@ def build_resnet50_model(num_classes: int, pretrained: bool = True) -> nn.Module
     # ----------------------------------------------------------------
     num_ftrs = model.fc.in_features  # ResNet50: 2048
     model.fc = nn.Sequential(
-        nn.Dropout(p=0.5),
-        nn.Linear(num_ftrs, num_classes)
-    )
-    # fc mới luôn có requires_grad=True theo mặc định (nn.Sequential mới tạo)
-
-    # ----------------------------------------------------------------
-    # Log thông tin để kiểm tra
-    # ----------------------------------------------------------------
+            nn.Dropout(p=0.3),         
+            nn.Linear(num_ftrs, 512),    
+            nn.ReLU(),                   
+            nn.Dropout(p=0.2),          
+            nn.Linear(512, num_classes) 
+        )
+  
     total_params    = sum(p.numel() for p in model.parameters())
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     frozen_params   = total_params - trainable_params

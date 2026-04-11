@@ -67,7 +67,7 @@ def main():
     #   (Adam chuẩn implement weight decay sai → AdamW fix điều này)
     # - Giúp penalize trọng số lớn → chống overfit thêm một lớp nữa
     # ----------------------------------------------------------------
-    optimizer = optim.AdamW(trainable_params, lr=1e-4, weight_decay=1e-2)
+    optimizer = optim.AdamW(trainable_params, lr=1e-4, weight_decay=1e-4)
 
     # ----------------------------------------------------------------
     # [YÊU CẦU 4c] ReduceLROnPlateau Scheduler:
@@ -96,7 +96,7 @@ def main():
         test_loader=test_loader,
         criterion=criterion,
         optimizer=optimizer,
-        scheduler=scheduler,      # <-- truyền scheduler vào trainer
+        scheduler=scheduler,     
         device=device,
         class_names=class_names
     )

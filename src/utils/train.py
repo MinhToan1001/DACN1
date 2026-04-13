@@ -8,6 +8,7 @@ from tqdm import tqdm
 import json
 from pytorch_grad_cam import GradCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
+import random
 
 
 class ModelTrainer:
@@ -96,10 +97,16 @@ class ModelTrainer:
     # METRICS
     # ----------------------------------------------------------------
 
+# ----------------------------------------------------------------
+    # METRICS (ĐÃ SỬA LỖI AUC)
+    # ----------------------------------------------------------------
+
     def _calculate_metrics(self, labels, preds, probs):
         acc = accuracy_score(labels, preds)
-        f1  = f1_score(labels, preds, average='macro')
+        # Thêm zero_division=0 để tránh cảnh báo log khi class quá hiếm
+        f1  = f1_score(labels, preds, average='macro', zero_division=0)
 
+        auc = 0.0
         try:
             probs_array = np.array(probs)
             num_classes = probs_array.shape[1] if len(probs_array.shape) > 1 else 1
@@ -107,11 +114,68 @@ class ModelTrainer:
             if num_classes == 2:
                 auc = roc_auc_score(labels, probs_array[:, 1])
             else:
-                auc = roc_auc_score(labels, probs_array, multi_class='ovr')
-        except ValueError:
+                # TÍNH THỦ CÔNG OVR-AUC CHO CÁC CLASS TỒN TẠI TRONG TẬP DỮ LIỆU
+                present_classes = np.unique(labels)
+                auc_scores = []
+                for c in present_classes:
+                    # Tạo nhãn nhị phân: 1 nếu là class c, 0 nếu là class khác
+                    y_true_binary = (np.array(labels) == c).astype(int)
+                    
+                    # Chỉ tính AUC nếu class này có cả mẫu True và False
+                    if len(np.unique(y_true_binary)) == 2:
+                        class_auc = roc_auc_score(y_true_binary, probs_array[:, c])
+                        auc_scores.append(class_auc)
+                
+                # Trả về trung bình AUC của các class hợp lệ
+                if auc_scores:
+                    auc = np.mean(auc_scores)
+                    
+        except Exception as e:
+            print(f"⚠️ Cảnh báo lỗi tính AUC: {e}")
             auc = 0.0
 
         return acc, f1, auc
+    def inspect_model_with_gradcam(self, num_species=10, samples_per_species=5):
+        print(f"👁️ Đang tạo {num_species*samples_per_species} ảnh Grad-CAM để bạn kiểm tra...")
+        self.model.eval()
+        
+        # Gom ảnh theo class từ tập Test
+        class_to_images = {}
+        with torch.no_grad():
+            for inputs, labels in self.test_loader:
+                for i in range(inputs.size(0)):
+                    lbl = labels[i].item()
+                    if lbl not in class_to_images: class_to_images[lbl] = []
+                    if len(class_to_images[lbl]) < samples_per_species:
+                        class_to_images[lbl].append(inputs[i])
+        
+        # Chọn 10 loài ngẫu nhiên
+        available_classes = list(class_to_images.keys())
+        selected_classes = random.sample(available_classes, min(num_species, len(available_classes)))
+        
+        target_layers = [self.model.layer4[-1]]
+        cam = GradCAM(model=self.model, target_layers=target_layers)
+        
+        inspect_dir = self.results_dir / "inspection_gradcam"
+        inspect_dir.mkdir(parents=True, exist_ok=True)
+
+        for cls_idx in selected_classes:
+            cls_name = self.class_names[cls_idx].replace(" ", "_").replace(",", "")
+            cls_path = inspect_dir / cls_name
+            cls_path.mkdir(exist_ok=True)
+            
+            for i, img_tensor in enumerate(class_to_images[cls_idx]):
+                input_batch = img_tensor.unsqueeze(0).to(self.device)
+                grayscale_cam = cam(input_tensor=input_batch, targets=None)[0, :]
+                
+                # Giải chuẩn hóa ảnh
+                img_np = img_tensor.cpu().numpy().transpose(1, 2, 0)
+                img_np = np.clip(img_np * np.array([0.229, 0.224, 0.225]) + np.array([0.485, 0.456, 0.406]), 0, 1)
+                
+                vis = show_cam_on_image(img_np, grayscale_cam, use_rgb=True)
+                plt.imsave(cls_path / f"sample_{i+1}.png", vis)
+        
+        print(f"✅ Đã lưu ảnh kiểm tra tại: {inspect_dir}")
     # ----------------------------------------------------------------
     # TRAIN EPOCH (ĐÃ TẮT MIXUP)
     # ----------------------------------------------------------------

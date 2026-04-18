@@ -1,11 +1,13 @@
 import torch
-import torch.optim as optim
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
+from src.models.model_mobilenet import build_mobilenetv2_model
 from src.models.model_resnet import build_resnet50_model
 from src.utils.loss import FocalLoss
 from src.utils.train import ModelTrainer
 from src.data.preprocess import RareAnimalPipeline
+import matplotlib
+matplotlib.use('Agg')
 
 
 def main():
@@ -24,58 +26,61 @@ def main():
     )
     result = pipeline.run()
 
-    train_loader  = result['train_loader']
-    val_loader    = result['val_loader']
-    test_loader   = result['test_loader']
-    class_names   = result['class_names']
-    NUM_CLASSES   = result['num_classes']
+    train_loader = result['train_loader']
+    val_loader   = result['val_loader']
+    test_loader  = result['test_loader']
+    class_names  = result['class_names']
+    NUM_CLASSES  = result['num_classes']
 
     # ----------------------------------------------------------------
-    # [YÊU CẦU 4a] Nhận class_weights từ pipeline và chuyển lên device
+    # Nhận class_weights từ pipeline và chuyển lên device
     # class_weights là Tensor [num_classes] tính bằng effective_num:
-    #   - class 600 ảnh → weight ~0.1 (phạt nhẹ)
-    #   - class 3 ảnh   → weight ~10+ (buff mạnh)
+    #   - class nhiều ảnh → weight nhỏ (phạt nhẹ)
+    #   - class ít ảnh   → weight lớn (buff mạnh)
     # ----------------------------------------------------------------
     class_weights = result['class_weights'].to(device)
     print(f"✅ Class weights: min={class_weights.min():.3f}, max={class_weights.max():.3f}")
 
     # ----------------------------------------------------------------
-    # [YÊU CẦU 4a] Truyền class_weights Tensor vào FocalLoss
+    # Truyền class_weights Tensor vào FocalLoss
     # Kết hợp focal mechanism + class weighting = double protection
-    # cho class cực hiếm (3-9 ảnh)
     # ----------------------------------------------------------------
-    criterion = FocalLoss(alpha=class_weights, gamma=2.0)
+    criterion = FocalLoss(alpha=class_weights, gamma=2)  # [YÊU CẦU 4] gamma=0.5 để giảm bớt hiệu ứng triệt tiêu của focal loss
 
     # ----------------------------------------------------------------
-    # Bước 2: Khởi tạo model (layer4 + FC đã unfreeze, layer1-3 frozen)
+    # Bước 2: Khởi tạo model
+    # [YÊU CẦU 2] features[0-14] frozen, features[15-18] + classifier unfreeze
     # ----------------------------------------------------------------
-    print(f"🧠 Đang khởi tạo ResNet50 cho {NUM_CLASSES} classes...")
+    print(f"🧠 Đang khởi tạo MobileNetV2 cho {NUM_CLASSES} classes...")
+    # model = build_mobilenetv2_model(num_classes=NUM_CLASSES, pretrained=True)
     model = build_resnet50_model(num_classes=NUM_CLASSES, pretrained=True)
     model = model.to(device)
 
     # ----------------------------------------------------------------
-    # [YÊU CẦU 4b] Chỉ truyền params có requires_grad=True vào Optimizer
-    # Lý do: Tránh lãng phí memory/compute tính gradient cho frozen layers
-    # Lọc: layer4 (~8.4M params) + fc (~2M params) = ~10M params được train
+    # Chỉ truyền params có requires_grad=True vào Optimizer
+    # Tránh lãng phí memory/compute tính gradient cho frozen layers
     # ----------------------------------------------------------------
     trainable_params = [p for p in model.parameters() if p.requires_grad]
     print(f"🔧 Số param được optimize: {sum(p.numel() for p in trainable_params):,}")
 
     # ----------------------------------------------------------------
-    # [YÊU CẦU 4b] AdamW thay Adam:
-    # - weight_decay=1e-2: L2 regularization decoupled từ gradient update
+    # [YÊU CẦU 5] AdamW với weight_decay=0.01 (sửa từ 0.7 → 0.01)
+    # - weight_decay=0.01: L2 regularization decoupled từ gradient update
     #   (Adam chuẩn implement weight decay sai → AdamW fix điều này)
-    # - Giúp penalize trọng số lớn → chống overfit thêm một lớp nữa
+    # - 0.7 là giá trị cũ sai lầm — quá lớn sẽ penalize weights cực mạnh
+    #   khiến model không học được (gradient bị triệt tiêu bởi decay)
     # ----------------------------------------------------------------
-    optimizer = optim.AdamW(trainable_params, lr=5e-5, weight_decay=1e-3)
+    optimizer = torch.optim.AdamW(
+        filter(lambda p: p.requires_grad, model.parameters()),
+        lr=1e-4,
+        weight_decay=0.01   # [YÊU CẦU 5] Đã sửa từ 0.7 → 0.01
+    )
 
     # ----------------------------------------------------------------
-    # [YÊU CẦU 4c] ReduceLROnPlateau Scheduler:
+    # ReduceLROnPlateau Scheduler:
     # - mode='min': theo dõi val_loss, giảm LR khi val_loss không cải thiện
-    # - factor=0.5: LR mới = LR cũ * 0.5 (giảm một nửa)
-    # - patience=3: chờ 3 epoch không cải thiện mới giảm LR
-    # Tác dụng: Khi model bắt đầu overfit (val_loss tăng/đi ngang),
-    #           LR giảm để model "bước nhỏ hơn" → thoát local minima
+    # - factor=0.5: LR mới = LR cũ * 0.5
+    # - patience=2: chờ 2 epoch không cải thiện mới giảm LR
     # ----------------------------------------------------------------
     scheduler = ReduceLROnPlateau(
         optimizer,
@@ -87,6 +92,9 @@ def main():
 
     # ----------------------------------------------------------------
     # Bước 3: Training
+    # [YÊU CẦU 5] ModelTrainer.fit() sẽ:
+    #   - Vòng lặp epoch: chỉ chạy train + val
+    #   - Sau khi xong: load best model → test 1 lần duy nhất
     # ----------------------------------------------------------------
     print("🚀 Bắt đầu huấn luyện...")
     trainer = ModelTrainer(
@@ -96,7 +104,7 @@ def main():
         test_loader=test_loader,
         criterion=criterion,
         optimizer=optimizer,
-        scheduler=scheduler,     
+        scheduler=scheduler,
         device=device,
         class_names=class_names
     )

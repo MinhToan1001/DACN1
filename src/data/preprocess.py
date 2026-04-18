@@ -40,10 +40,10 @@ class DatasetAnalyzer:
         self.data_dir = Path(data_dir)
         self.class_counts: Dict[str, int] = {}
         self.tier_config = {
-            "critical": (0, 10),     # Cực hiếm: 0-10 ảnh
-            "rare": (10, 50),        # Hiếm: 10-50 ảnh
-            "medium": (50, 200),     # Trung bình: 50-200 ảnh
-            "abundant": (200, 9999)  # Nhiều: >200 ảnh
+            "critical": (0, 10),
+            "rare": (10, 50),
+            "medium": (50, 200),
+            "abundant": (200, 9999)
         }
 
     def analyze(self) -> Dict:
@@ -57,7 +57,6 @@ class DatasetAnalyzer:
                          list(class_dir.glob("*.png"))
                 self.class_counts[class_dir.name] = len(images)
 
-        # Tính toán thống kê
         counts = list(self.class_counts.values())
         stats = {
             "total_classes": len(self.class_counts),
@@ -79,7 +78,6 @@ class DatasetAnalyzer:
         return stats
 
     def _classify_tiers(self) -> Dict[str, List[str]]:
-        """Phân loại lớp theo số lượng ảnh."""
         tiers = {tier: [] for tier in self.tier_config}
         for cls, count in self.class_counts.items():
             for tier, (lo, hi) in self.tier_config.items():
@@ -89,10 +87,6 @@ class DatasetAnalyzer:
         return {k: v for k, v in tiers.items() if v}
 
     def plot_distribution(self, save_path: str = "class_distribution.png"):
-        """
-        Vẽ biểu đồ phân phối dữ liệu (long-tail visualization).
-        Sắp xếp theo thứ tự giảm dần để thấy rõ long-tail.
-        """
         sorted_items = sorted(self.class_counts.items(), key=lambda x: x[1], reverse=True)
         classes, counts = zip(*sorted_items)
 
@@ -147,13 +141,10 @@ class DatasetAnalyzer:
 
 class TieredAugmentationStrategy:
     """
-    Chiến lược augmentation khác nhau theo từng tier.
-
-    [YÊU CẦU 1] Đã làm sạch các augmentation làm méo đặc trưng sinh học:
-    - XÓA: RandomGrayscale, RandomPerspective, RandomRotation(45)
-    - THAY bằng: RandomResizedCrop(scale=(0.8,1.0)), RandomHorizontalFlip(0.5),
-                 ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2)
-    - Áp dụng nhất quán cho TẤT CẢ các tier để bảo toàn ngữ nghĩa sinh học
+    [YÊU CẦU 1] Chiến lược augmentation theo từng tier:
+    - Train: RandomResizedCrop + RandomHorizontalFlip + ColorJitter + tier extras
+    - Val/Test: Resize(256) + CenterCrop(224) — KHÔNG dùng augmentation ngẫu nhiên
+    MixUp KHÔNG được thực hiện ở đây — chỉ xử lý trong train_epoch của ModelTrainer.
     """
 
     def __init__(self, image_size: int = 224):
@@ -165,15 +156,21 @@ class TieredAugmentationStrategy:
         imagenet_mean = [0.485, 0.456, 0.406]
         imagenet_std  = [0.229, 0.224, 0.225]
 
+        # ----------------------------------------------------------------
+        # [YÊU CẦU 1] Val/Test: chỉ Resize + CenterCrop — không augmentation
+        # Resize về 256 trước để CenterCrop(224) lấy vùng trung tâm rõ nét hơn
+        # so với Resize thẳng về 224.
+        # ----------------------------------------------------------------
         if not is_train:
             return T.Compose([
-                T.Resize((self.image_size, self.image_size)),
+                T.Resize(256),
+                T.CenterCrop(self.image_size),
                 T.ToTensor(),
                 T.Normalize(mean=imagenet_mean, std=imagenet_std)
             ])
 
         # ----------------------------------------------------------------
-        # BASE: RandomResizedCrop thay thế Resize+RandomCrop cũ.
+        # [YÊU CẦU 1] Train: RandomResizedCrop + RandomHorizontalFlip + ColorJitter
         # scale=(0.8, 1.0) đảm bảo không cắt quá nhiều, tránh mất chi tiết
         # đặc trưng của động vật hiếm (vân, màu sắc đặc thù).
         # ----------------------------------------------------------------
@@ -187,27 +184,24 @@ class TieredAugmentationStrategy:
         tensor_augments = []
 
         if tier == "critical":
-            # Cực hiếm: thêm GaussianBlur để tăng diversity nhẹ
-            # KHÔNG dùng Grayscale/Perspective/Rotation lớn vì sẽ xóa đặc điểm nhận dạng
             pil_augments = [
                 T.GaussianBlur(kernel_size=3, sigma=(0.1, 1.0)),
             ]
             tensor_augments = [T.RandomErasing(p=0.2, scale=(0.02, 0.10))]
 
         elif tier == "rare":
-            # Hiếm: thêm GaussianBlur nhẹ
             pil_augments = [
                 T.GaussianBlur(kernel_size=3, sigma=(0.1, 0.8)),
             ]
             tensor_augments = [T.RandomErasing(p=0.15, scale=(0.02, 0.08))]
 
         elif tier == "medium":
-            # Trung bình: chỉ dùng base transforms
             pil_augments = []
+            tensor_augments = []
 
         else:  # abundant
-            # Nhiều ảnh: chỉ base transforms, ưu tiên chống overfit
             pil_augments = []
+            tensor_augments = []
 
         return T.Compose(
             base +
@@ -221,7 +215,8 @@ class TieredAugmentationStrategy:
 class MixUpAugmentation:
     """
     MixUp - trộn 2 ảnh theo tỷ lệ beta để tăng generalization.
-    Đặc biệt hiệu quả cho các lớp ít dữ liệu.
+    Chỉ được áp dụng trong train_epoch của ModelTrainer.
+    TUYỆT ĐỐI KHÔNG áp dụng cho Val/Test.
     Tham khảo: Zhang et al. (2018) - "mixup: Beyond Empirical Risk Minimization"
     """
 
@@ -230,7 +225,7 @@ class MixUpAugmentation:
 
     def __call__(self, x1: torch.Tensor, y1: torch.Tensor,
                  x2: torch.Tensor, y2: torch.Tensor) -> Tuple:
-        lam = np.random.beta(self.alpha, self.alpha)
+        lam = float(np.random.beta(self.alpha, self.alpha))
         x_mixed = lam * x1 + (1 - lam) * x2
         return x_mixed, y1, y2, lam
 
@@ -347,6 +342,11 @@ class RareAnimalDataset(Dataset):
 # ============================================================
 
 class StratifiedDataSplitter:
+    """
+    [YÊU CẦU 1] Đảm bảo stratify=labels được sử dụng ở cả 2 lần split
+    để phân phối class đồng đều giữa Train / Val / Test.
+    """
+
     def __init__(self,
                  train_ratio: float = 0.70,
                  val_ratio: float = 0.15,
@@ -384,19 +384,26 @@ class StratifiedDataSplitter:
             all_paths.extend([str(p) for p in images])
             all_labels.extend([idx] * len(images))
 
+        # ----------------------------------------------------------------
+        # [YÊU CẦU 1] Lần split 1: Train vs (Val + Test), dùng stratify=all_labels
+        # ----------------------------------------------------------------
         train_paths, temp_paths, train_labels, temp_labels = train_test_split(
             all_paths, all_labels,
             test_size=(self.val_ratio + self.test_ratio),
-            stratify=all_labels,
+            stratify=all_labels,          # <-- BẮT BUỘC stratify
             random_state=self.seed
         )
 
+        # ----------------------------------------------------------------
+        # [YÊU CẦU 1] Lần split 2: Val vs Test, cũng dùng stratify=temp_labels
+        # Fallback về stratify=None nếu có class quá ít ảnh trong temp set.
+        # ----------------------------------------------------------------
         val_ratio_of_temp = self.val_ratio / (self.val_ratio + self.test_ratio)
         try:
             val_paths, test_paths, val_labels, test_labels = train_test_split(
                 temp_paths, temp_labels,
                 test_size=(1.0 - val_ratio_of_temp),
-                stratify=temp_labels,
+                stratify=temp_labels,     # <-- BẮT BUỘC stratify
                 random_state=self.seed
             )
         except ValueError:
@@ -432,7 +439,7 @@ class FocalLoss(nn.Module):
     def __init__(self, alpha: Optional[torch.Tensor] = None,
                  gamma: float = 2.0, reduction: str = "mean"):
         super().__init__()
-        self.alpha = alpha  # Tensor shape [num_classes]
+        self.alpha = alpha
         self.gamma = gamma
         self.reduction = reduction
 
@@ -660,7 +667,7 @@ class RareAnimalPipeline:
         self.tier_map = self._build_tier_map()
         self._log_tier_recommendations()
 
-        # Bước 4: Tách dataset
+        # Bước 4: Tách dataset (có stratify=labels)
         train_data, val_data, test_data, class_names = self.splitter.split(self.data_dir)
         self.class_names = class_names
 
@@ -672,17 +679,19 @@ class RareAnimalPipeline:
         test_labels  = [l for _, l in test_data]
 
         # Bước 5: Tạo Datasets
+        # [YÊU CẦU 1] Train dùng is_train=True (augmentation đầy đủ)
+        # Val/Test dùng is_train=False (chỉ Resize + CenterCrop)
         train_dataset = RareAnimalDataset(
             train_paths, train_labels, class_names, self.tier_map,
             self.aug_strategy, is_train=True
         )
         val_dataset = RareAnimalDataset(
             val_paths, val_labels, class_names, self.tier_map,
-            self.aug_strategy, is_train=False
+            self.aug_strategy, is_train=False    # <-- KHÔNG augmentation
         )
         test_dataset = RareAnimalDataset(
             test_paths, test_labels, class_names, self.tier_map,
-            self.aug_strategy, is_train=False
+            self.aug_strategy, is_train=False    # <-- KHÔNG augmentation
         )
 
         # Bước 6: Tạo DataLoaders
@@ -716,7 +725,7 @@ class RareAnimalPipeline:
             pin_memory=torch.cuda.is_available()
         )
 
-        # Bước 7: Tính class weights (trả về raw Tensor để app.py tự truyền vào FocalLoss)
+        # Bước 7: Tính class weights
         class_weights = compute_class_weights(
             self.analyzer.class_counts, method="effective_num"
         )
@@ -730,7 +739,7 @@ class RareAnimalPipeline:
             "test_loader": test_loader,
             "class_names": class_names,
             "num_classes": len(class_names),
-            "class_weights": class_weights,   # <-- Tensor [num_classes], dùng cho FocalLoss
+            "class_weights": class_weights,
             "tier_map": self.tier_map,
             "stats": self.stats,
             "quality": quality_result,

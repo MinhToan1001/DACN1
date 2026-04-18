@@ -2,3 +2,9 @@ images/
 *.rar
 *.zip
 *.pt
+*.pth
+*.h5
+*.log
+*.csv
+*.json
+*.pyc

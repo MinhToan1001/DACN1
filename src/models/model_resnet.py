@@ -48,7 +48,13 @@ def build_resnet50_model(num_classes: int, pretrained: bool = True) -> nn.Module
     # Đây là layer học các đặc trưng phức tạp nhất → cần fine-tune cho
     # domain động vật quý hiếm (khác xa ImageNet)
     # ----------------------------------------------------------------
+    for param in model.layer3.parameters():
+        param.requires_grad = True
+
     for param in model.layer4.parameters():
+        param.requires_grad = True
+
+    for param in model.fc.parameters():
         param.requires_grad = True
 
     # ----------------------------------------------------------------

@@ -157,13 +157,24 @@ class ModelTrainer:
     # TRAIN EPOCH — có MixUp (alpha=0.2)
     # ----------------------------------------------------------------
     #cutmix 
-    def rand_bbox(self, size, lam):
+    def rand_bbox(self, size, lam, max_ratio=0.4):
         """
         Hàm hỗ trợ cho CutMix: Tính toán tọa độ hộp (bounding box) để cắt dán.
+        [ĐÃ SỬA]: Thêm max_ratio để giới hạn diện tích vùng cắt, giúp CutMix nhẹ hơn.
         """
         W = size[2]
         H = size[3]
+        
+        # Tính tỷ lệ cần cắt dựa trên lambda
         cut_rat = np.sqrt(1. - lam)
+        
+        # -----------------------------------------------------
+        # [QUAN TRỌNG] Ép tỷ lệ cắt không được vượt quá max_ratio
+        # Nếu max_ratio = 0.4, hộp dán đè sẽ không quá 40% chiều ngang/dọc 
+        # (nghĩa là diện tích dán đè tối đa chỉ khoảng 16% toàn bức ảnh).
+        # -----------------------------------------------------
+        cut_rat = min(cut_rat, max_ratio)
+        
         cut_w = int(W * cut_rat)
         cut_h = int(H * cut_rat)
 
@@ -176,6 +187,8 @@ class ModelTrainer:
         bby1 = np.clip(cy - cut_h // 2, 0, H)
         bbx2 = np.clip(cx + cut_w // 2, 0, W)
         bby2 = np.clip(cy + cut_h // 2, 0, H)
+
+        return bbx1, bby1, bbx2, bby2
 
         return bbx1, bby1, bbx2, bby2
     def train_epoch(self, epoch, use_aug=False):
@@ -291,9 +304,9 @@ class ModelTrainer:
         - Sau khi kết thúc huấn luyện: load best_model.pth → evaluate(test_loader) 1 lần
         """
         history = {
-                    'train_loss': [], 'train_acc': [], 'train_f1': [], 'train_prec': [], 'train_rec': [],
-                    'val_loss':   [], 'val_acc':   [], 'val_f1':   [], 'val_prec':   [], 'val_rec':   [],
-                }
+            'train_loss': [], 'train_acc': [], 'train_f1': [], 'train_prec': [], 'train_rec': [],
+            'val_loss':   [], 'val_acc':   [], 'val_f1':   [], 'val_prec':   [], 'val_rec':   [],
+        }
         best_f1    = 0.0
         best_epoch = 0
         best_model_path = self.model_dir / "best_animal_model.pt"
@@ -304,15 +317,14 @@ class ModelTrainer:
             # ----------------------------------------------------------------
             # CHIẾN THUẬT CURRICULUM LEARNING (Tự động chuyển đổi)
             # - Epoch 0 đến 4 (< 5): False (Học trên ảnh gốc)
-            # - Epoch 5 trở đi (>= 5): True (Bật MixUp tạo nhiễu)
+            # - Epoch 5 trở đi (>= 5): True (Bật CutMix tạo nhiễu)
             # ----------------------------------------------------------------
-            is_aug = True
+            is_aug = epoch >= 5  # Sửa lại thành logic tự động thay vì fix cứng True
             
-            # [QUAN TRỌNG] Đã thêm tham số use_mixup=is_mixup vào đây
             t_loss, t_acc, t_f1, t_prec, t_rec, _, _ = self.train_epoch(epoch, use_aug=is_aug)
             v_loss, v_acc, v_f1, v_prec, v_rec, _, _ = self.evaluate(self.val_loader, desc="Validating")
 
-# Lưu vào history (Đã thay AUC bằng Precision và Recall)
+            # Lưu vào history
             history['train_loss'].append(t_loss)
             history['train_acc'].append(t_acc)
             history['train_f1'].append(t_f1)
@@ -355,34 +367,37 @@ class ModelTrainer:
         print(f"\n⏳ Đang load best model từ Epoch {best_epoch} để đánh giá Test Set...")
         self.model.load_state_dict(torch.load(best_model_path, map_location=self.device))
 
-        test_loss, test_acc, test_f1, test_auc, y_true_test, y_pred_test = \
+        # Đã cập nhật hứng 7 biến
+        test_loss, test_acc, test_f1, test_prec, test_rec, y_true_test, y_pred_test = \
             self.evaluate(self.test_loader, desc="Testing (Final)")
 
         print(f"\n{'='*55}")
         print(f"  KẾT QUẢ CUỐI CÙNG TRÊN TẬP TEST (Best Epoch {best_epoch})")
         print(f"{'='*55}")
-        print(f"  Loss: {test_loss:.4f}")
-        print(f"  Acc:  {test_acc:.4f}")
-        print(f"  AUC:  {test_auc:.4f}")
-        print(f"  F1:   {test_f1:.4f}")
+        print(f"  Loss:      {test_loss:.4f}")
+        print(f"  Accuracy:  {test_acc:.4f}")
+        print(f"  Precision: {test_prec:.4f}")
+        print(f"  Recall:    {test_rec:.4f}")
+        print(f"  F1-Score:  {test_f1:.4f}")
         print(f"{'='*55}")
 
         # ----------------------------------------------------------------
-        # VẼ BIỂU ĐỒ KÈM TẬP TEST Ở CUỐI CÙNG 
-        # (Truyền test_metrics vào plot_metrics)
+        # VẼ BIỂU ĐỒ VÀ LƯU KẾT QUẢ
         # ----------------------------------------------------------------
         test_metrics = {'acc': test_acc, 'loss': test_loss}
         self.plot_metrics(history, epochs, test_metrics=test_metrics)
         
-        self.save_results_json(history, best_epoch, best_f1, test_acc, test_f1, test_auc)
+        # Lưu JSON với các chỉ số mới
+        self.save_results_json(history, best_epoch, best_f1, test_acc, test_f1, test_prec, test_rec)
 
         # Confusion Matrix cho 3 tập (dùng best model đã load)
         print("\n⏳ Đang tạo Confusion Matrix từ Best Model...")
 
-        _, _, _, _, y_true_train, y_pred_train = self.evaluate(self.train_loader, desc="CM Train")
+        # Đã cập nhật 5 dấu gạch dưới (_) để hứng đúng y_true và y_pred
+        _, _, _, _, _, y_true_train, y_pred_train = self.evaluate(self.train_loader, desc="CM Train")
         self.plot_and_save_cm(y_true_train, y_pred_train, "train")
 
-        _, _, _, _, y_true_val, y_pred_val = self.evaluate(self.val_loader, desc="CM Val")
+        _, _, _, _, _, y_true_val, y_pred_val = self.evaluate(self.val_loader, desc="CM Val")
         self.plot_and_save_cm(y_true_val, y_pred_val, "val")
 
         self.plot_and_save_cm(y_true_test, y_pred_test, "test")

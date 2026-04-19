@@ -70,11 +70,12 @@ def main():
     # - 0.7 là giá trị cũ sai lầm — quá lớn sẽ penalize weights cực mạnh
     #   khiến model không học được (gradient bị triệt tiêu bởi decay)
     # ----------------------------------------------------------------
-    optimizer = torch.optim.AdamW(
-        filter(lambda p: p.requires_grad, model.parameters()),
-        lr=1e-4,
-        weight_decay=0.01   # [YÊU CẦU 5] Đã sửa từ 0.7 → 0.01
-    )
+# Khai báo tốc độ học riêng cho từng layer đã mở khóa
+    optimizer = torch.optim.AdamW([
+        {'params': model.layer3.parameters(), 'lr': 1e-5}, # Học chậm để giữ đặc trưng
+        {'params': model.layer4.parameters(), 'lr': 5e-5}, # Học vừa phải
+        {'params': model.fc.parameters(),     'lr': 1e-4}  # Học nhanh nhất cho output 103 class
+    ], weight_decay=0.01) # Vẫn giữ đúng weight_decay của bạn
 
     # ----------------------------------------------------------------
     # ReduceLROnPlateau Scheduler:

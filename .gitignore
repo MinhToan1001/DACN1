@@ -8,3 +8,4 @@ images/
 *.csv
 *.json
 *.pyc
+results/

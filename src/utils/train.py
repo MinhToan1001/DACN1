@@ -209,7 +209,7 @@ class ModelTrainer:
                 # ÁP DỤNG CUTMIX
                 # -----------------------------------------------------
                 # 1. Lấy tỷ lệ random (CutMix thường dùng alpha=1.0)
-                lam = np.random.beta(0.3, 0.3)
+                lam = np.random.beta(0.4, 0.4)
                 index = torch.randperm(inputs.size(0)).to(self.device)
                 
                 labels_a = labels
@@ -319,7 +319,7 @@ class ModelTrainer:
             # - Epoch 0 đến 4 (< 5): False (Học trên ảnh gốc)
             # - Epoch 5 trở đi (>= 5): True (Bật CutMix tạo nhiễu)
             # ----------------------------------------------------------------
-            is_aug = epoch >= 5  # Sửa lại thành logic tự động thay vì fix cứng True
+            is_aug = True  # Sửa lại thành logic tự động thay vì fix cứng True
             
             t_loss, t_acc, t_f1, t_prec, t_rec, _, _ = self.train_epoch(epoch, use_aug=is_aug)
             v_loss, v_acc, v_f1, v_prec, v_rec, _, _ = self.evaluate(self.val_loader, desc="Validating")

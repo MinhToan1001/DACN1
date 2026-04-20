@@ -4,7 +4,6 @@
 Dự án này là một hệ thống Trí tuệ nhân tạo lai (Hybrid AI) tham vọng, kết hợp 3 nhánh kiến thức chuyên sâu để giải quyết bài toán định danh động vật hoang dã và tư vấn khung hình phạt pháp lý tại Việt Nam:
 1. **Deep Learning (Perception):** Đóng vai trò là "Mắt thần" giúp nhận diện và trích xuất đặc trưng sinh học của loài động vật từ hình ảnh.
 2. **Hệ chuyên gia - Expert System (Reasoning):** Đóng vai trò là "Bộ não pháp lý", sử dụng tập luật để suy diễn từ dữ liệu sinh học ra khung hình phạt chuẩn xác.
-3. **Reinforcement Learning (Action/Policy):** Đóng vai trò là "Điều phối viên", tối ưu hóa quá trình hội thoại để linh hoạt đặt câu hỏi và thu thập thông tin còn thiếu từ người dùng.
 
 ---
 
@@ -14,7 +13,7 @@ Dự án này là một hệ thống Trí tuệ nhân tạo lai (Hybrid AI) tham
 - [x] **Bước 3:** Xây dựng Cơ sở tri thức pháp lý (Knowledge Base Extraction).
 - [ ] **Bước 4:** Tiền xử lý & Tăng cường dữ liệu ảnh (Image Preprocessing & Augmentation).
 - [ ] **Bước 5:** Huấn luyện mô hình Deep Learning  ResNet.
-- [ ] **Bước 6:** Tích hợp Hệ chuyên gia & RL Agent.
+- [ ] **Bước 6:** Tích hợp Hệ chuyên gia
 
 ---
 
@@ -63,13 +62,7 @@ Biến file JSON thành cỗ máy logic để tra cứu luật và đối chiế
 Script Inference Engine: D:\hoctap\HK6\DACN1\src\expert_system\inference_engine.py
 Chạy suy diễn tiến (Forward Chaining). Nhận các từ khóa chuẩn (như "mai_mau_den", "dau_co_soc") để tăng dần Hệ số chắc chắn (Certainty Factor - CF). Khi CF > 80%, tự động xuất ra khung hình phạt.
 
-### Bước 7: Huấn luyện Tác tử Reinforcement Learning bằng DQN 
-Đây là phần cốt lõi của môn RL. Tác tử này không sinh ra câu chữ, nó chỉ sinh ra Quyết định (Action ID).
-
-Script RL Environment & Training: D:\hoctap\HK6\DACN1\src\rl_agent\train_dqn.py
-Nhận đầu vào là trạng thái thiếu hụt thông tin. Đầu ra là một mã lệnh (Ví dụ: Action_ID = 2 tương ứng với "Yêu cầu cung cấp thông tin màu sắc mai rùa").
-
-### Bước 8: Tích hợp Hệ thống & Xử lý Ngôn ngữ bằng Gemini API
+### Bước 7: Tích hợp Hệ thống & Xử lý Ngôn ngữ bằng Gemini API
 Đây là bước kết nối tất cả và giao tiếp với người dùng. Gemini API được gọi trong phần Backend làm cầu nối (Middleware) để dịch qua lại giữa "Ngôn ngữ máy" và "Ngôn ngữ người".
 
 Script Backend / API Chính: D:\hoctap\HK6\DACN1\src\app\main_controller.py

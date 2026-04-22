@@ -2,6 +2,7 @@ import torch
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from src.models.model_mobilenet import build_mobilenetv2_model
+from src.models.model_efficientnet import build_efficientnet_b3_model
 from src.models.model_resnet import build_resnet50_model
 from src.utils.loss import FocalLoss
 from src.utils.train import ModelTrainer
@@ -11,6 +12,13 @@ matplotlib.use('Agg')
 
 
 def main():
+    # ================================================================
+    # [CẤU HÌNH KIẾN TRÚC]
+    # Hãy đổi giá trị này thành tên model bạn muốn train luân phiên:
+    # Lựa chọn: "resnet50", "efficientnet_b3", "mobilenetv2"
+    # ================================================================
+    MODEL_TO_TRAIN = "efficientnet_b3"  
+    
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     EPOCHS = 20
 
@@ -48,34 +56,49 @@ def main():
     criterion = FocalLoss(alpha=class_weights, gamma=2)  # [YÊU CẦU 4] gamma=0.5 để giảm bớt hiệu ứng triệt tiêu của focal loss
 
     # ----------------------------------------------------------------
-    # Bước 2: Khởi tạo model
-    # [YÊU CẦU 2] features[0-14] frozen, features[15-18] + classifier unfreeze
+    # Bước 2: Khởi tạo model và Optimizer động theo lựa chọn
     # ----------------------------------------------------------------
-    print(f"🧠 Đang khởi tạo MobileNetV2 cho {NUM_CLASSES} classes...")
-    # model = build_mobilenetv2_model(num_classes=NUM_CLASSES, pretrained=True)
-    model = build_resnet50_model(num_classes=NUM_CLASSES, pretrained=True)
-    model = model.to(device)
+    if MODEL_TO_TRAIN == "efficientnet_b3":
+        print(f"🧠 Đang khởi tạo EfficientNet-B3 cho {NUM_CLASSES} classes...")
+        model = build_efficientnet_b3_model(num_classes=NUM_CLASSES, pretrained=True)
+        model = model.to(device)
+        
+        optimizer = torch.optim.AdamW([
+            {'params': model.features[6].parameters(), 'lr': 1e-5},
+            {'params': model.features[7].parameters(), 'lr': 3e-5},
+            {'params': model.features[8].parameters(), 'lr': 5e-5},
+            {'params': model.classifier.parameters(),  'lr': 1e-4}
+        ], weight_decay=0.01)
+
+    elif MODEL_TO_TRAIN == "resnet50":
+        print(f"🧠 Đang khởi tạo ResNet50 cho {NUM_CLASSES} classes...")
+        model = build_resnet50_model(num_classes=NUM_CLASSES, pretrained=True)
+        model = model.to(device)
+
+        optimizer = torch.optim.AdamW([
+            {'params': model.layer3.parameters(), 'lr': 1e-5},
+            {'params': model.layer4.parameters(), 'lr': 5e-5},
+            {'params': model.fc.parameters(),     'lr': 1e-4}
+        ], weight_decay=0.01)
+        
+    elif MODEL_TO_TRAIN == "mobilenetv2":
+        print(f"🧠 Đang khởi tạo MobileNetV2 cho {NUM_CLASSES} classes...")
+        model = build_mobilenetv2_model(num_classes=NUM_CLASSES, pretrained=True)
+        model = model.to(device)
+        
+        # Chỉ định unfreeze phần backend của MobileNet
+        optimizer = torch.optim.AdamW([
+            {'params': model.features[15:].parameters(), 'lr': 5e-5}, 
+            {'params': model.classifier.parameters(),   'lr': 1e-4}
+        ], weight_decay=0.01)
+    else:
+        raise ValueError(f"Không hỗ trợ mô hình '{MODEL_TO_TRAIN}'. Hãy chọn resnet50, efficientnet_b3, hoặc mobilenetv2.")
 
     # ----------------------------------------------------------------
-    # Chỉ truyền params có requires_grad=True vào Optimizer
-    # Tránh lãng phí memory/compute tính gradient cho frozen layers
+    # Chỉ truyền params có requires_grad=True (Chỉ để in log, do optimizer đã nạp ở trên)
     # ----------------------------------------------------------------
     trainable_params = [p for p in model.parameters() if p.requires_grad]
     print(f"🔧 Số param được optimize: {sum(p.numel() for p in trainable_params):,}")
-
-    # ----------------------------------------------------------------
-    # [YÊU CẦU 5] AdamW với weight_decay=0.01 (sửa từ 0.7 → 0.01)
-    # - weight_decay=0.01: L2 regularization decoupled từ gradient update
-    #   (Adam chuẩn implement weight decay sai → AdamW fix điều này)
-    # - 0.7 là giá trị cũ sai lầm — quá lớn sẽ penalize weights cực mạnh
-    #   khiến model không học được (gradient bị triệt tiêu bởi decay)
-    # ----------------------------------------------------------------
-# Khai báo tốc độ học riêng cho từng layer đã mở khóa
-    optimizer = torch.optim.AdamW([
-        {'params': model.layer3.parameters(), 'lr': 1e-5}, # Học chậm để giữ đặc trưng
-        {'params': model.layer4.parameters(), 'lr': 5e-5}, # Học vừa phải
-        {'params': model.fc.parameters(),     'lr': 1e-4}  # Học nhanh nhất cho output 103 class
-    ], weight_decay=0.01) # Vẫn giữ đúng weight_decay của bạn
 
     # ----------------------------------------------------------------
     # ReduceLROnPlateau Scheduler:

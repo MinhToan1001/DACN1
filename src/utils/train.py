@@ -80,8 +80,15 @@ class ModelTrainer:
         available_classes = list(class_to_images.keys())
         selected_classes = random.sample(available_classes, min(num_species, len(available_classes)))
 
-        # MobileNetV2: target layer cuối trong features
-        target_layers = [self.model.features[-1]]
+        # Tự động chọn target layer cho Grad-CAM dựa trên kiến trúc
+        if hasattr(self.model, "layer4"): # ResNet
+            target_layers = [self.model.layer4[-1]]
+        elif hasattr(self.model, "features"): # EfficientNet, MobileNet
+            target_layers = [self.model.features[-1]]
+        else:
+            print("⚠️ Cảnh báo: Không tìm thấy lớp đặc trưng chuẩn cho Grad-CAM trên model này.")
+            return
+
         cam = GradCAM(model=self.model, target_layers=target_layers)
 
         inspect_dir = self.results_dir / "inspection_gradcam"
@@ -127,8 +134,14 @@ class ModelTrainer:
                 label_idx = labels[idx].item()
                 class_name = self.class_names[label_idx] if self.class_names else str(label_idx)
 
-                # Grad-CAM cho MobileNetV2
-                target_layers = [self.model.layer4[-1]]
+                # Tự động chọn target layer cho Grad-CAM dựa trên kiến trúc
+                if hasattr(self.model, "layer4"): # ResNet
+                    target_layers = [self.model.layer4[-1]]
+                elif hasattr(self.model, "features"): # EfficientNet, MobileNet
+                    target_layers = [self.model.features[-1]]
+                else:
+                    return # Bỏ quả nếu không map được
+
                 cam = GradCAM(model=self.model, target_layers=target_layers)
                 grayscale_cam = cam(input_tensor=input_tensor, targets=None)[0, :]
 

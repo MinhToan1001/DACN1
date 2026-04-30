@@ -1,287 +1,202 @@
-import streamlit as st
-import torch
-import torchvision.transforms as transforms
-from PIL import Image
-import json
 import os
-import torch.nn.functional as F
+import json
+import torch
+import torch.nn as nn
+from torchvision import transforms
+from PIL import Image
+import io
+from flask import Flask, render_template, request, jsonify, send_from_directory
+from torchvision.models import resnet50
+from src.chatbot import ForestryChatbot
 
-# Import hàm build model từ source code của bạn (dựa theo app.py bạn cung cấp)
-from src.models.model_mobilenet import build_mobilenetv2_model
+try:
+    from src.legal.generate_legal_form import LegalFormGenerator, GENERATED_FORMS_DIR
+except ImportError:
+    from src.legal.generate_legal_form import LegalFormGenerator, GENERATED_FORMS_DIR
 
-# ==========================================
-# CẤU HÌNH ĐƯỜNG DẪN & THÔNG SỐ
-# ==========================================
-# Cách 1: Dùng Raw String (thêm chữ r)
-MODEL_DIR = r"D:\HocTap\HK6\DACN1\models"
-MODEL_FILENAME = "best_animal_model.pt" 
-MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
+from src.knowledge import ExpertSystem
 
-RULEBASE_PATH = "D:/HocTap/HK6/DACN1/rules/animal_rulebase.json"
-BIOLOGICAL_PATH = "D:/HocTap/HK6/DACN1/rules/species_biological_features.json"
+app = Flask(__name__)
+GEMINI_API_KEY = "AIzaSyAQ0JxRzH8bsI2i8B8_QWU_Qn9bcz32tW4" 
+chatbot = ForestryChatbot(api_key=GEMINI_API_KEY)
+BASE_PATH = r"D:\HocTap\HK6\DACN1"
+RULES_PATH = os.path.join(BASE_PATH, "rules")
+MODELS_PATH = os.path.join(BASE_PATH, "models")
+MODEL_PATH = os.path.join(MODELS_PATH, "best_animal_model.pt")
+CLASS_NAMES_PATH = os.path.join(MODELS_PATH, "class_names.json")
 
-# Cấu hình giao diện Streamlit
-st.set_page_config(page_title="Phân Loại Động Vật Quý Hiếm", layout="wide")
+form_gen = LegalFormGenerator()
+expert_system = ExpertSystem(RULES_PATH)
 
-# ==========================================
-# CÁC HÀM TẢI DỮ LIỆU & MODEL (Dùng Cache để tối ưu)
-# ==========================================
-@st.cache_resource
-@st.cache_resource
-def load_model_and_classes():
-    # 1. Khai báo trực tiếp tên các folder chứa ảnh lúc bạn train
-    # ⚠️ LƯU Ý QUAN TRỌNG: Bạn PHẢI sắp xếp tên các loài theo đúng thứ tự Alphabet (A-Z) 
-    # vì mặc định PyTorch DataLoader (ImageFolder) sẽ đọc folder theo thứ tự chữ cái.
-    class_names = [
-        'actias_selene',
-        'ahaetulla_prasina',
-        'amolops',
-        'anas_platyrhynchos_domesticus',
-        'anthracoceros_albirostris',
-        'aquila_nipalensis',
-        'arborophila_davidi',
-        'arctictis_binturong',
-        'berenicornis_comatus',
-        'birgus_latro',
-        'bos_gaurus',
-        'bos_taurus',
-        'bubalus_bubalis',
-        'buceros_bicornis',
-        'canis_familiaris',
-        'capra_hircus',
-        'capricornis_milneedwardsii',
-        'catopuma_temminckii',
-        'cervus_nippon',
-        'charonia_tritonis',
-        'chelonia_mydas',
-        'chrotogale_owstoni',
-        'ciconia_episcopus',
-        'columba_punicea',
-        'copsychus_malabaricus',
-        'crocodylus_siamensis',
-        'cuon_alpinus',
-        'cuora_galbinifrons',
-        'dermochelys_coriacea',
-        'dorcus_curvidens',
-        'dugong_dugon',
-        'egretta_eulophotes',
-        'elephas_maximus',
-        'equus_caballus',
-        'eretmochelys_imbricata',
-        'eurylaimus_javanicus',
-        'eutropis_multifasciata',
-        'falco_peregrinus',
-        'felis_catus',
-        'gallus_gallus_domesticus',
-        'garrulax_milleti',
-        'garrulax_yersini',
-        'gekko_badenii',
-        'gekko_gecko',
-        'gracula_religiosa',
-        'grus_antigone',
-        'harpactes_erythrocephalus',
-        'helarctos_malayanus',
-        'hylarana',
-        'hystrix_brachyura',
-        'indotestudo_elongata',
-        'kaloula_pulchra',
-        'ketupa_zeylonensis',
-        'leptoptilos_javanicus',
-        'lethocerus_indicus',
-        'lophura_diardi',
-        'loriculus_vernalis',
-        'lutra_lutra',
-        'macaca_arctoides',
-        'manis_javanica',
-        'meleagris_gallopavo',
-        'melopsittacus_undulatus',
-        'neofelis_nebulosa',
-        'nomascus_leucogenys',
-        'nycticebus_pygmaeus',
-        'ophiophagus_hannah',
-        'oryctolagus_cuniculus',
-        'otis_bengalensis',
-        'ovis_aries',
-        'palea_steindachneri',
-        'panthera_tigris',
-        'panulirus_ornatus',
-        'paramesotriton_deloustali',
-        'pavo_muticus',
-        'pelecanus_philippensis',
-        'pelochelys_cantorii',
-        'petaurista_philippensis',
-        'physignathus_cocincinus',
-        'pitta_nympha',
-        'platalea_minor',
-        'platysternon_megacephalum',
-        'polyplectron_bicalcaratum',
-        'prionailurus_bengalensis',
-        'prionodon_pardicolor',
-        'psittacula_alexandri',
-        'pteropus_vampyrus',
-        'ptyas_mucosa',
-        'pygathrix_nemaeus',
-        'python_bivittatus',
-        'ratufa_bicolor',
-        'rheinardia_ocellata',
-        'rhinopithecus_avunculus',
-        'rusa_unicolor',
-        'shinisaurus_crocodilurus',
-        'spilornis_cheela',
-        'sus_domesticus',
-        'tachypleus_tridentatus',
-        'teinopalpus_aureus',
-        'theloderma_corticale',
-        'troides_helena',
-        'tyto_alba',
-        'ursus_thibetanus',
-        'varanus_salvator',
-    ]
-    
-    num_classes = len(class_names)
-    
-    # 2. Khởi tạo model
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = build_mobilenetv2_model(num_classes=num_classes)
-    
-    # 3. Load weights từ file .pth
-# 3. Load weights từ file .pth
-    
-    # --- ĐOẠN CODE DEBUG THÊM VÀO ---
-    st.warning(f"Đang tìm model tại chính xác đường dẫn này: {MODEL_PATH}")
-    if os.path.exists(MODEL_DIR):
-        files_in_dir = os.listdir(MODEL_DIR)
-        st.info(f"Các file thực tế đang có trong thư mục models gồm: {files_in_dir}")
-    else:
-        st.error(f"Thư mục {MODEL_DIR} hoàn toàn không tồn tại!")
-    # ---------------------------------
 
-    if os.path.exists(MODEL_PATH):
-        model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
-        st.success("✅ Đã load model thành công!")
-    else:
-        st.error(f"❌ Vẫn không tìm thấy model tại {MODEL_PATH}")
+def load_class_names():
+    if not os.path.exists(CLASS_NAMES_PATH):
+        raise FileNotFoundError(f"Không tìm thấy file {CLASS_NAMES_PATH}")
+    with open(CLASS_NAMES_PATH, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+CLASS_NAMES = load_class_names()
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def load_trained_model():
+    model = resnet50(weights=None)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Sequential(
+        nn.Dropout(p=0.5),
+        nn.Linear(num_ftrs, 512),
+        nn.ReLU(),
+        nn.Dropout(p=0.5),
+        nn.Linear(512, len(CLASS_NAMES))
+    )
+    model.load_state_dict(torch.load(MODEL_PATH, map_location=device, weights_only=True))
     model.to(device)
     model.eval()
-    
-    # QUAN TRỌNG NHẤT LÀ DÒNG NÀY (Trả về kết quả):
-    return model, class_names, device
+    return model
 
-@st.cache_data
-def load_json_data():
-    # Load Rulebase
-    with open(RULEBASE_PATH, 'r', encoding='utf-8') as f:
-        rulebase = json.load(f)
-        
-    # Load Biological Features
-    with open(BIOLOGICAL_PATH, 'r', encoding='utf-8') as f:
-        bio_list = json.load(f)
-        # Chuyển list thành dict với key là scientific_name để tra cứu cho nhanh O(1)
-        biological = {item["scientific_name"]: item for item in bio_list}
-        
-    return rulebase, biological
 
-# ==========================================
-# HÀM DỰ ĐOÁN
-# ==========================================
-def predict_image(image, model, class_names, device):
-    # Pipeline biến đổi ảnh (giống với lúc train)
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-    
-    img_tensor = transform(image).unsqueeze(0).to(device)
-    
+model = load_trained_model()
+
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
+
+
+# ============================================================
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+# ============================================================
+# DEBUG: Xem cấu trúc JSON của một loài bất kỳ
+# Gọi: GET /debug_species?name=Ophiophagus+hannah
+# ============================================================
+@app.route('/debug_species')
+def debug_species():
+    name = request.args.get("name", "")
+    if not name:
+        return jsonify({"error": "Provide ?name=scientific_name"})
+    bio, legal = expert_system.kb.get_species_data(name)
+    feats = expert_system.kb.get_identification_features(name)
+    questions = expert_system.kb.get_adaptive_questions(name, 0.60)
+    return jsonify({
+        "bio_keys": list(bio.keys()),
+        "bio_sample": {k: str(v)[:120] for k, v in bio.items()},
+        "feats": feats,
+        "questions_preview": questions,
+        "legal_keys": list(legal.keys()),
+    })
+
+
+# ============================================================
+@app.route('/predict', methods=['POST'])
+def predict():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file"}), 400
+
+    file = request.files['file']
+    img_bytes = file.read()
+    image = Image.open(io.BytesIO(img_bytes)).convert('RGB')
+
+    input_tensor = transform(image).unsqueeze(0).to(device)
     with torch.no_grad():
-        outputs = model(img_tensor)
-        probs = F.softmax(outputs, dim=1)
-        confidence, predicted_idx = torch.max(probs, 1)
-        
-    sci_name = class_names[predicted_idx.item()]
-    conf_score = confidence.item() * 100
+        outputs = model(input_tensor)
+        probabilities = torch.nn.functional.softmax(outputs[0], dim=0)
+        conf, idx = torch.max(probabilities, 0)
+
+    predicted_species = CLASS_NAMES[idx.item()].replace('_', ' ')
+    raw_conf = conf.item()
+
+    print(f"[PREDICT] species={predicted_species}  raw_conf={raw_conf:.4f}")
+
+    es_result = expert_system.initial_predict(predicted_species, raw_conf)
+    es_result["raw_confidence"] = round(raw_conf, 6)
+    return jsonify(es_result)
+
+
+# ============================================================
+@app.route('/answer_question', methods=['POST'])
+def answer_question():
+    """
+    Body JSON:
+    {
+      "species": "Ophiophagus hannah",
+      "current_confidence": 0.72,
+      "answered": {"dac_diem_phan_biet": true, "mo_ta_ngoai_hinh": false}
+    }
+    """
+    data = request.json
+    species = data.get("species")
+    current_conf = float(data.get("current_confidence", 0.5))
+    answered = {k: bool(v) for k, v in data.get("answered", {}).items()}
+
+    if not species:
+        return jsonify({"error": "Missing species"}), 400
+
+    print(f"[ANSWER] species={species}  cf={current_conf:.4f}  answered={answered}")
+    result = expert_system.process_answer(species, current_conf, answered)
+    return jsonify(result)
+
+
+# ============================================================
+@app.route('/generate_legal_doc', methods=['POST'])
+def generate_legal_doc():
+    data = request.json
+    form_data = {
+        "ten_loai_tieng_anh": data.get('species_name'),
+        "ten_viet_nam": data.get('vietnamese_name'),
+        "nhom_phap_ly": data.get('legal_group'),
+        "ngay_thang_nam": "Ngày ... tháng ... năm 2026"
+    }
+    filename = f"Don_Ban_Giao_{data.get('species_name','species').replace(' ', '_')}.docx"
+    file_path = form_gen.generate_form("mau_don_tu_nguyen.txt", form_data, filename)
+    if file_path:
+        return jsonify({"status": "success", "download_url": f"/download_form/{file_path}"})
+    return jsonify({"status": "error", "message": "Failed to create file"}), 500
+
+
+@app.route('/preview_legal_form', methods=['POST'])
+def preview_legal_form():
+    data = request.json
+    form_data = {
+        "ten_loai_tieng_anh": data.get('species_name'),
+        "ten_viet_nam": data.get('vietnamese_name'),
+        "nhom_phap_ly": data.get('legal_group'),
+        "ngay_thang_nam": "Ngày ... tháng ... năm 2026"
+    }
+    content = form_gen.preview_form("mau_don_tu_nguyen.txt", form_data)
+    if content:
+        return jsonify({"status": "success", "content": content})
+    return jsonify({"status": "error", "message": "Không tìm thấy mẫu đơn"}), 500
+
+
+@app.route('/download_form/<filename>')
+def download_form(filename):
+    folder = str(GENERATED_FORMS_DIR)
+    if os.path.exists(os.path.join(folder, filename)):
+        return send_from_directory(directory=folder, path=filename, as_attachment=True)
+    return "Không tìm thấy file", 404
+@app.route('/chat', methods=['POST'])
+def chat_api():
+    """API Endpoint cho giao diện Chatbot"""
+    data = request.get_json()
     
-    return sci_name, conf_score
-
-# ==========================================
-# XÂY DỰNG GIAO DIỆN CHÍNH
-# ==========================================
-def main():
-    # Sidebar
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Menu", ["Prediction", "Analytics", "Settings"])
+    if not data or 'message' not in data:
+        return jsonify({"reply": "Dữ liệu không hợp lệ."}), 400
+        
+    user_message = data.get('message', '').strip()
     
-    # Load data & model
-    model, class_names, device = load_model_and_classes()
-    rulebase_data, bio_data = load_json_data()
+    if not user_message:
+        return jsonify({"reply": "Xin lỗi, tôi không nghe rõ câu hỏi."})
 
-    if page == "Prediction":
-        st.title("Phân Loại Động Vật Quý Hiếm")
-        
-        # Upload ảnh
-        uploaded_file = st.file_uploader("Kéo thả hoặc tải ảnh lên tại đây (Drag and drop file here)", type=["png", "jpg", "jpeg"])
-        
-        if uploaded_file is not None:
-            # Layout 2 cột như trong hình
-            col1, col2 = st.columns([1, 1])
-            
-            image = Image.open(uploaded_file).convert("RGB")
-            
-            with col1:
-                st.markdown("### Preview")
-                st.image(image, use_column_width=True)
-                
-            # Chạy dự đoán
-            sci_name, conf_score = predict_image(image, model, class_names, device)
-            
-            # Lấy thông tin từ JSON
-            animal_rules = rulebase_data.get(sci_name, {})
-            animal_bio = bio_data.get(sci_name, {})
-            common_name = animal_rules.get("common_name", animal_bio.get("ten_viet_nam", "Đang cập nhật..."))
+    # Gọi service xử lý
+    reply_text = chatbot.get_response(user_message)
+    
+    return jsonify({"reply": reply_text})
 
-            with col2:
-                st.markdown("### Kết quả chẩn đoán:")
-                # Thẻ kết quả
-                st.success(f"""
-                **Tên khoa học:** {sci_name}  
-                **Tên thông thường:** {common_name}  
-                **Độ tin cậy:** {conf_score:.2f}%
-                """)
-            
-            st.markdown("---")
-            
-            # Tabs hiển thị chi tiết (như trong hình mẫu)
-            tab1, tab2 = st.tabs(["🧬 Đặc điểm sinh học", "⚖️ Quy định pháp luật"])
-            
-            with tab1:
-                if animal_bio:
-                    st.markdown(f"**Tên Việt Nam:** {animal_bio.get('ten_viet_nam', '')}")
-                    dac_diem = animal_bio.get("dac_diem_nhan_dang", {})
-                    st.markdown(f"**Mô tả ngoại hình:** {dac_diem.get('mo_ta_ngoai_hinh', 'N/A')}")
-                    st.markdown(f"**Thức ăn:** {dac_diem.get('thuc_an', 'N/A')}")
-                    st.markdown(f"**Tập tính:** {dac_diem.get('tap_tinh', 'N/A')}")
-                    st.markdown(f"**Sinh thái:** {dac_diem.get('sinh_thai', 'N/A')}")
-                else:
-                    st.warning("Không tìm thấy thông tin sinh học cho loài này trong cơ sở dữ liệu.")
-                    
-            with tab2:
-                if animal_rules:
-                    st.markdown(f"**Nhóm pháp lý:** {animal_rules.get('legal_group', 'N/A')}")
-                    legal_adv = animal_rules.get("legal_advice", {})
-                    st.markdown(f"**Tên nhóm:** {legal_adv.get('group_name', 'N/A')}")
-                    
-                    st.markdown("**Các khung hình phạt hình sự:**")
-                    penalties = legal_adv.get("criminal_penalties", {})
-                    for khung, details in penalties.items():
-                        st.markdown(f"- **{khung.replace('_', ' ')}**")
-                        if isinstance(details, list):
-                            for d in details:
-                                st.markdown(f"  + {d}")
-                        else:
-                            st.markdown(f"  + {details}")
-                else:
-                    st.warning("Không tìm thấy quy định pháp luật cho loài này trong cơ sở dữ liệu.")
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)

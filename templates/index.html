@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pháp Lý Động Vật - AI Expert System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --g1: #0d3320; --g2: #145c36; --g3: #1e8050;
+  --accent: #f0a500; --danger: #dc3545; --info: #1565c0;
+  --surface: #fff; --bg: #eef3ef;
+  --border: #ccddd4; --text: #12251a; --muted: #5a7a66;
+  --radius: 14px; --shadow: 0 6px 28px rgba(13,51,32,.10);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); font-family: 'Be Vietnam Pro', sans-serif; color: var(--text); }
+
+/* ── HEADER ── */
+.app-header {
+  background: linear-gradient(120deg, var(--g1) 0%, var(--g2) 55%, var(--g3) 100%);
+  padding: 22px 0 18px; box-shadow: 0 3px 18px rgba(0,0,0,.22);
+}
+.app-header h1 { font-size: 1.45rem; font-weight: 800; color: #fff; letter-spacing: .04em; }
+.app-header .sub { font-size: .76rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .1em; margin-top: 3px; }
+.hbadge { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); color: #fff; font-size: .68rem; font-weight: 700; padding: 3px 11px; border-radius: 99px; letter-spacing: .06em; }
+
+/* ── UPLOAD ── */
+.upload-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; border: 1px solid var(--border); }
+.upload-zone {
+  border: 2.5px dashed var(--border); border-radius: 12px; height: 260px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; overflow: hidden; position: relative; background: #f6fbf7;
+  transition: border-color .2s, background .2s;
+}
+.upload-zone:hover { border-color: var(--g3); background: #edf7f0; }
+.upload-zone img { width: 100%; height: 100%; object-fit: cover; }
+.upload-icon { font-size: 2.5rem; color: var(--g3); margin-bottom: 8px; }
+.upload-text { color: var(--muted); font-size: .88rem; font-weight: 500; }
+.btn-predict {
+  background: linear-gradient(135deg, var(--g2) 0%, var(--g3) 100%);
+  color: #fff; border: none; border-radius: 10px; padding: 12px;
+  font-size: .92rem; font-weight: 700; letter-spacing: .05em; width: 100%; margin-top: 14px;
+  cursor: pointer; box-shadow: 0 3px 12px rgba(30,128,80,.25); transition: opacity .2s, transform .1s;
+}
+.btn-predict:hover { opacity: .9; transform: translateY(-1px); }
+.btn-predict:disabled { opacity: .65; transform: none; }
+
+/* ── CONFIDENCE BAR ── */
+.cf-bar-wrap { height: 8px; background: rgba(255,255,255,.2); border-radius: 99px; overflow: hidden; margin: 6px 0 3px; min-width: 140px; }
+.cf-bar-fill  { height: 100%; border-radius: 99px; transition: width .6s cubic-bezier(.4,0,.2,1), background .4s; }
+.cf-label { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: rgba(255,255,255,.72); margin-top: 2px; }
+
+/* ── STATUS BADGE ── */
+.sbadge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 99px; font-size: .72rem; font-weight: 700; letter-spacing: .05em; }
+.sb-success { background: rgba(30,128,80,.18); color: #d0fce8; border: 1px solid rgba(30,128,80,.3); }
+.sb-asking  { background: rgba(21,101,192,.22); color: #bbdefb; border: 1px solid rgba(21,101,192,.35); }
+.sb-danger  { background: rgba(220,53,69,.18);  color: #ffd7db; border: 1px solid rgba(220,53,69,.3); }
+.sb-cf      { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.25); font-family: 'JetBrains Mono', monospace; }
+
+/* ── RESULT HERO ── */
+.result-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.result-hero {
+  background: linear-gradient(120deg, var(--g1) 0%, var(--g2) 60%, #1a6040 100%);
+  padding: 28px 32px; color: #fff; display: flex; gap: 24px; align-items: flex-start;
+}
+.result-hero img { width: 108px; height: 108px; object-fit: cover; border-radius: 12px; border: 3px solid rgba(255,255,255,.2); flex-shrink: 0; }
+.hero-info { flex: 1; min-width: 0; }
+.hero-info h2 { font-size: 1.55rem; font-weight: 800; margin: 6px 0 2px; }
+.hero-info .sci { font-style: italic; font-size: .85rem; opacity: .7; margin-bottom: 10px; }
+
+/* ── INFO GRID ── */
+.info-section { padding: 24px 28px; }
+.info-section h6 { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; display: flex; align-items: center; gap: 6px; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.info-block { background: #f5f9f6; border-radius: 10px; padding: 14px 16px; border: 1px solid var(--border); }
+.info-block.full { grid-column: 1 / -1; }
+.info-block .lbl { font-size: .68rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+.info-block .val { font-size: .86rem; line-height: 1.6; color: var(--text); }
+.info-block .val.empty { color: #b0bcb5; font-style: italic; }
+
+/* ── LEGAL ── */
+.legal-section { padding: 0 28px 24px; }
+.legal-group-box { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 10px; font-weight: 800; font-size: 1rem; }
+.lg-ib   { background: #fde8e8; color: #b71c1c; border: 2px solid #f5c6c6; }
+.lg-iia  { background: #fff3cd; color: #856404; border: 2px solid #ffc107; }
+.lg-none { background: #e8f5e9; color: var(--g2); border: 2px solid #a5d6a7; }
+
+.penalty-wrap { margin-top: 14px; }
+.penalty-title { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: var(--danger); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.penalty-item { background: #fff8f8; border-left: 4px solid var(--danger); border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 8px; }
+.penalty-item strong { display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--danger); margin-bottom: 4px; }
+.penalty-item p { font-size: .83rem; line-height: 1.55; margin: 0; color: var(--text); }
+
+/* ── FORM ACTIONS ── */
+.form-actions { padding: 0 28px 24px; display: flex; gap: 12px; }
+.btn-outline-green { flex: 1; padding: 11px; border-radius: 10px; font-size: .85rem; font-weight: 700; border: 2px solid var(--g3); color: var(--g3); background: transparent; cursor: pointer; transition: all .15s; }
+.btn-outline-green:hover { background: var(--g3); color: #fff; }
+.btn-solid-green { flex: 1; padding: 11px; border-radius: 10px; font-size: .85rem; font-weight: 700; border: 2px solid var(--g2); background: var(--g2); color: #fff; cursor: pointer; transition: all .15s; }
+.btn-solid-green:hover { background: var(--g1); border-color: var(--g1); }
+
+/* ── Q&A CARD ── */
+.qa-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.qa-header {
+  background: linear-gradient(90deg, #0d2d6b 0%, var(--info) 100%);
+  padding: 20px 26px; color: #fff;
+}
+.qa-header h5 { font-size: .98rem; font-weight: 700; margin: 0 0 4px; }
+.qa-header p  { font-size: .8rem; opacity: .85; margin: 0; line-height: 1.5; }
+.qa-species { font-size: .82rem; margin-top: 8px; opacity: .8; }
+.qa-species strong { font-weight: 700; }
+.qa-species em { font-style: italic; }
+
+/* Progress dots */
+.qdots { display: flex; gap: 6px; padding: 14px 26px 0; }
+.qdot  { width: 9px; height: 9px; border-radius: 50%; background: #dde8f5; transition: background .3s; }
+.qdot.yes { background: var(--g3); }
+.qdot.no  { background: var(--danger); }
+.qdot.cur { background: var(--info); box-shadow: 0 0 0 2px rgba(21,101,192,.3); }
+
+/* Question items */
+.q-item { padding: 20px 26px; border-bottom: 1px solid #f0f4f0; }
+.q-item:last-child { border-bottom: none; }
+.q-item.done { background: #f9fbf9; opacity: .72; }
+.q-lbl { font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+.q-text { font-size: .93rem; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.4; }
+.q-detail {
+  font-size: .84rem; color: var(--text); background: #f0f8f3;
+  border-left: 3px solid var(--g3); padding: 10px 14px;
+  border-radius: 0 8px 8px 0; margin-bottom: 14px; line-height: 1.6;
+  max-height: 120px; overflow-y: auto;
+}
+.q-detail.has-text { white-space: pre-line; }
+.q-btns { display: flex; gap: 10px; }
+.btn-yes, .btn-no {
+  flex: 1; padding: 10px; border-radius: 8px; font-size: .87rem; font-weight: 700;
+  border: 2px solid transparent; cursor: pointer; transition: all .15s;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.btn-yes { background: #e6f4ec; color: var(--g2); border-color: #a8d5b5; }
+.btn-yes:hover, .btn-yes.active { background: var(--g3); color: #fff; border-color: var(--g3); }
+.btn-no  { background: #fdecea; color: var(--danger); border-color: #f5b8b8; }
+.btn-no:hover, .btn-no.active  { background: var(--danger); color: #fff; border-color: var(--danger); }
+.btn-yes:disabled, .btn-no:disabled { opacity: .6; cursor: default; }
+
+.cf-hint { font-family: 'JetBrains Mono', monospace; font-size: .7rem; margin-top: 8px; color: var(--muted); }
+.cf-hint .plus  { color: var(--g3); font-weight: 700; }
+.cf-hint .minus { color: var(--danger); font-weight: 700; }
+
+/* ── REJECTED ── */
+.rejected-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px; text-align: center; border: 2px solid #f5c6c6; }
+.rejected-icon  { font-size: 3rem; color: var(--danger); margin-bottom: 14px; }
+.rejected-title { font-size: 1.25rem; font-weight: 800; color: var(--danger); margin-bottom: 10px; }
+.rejected-msg   { font-size: .88rem; color: var(--muted); max-width: 480px; margin: 0 auto; }
+
+/* ── CF LIVE UPDATE ── */
+.cf-live-bar {
+  background: #e3edf5; border-radius: 99px; height: 6px; overflow: hidden; margin: 8px 26px 0;
+}
+.cf-live-fill { height: 100%; border-radius: 99px; transition: width .5s, background .4s; }
+
+/* ── MODAL ── */
+#previewContent { white-space: pre-wrap; font-family: 'JetBrains Mono', monospace; font-size: .8rem; line-height: 1.6; max-height: 60vh; overflow-y: auto; }
+
+@media (max-width: 768px) {
+  .result-hero { flex-direction: column; }
+  .info-grid { grid-template-columns: 1fr; }
+  .info-block.full { grid-column: 1; }
+  .form-actions { flex-direction: column; }
+}
+/* ================= CHATBOT STYLES ================= */
+#chat-fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--g3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+#chat-fab:hover {
+  transform: scale(1.1);
+  background-color: var(--g2);
+}
+#chat-window {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  max-width: 90vw;
+  height: 500px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+#chat-window.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.chat-header {
+  background-color: var(--g1);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.chat-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+.chat-message.bot {
+  background-color: white;
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.chat-message.user {
+  background-color: var(--g3);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.chat-footer {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+}
+.chat-footer input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  outline: none;
+}
+.chat-footer input:focus {
+  border-color: var(--g3);
+}
+.chat-footer button {
+  background-color: var(--g3);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.chat-footer button:hover {
+  background-color: var(--g2);
+}
+.typing-indicator {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  display: none;
+  padding-left: 10px;
+}
+</style>
+</head>
+<body>
+<div id="chat-fab" onclick="toggleChat()">
+  <i class="fa-solid fa-robot"></i>
+</div>
+
+<div id="chat-window">
+  <div class="chat-header">
+    <span><i class="fa-solid fa-leaf me-2"></i> Trợ lý Kiểm lâm</span>
+    <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-message bot">
+      Chào bạn! Tôi là Trợ lý AI Kiểm lâm. Tôi có thể giúp gì cho bạn về động vật hoang dã hoặc thủ tục pháp lý hôm nay?
+    </div>
+    <div class="typing-indicator" id="chat-typing">Đang trả lời...</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="chat-input" placeholder="Nhập câu hỏi của bạn..." onkeypress="handleChatKeyPress(event)">
+    <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
+<!-- HEADER -->
+<div class="app-header">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <div>
+        <h1><i class="fas fa-paw me-2"></i>Pháp Lý & Nhận Dạng Động Vật AI</h1>
+        <div class="sub">Hệ chuyên gia · Fuzzy Logic · MYCIN CF</div>
+      </div>
+      <span class="hbadge">Expert System v2</span>
+    </div>
+  </div>
+</div>
+
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+
+      <!-- UPLOAD -->
+      <div class="upload-card mb-4">
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+          <input type="file" id="fileInput" style="display:none" accept="image/*">
+          <div id="uploadPrompt" class="text-center">
+            <div class="upload-icon"><i class="fas fa-camera-retro"></i></div>
+            <div class="upload-text">Bấm để tải ảnh con vật lên</div>
+            <div style="font-size:.75rem;color:#aaa;margin-top:4px;">JPG · PNG · WEBP</div>
+          </div>
+          <img id="imagePreview" style="display:none">
+        </div>
+        <button class="btn-predict" id="btnPredict">
+          <i class="fas fa-search me-2"></i>BẮT ĐẦU NHẬN DIỆN
+        </button>
+      </div>
+
+      <!-- DYNAMIC AREA -->
+      <div id="dynamicArea"></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL XEM TRƯỚC ĐƠN -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header" style="background:var(--g2);color:#fff;">
+        <h5 class="modal-title"><i class="fas fa-file-alt me-2"></i>Mẫu đơn đã điền tự động</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <pre id="previewContent" class="bg-light p-4 border rounded shadow-sm"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button id="modalDownloadBtn" class="btn btn-success"><i class="fas fa-download me-2"></i>Tạo file & Tải xuống</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   STATE
+============================================================ */
+const S = {
+  species: null, vn_name: null,
+  rawConf: 0, currentConf: 0,
+  answered: {},          // { id: true/false }
+  allQuestions: [],      // danh sách câu hỏi đầy đủ từ server
+  currentData: null,
+  imageUrl: null,
+};
+
+/* ============================================================
+   FILE INPUT
+============================================================ */
+document.getElementById('fileInput').onchange = () => {
+  const f = document.getElementById('fileInput').files[0];
+  if (!f) return;
+  S.imageUrl = URL.createObjectURL(f);
+  document.getElementById('imagePreview').src = S.imageUrl;
+  document.getElementById('imagePreview').style.display = 'block';
+  document.getElementById('uploadPrompt').style.display = 'none';
+};
+
+/* ============================================================
+   PREDICT
+============================================================ */
+document.getElementById('btnPredict').onclick = async () => {
+  const file = document.getElementById('fileInput').files[0];
+  if (!file) { alert('Vui lòng chọn ảnh!'); return; }
+
+  const btn = document.getElementById('btnPredict');
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Đang phân tích...';
+  btn.disabled = true;
+
+  const fd = new FormData();
+  fd.append('file', file);
+
+  try {
+    const res  = await fetch('/predict', { method: 'POST', body: fd });
+    const data = await res.json();
+
+    // Reset state
+    S.species      = data.species;
+    S.vn_name      = data.vietnamese_name;
+    S.rawConf      = data.raw_confidence || (data.confidence / 100);
+    S.currentConf  = S.rawConf;
+    S.answered     = {};
+    S.allQuestions = data.questions || [];
+    S.currentData  = data;
+
+    renderResult(data);
+    document.getElementById('dynamicArea').scrollIntoView({ behavior: 'smooth' });
+
+  } catch (e) {
+    console.error(e);
+    alert('Lỗi kết nối server!');
+  } finally {
+    btn.innerHTML = '<i class="fas fa-search me-2"></i>BẮT ĐẦU NHẬN DIỆN';
+    btn.disabled  = false;
+  }
+};
+
+/* ============================================================
+   RENDER DISPATCH
+============================================================ */
+function renderResult(data) {
+  const area = document.getElementById('dynamicArea');
+  if      (data.status === 'SUCCESS')  { S.currentData = data; area.innerHTML = buildSuccess(data); attachFormListeners(); }
+  else if (data.status === 'ASKING')   { S.allQuestions = data.questions || S.allQuestions; area.innerHTML = buildAsking(data); }
+  else if (data.status === 'REJECTED') { area.innerHTML = buildRejected(data); }
+}
+
+/* ============================================================
+   CONFIDENCE HELPERS
+============================================================ */
+function cfColor(pct) {
+  if (pct >= 90) return '#1e8050';
+  if (pct >= 60) return '#f0a500';
+  if (pct >= 31) return '#1565c0';
+  return '#dc3545';
+}
+function cfBar(pct, light = false) {
+  const bg = light ? 'rgba(255,255,255,.2)' : '#dde8f5';
+  const fill = cfColor(pct);
+  const lbl  = light ? 'color:rgba(255,255,255,.75)' : 'color:#5a7a66';
+  return `
+    <div class="cf-bar-wrap" style="background:${bg};">
+      <div class="cf-bar-fill" style="width:${Math.round(pct)}%;background:${fill};"></div>
+    </div>
+    <div class="cf-label" style="${lbl};font-family:'JetBrains Mono',monospace;font-size:.7rem;margin-top:2px;">
+      ${Math.round(pct)}% confidence
+    </div>`;
+}
+
+/* ============================================================
+   BUILD SUCCESS
+============================================================ */
+function buildSuccess(d) {
+  /* --- Lấy đặc điểm sinh học, hỗ trợ cả nested lẫn flat --- */
+  const bio   = d.biology || {};
+  const feats = bio.dac_diem_nhan_dang || bio;   // nested hoặc flat
+
+  function getField(...keys) {
+    for (const k of keys) {
+      const v = feats[k] || bio[k];
+      if (v && typeof v === 'string' && v.trim() && !v.includes('Chưa có')) return v.trim();
+    }
+    return '';
+  }
+
+  const ngoaiHinh  = getField('mo_ta_ngoai_hinh','ngoai_hinh','appearance','morphology','mo_ta');
+  const thucAn     = getField('thuc_an','diet','food');
+  const tapTinh    = getField('tap_tinh','behavior','behaviour');
+  const sinhThai   = getField('sinh_thai','habitat','ecology','moi_truong');
+  const phanBo     = getField('phan_bo_viet_nam','phan_bo','distribution','range');
+  const dacDiem    = getField('dac_diem_phan_biet','distinguishing_features','key_features','dac_trung');
+  const vn_name    = d.vietnamese_name || S.vn_name || 'Chưa rõ';
+
+  /* --- Pháp lý --- */
+  const legal = d.legal || {};
+  const legalGroup = d.inferred_legal_group
+    || legal.nhom_phap_ly || legal.legal_group
+    || legal.legal_advice?.group_name || 'Không thuộc danh mục bảo tồn';
+
+  const lgCls = /IA|IB/.test(legalGroup) ? 'lg-ib' :
+                /IIA|IIB|II/.test(legalGroup) ? 'lg-iia' : 'lg-none';
+  const lgIcon = /IA|IB/.test(legalGroup) ? 'fa-shield-alt' : /II/.test(legalGroup) ? 'fa-exclamation-circle' : 'fa-check-circle';
+
+  const penalties = legal?.legal_advice?.criminal_penalties || {};
+  let penHTML = Object.keys(penalties).length ? '' :
+    `<div class="penalty-item"><p style="color:#666;font-style:italic;">Không có dữ liệu mức phạt cụ thể.</p></div>`;
+  for (const [k, v] of Object.entries(penalties)) {
+    const txt = Array.isArray(v) ? v.join('\n• ') : String(v);
+    penHTML += `<div class="penalty-item"><strong>${k.replace(/_/g,' ')}</strong><p>• ${txt}</p></div>`;
+  }
+
+  const showForm = /I/.test(legalGroup);
+
+  const infoRow = (icon, lbl, val, full=false) => `
+    <div class="info-block ${full?'full':''}">
+      <div class="lbl">${icon} ${lbl}</div>
+      <div class="val ${val?'':'empty'}">${val || 'Chưa có dữ liệu trong hệ thống'}</div>
+    </div>`;
+
+  return `
+  <div class="result-card mb-4">
+    <!-- HERO -->
+    <div class="result-hero">
+      ${S.imageUrl ? `<img src="${S.imageUrl}" alt="specimen">` : ''}
+      <div class="hero-info">
+        <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
+          <span class="sbadge sb-success"><i class="fas fa-check-circle"></i>XÁC NHẬN THÀNH CÔNG</span>
+          <span class="sbadge sb-cf">${Math.round(d.confidence)}%</span>
+        </div>
+        <h2>${vn_name}</h2>
+        <div class="sci">${d.species}</div>
+        ${cfBar(d.confidence, true)}
+        <div style="font-size:.78rem;opacity:.75;margin-top:5px;">${d.message}</div>
+      </div>
+    </div>
+
+    <!-- LEGAL GROUP -->
+    <div class="legal-section" style="padding-top:22px;">
+      <h6><i class="fas fa-gavel"></i>NHÓM PHÁP LÝ</h6>
+      <div class="legal-group-box ${lgCls}">
+        <i class="fas ${lgIcon}"></i>${legalGroup}
+      </div>
+    </div>
+
+    <!-- BIO INFO -->
+    <div class="info-section" style="padding-top:6px;">
+      <h6><i class="fas fa-leaf"></i>ĐẶC ĐIỂM SINH HỌC & SINH THÁI</h6>
+      <div class="info-grid">
+        ${infoRow('🔍','Ngoại hình', ngoaiHinh)}
+        ${infoRow('🍃','Thức ăn', thucAn)}
+        ${infoRow('🐾','Tập tính', tapTinh)}
+        ${infoRow('🌿','Sinh thái', sinhThai)}
+        ${infoRow('🌍','Phân bố tại Việt Nam', phanBo, true)}
+        ${dacDiem ? infoRow('⚡','Đặc điểm nhận dạng đặc trưng', dacDiem, true) : ''}
+      </div>
+    </div>
+
+    <!-- PENALTIES -->
+    <div class="legal-section">
+      <div class="penalty-title"><i class="fas fa-exclamation-triangle"></i>CẢNH BÁO HÀNH VI & CHẾ TÀI</div>
+      <div class="penalty-wrap">${penHTML}</div>
+    </div>
+
+    <!-- FORM ACTIONS -->
+    ${showForm ? `
+    <div class="form-actions">
+      <button class="btn-outline-green" id="btnPreviewForm">
+        <i class="fas fa-eye me-2"></i>XEM TRƯỚC MẪU ĐƠN
+      </button>
+      <button class="btn-solid-green" id="btnMakeForm">
+        <i class="fas fa-file-signature me-2"></i>TẠO ĐƠN XIN PHÉP / BÀN GIAO
+      </button>
+    </div>` : ''}
+  </div>`;
+}
+
+/* ============================================================
+   BUILD ASKING
+============================================================ */
+function buildAsking(d) {
+  const conf     = d.confidence ?? (S.currentConf * 100);
+  const vn_name  = d.vietnamese_name || S.vn_name || 'Chưa rõ';
+  const questions = d.questions || S.allQuestions;
+
+  // Cập nhật danh sách câu hỏi toàn cục
+  S.allQuestions = questions;
+
+  /* Progress dots */
+  const allIds = questions.map(q => q.id);
+  const dots = allIds.map(id => {
+    const cls = !(id in S.answered) ? 'cur' : S.answered[id] ? 'yes' : 'no';
+    return `<div class="qdot ${cls}"></div>`;
+  }).join('');
+
+  /* Build question items */
+  const qHTML = questions.map((q, i) => {
+    const done    = q.id in S.answered;
+    const ansYes  = S.answered[q.id] === true;
+    const ansNo   = S.answered[q.id] === false;
+    const detail  = q.detail || '';
+    const qText   = q.question || 'Mẫu vật có đặc điểm này không?';
+
+    return `
+    <div class="q-item ${done ? 'done' : ''}" id="qi-${q.id}">
+      <div class="q-lbl">${q.icon || '❓'} ${q.label}</div>
+      <div class="q-text">${qText}</div>
+      <div class="q-detail has-text">${detail || '<em style="color:#aaa;">Không có mô tả chi tiết</em>'}</div>
+      <div class="q-btns">
+        <button class="btn-yes ${ansYes ? 'active' : ''}"
+                onclick="answerQ('${q.id}', true)"
+                ${done ? 'disabled' : ''}>
+          <i class="fas fa-check"></i> CÓ, có đặc điểm này
+        </button>
+        <button class="btn-no ${ansNo ? 'active' : ''}"
+                onclick="answerQ('${q.id}', false)"
+                ${done ? 'disabled' : ''}>
+          <i class="fas fa-times"></i> KHÔNG có
+        </button>
+      </div>
+      <div class="cf-hint">
+        <span class="plus">▲ Nếu CÓ: +${Math.round(q.cf_yes * 100)}% tin cậy</span>
+        &nbsp;|&nbsp;
+        <span class="minus">▼ Nếu KHÔNG: ${Math.round(q.cf_no * 100)}%</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `
+  <div class="qa-card mb-4">
+    <!-- QA HEADER -->
+    <div class="qa-header">
+      <div class="d-flex align-items-start justify-content-between gap-3 flex-wrap">
+        <div style="flex:1">
+          <h5><i class="fas fa-question-circle me-2"></i>Xác nhận đặc điểm sinh học</h5>
+          <p>${d.message || ''}</p>
+          <div class="qa-species">
+            <strong>${vn_name}</strong> &nbsp;·&nbsp; <em>${d.species || S.species}</em>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <span class="sbadge sb-cf" style="font-size:.8rem;">${Math.round(conf)}%</span>
+          ${cfBar(conf, true)}
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRESS DOTS -->
+    <div class="qdots">${dots}</div>
+
+    <!-- QUESTIONS -->
+    ${qHTML}
+  </div>`;
+}
+
+/* ============================================================
+   BUILD REJECTED
+============================================================ */
+function buildRejected(d) {
+  const conf = d.confidence || (S.currentConf * 100);
+  return `
+  <div class="rejected-card mb-4">
+    <div class="rejected-icon"><i class="fas fa-ban"></i></div>
+    <div class="rejected-title">Không thể nhận dạng</div>
+    <div class="rejected-msg">${d.message || 'Loài này chưa có trong dữ liệu hệ thống.'}</div>
+    ${conf ? `<div style="margin-top:16px;max-width:320px;margin-left:auto;margin-right:auto;">
+      <div style="font-size:.72rem;color:#aaa;margin-bottom:4px;font-family:'JetBrains Mono',monospace;">
+        Độ tin cậy cuối: ${Math.round(conf)}%
+      </div>
+      <div style="background:#f5dada;border-radius:99px;height:8px;overflow:hidden;">
+        <div style="height:100%;width:${Math.round(conf)}%;background:#dc3545;border-radius:99px;"></div>
+      </div>
+    </div>` : ''}
+  </div>`;
+}
+
+/* ============================================================
+   ANSWER QUESTION
+============================================================ */
+async function answerQ(questionId, answer) {
+  // Tìm câu hỏi để lấy CF
+  const q = S.allQuestions.find(q => q.id === questionId);
+  if (!q) return;
+
+  // Cập nhật state local ngay
+  S.answered[questionId] = answer;
+
+  // Client-side CF update (optimistic)
+  const evidence = answer ? q.cf_yes : q.cf_no;
+  S.currentConf = mycin(S.currentConf, evidence);
+
+  // Gọi server để lấy bước tiếp theo
+  try {
+    const res = await fetch('/answer_question', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        species: S.species,
+        current_confidence: S.currentConf,
+        answered: S.answered,
+      })
+    });
+    const data = await res.json();
+
+    // Bổ sung thông tin từ state nếu server không trả về
+    data.vietnamese_name = data.vietnamese_name || S.vn_name;
+    data.species         = data.species || S.species;
+
+    // Cập nhật CF từ server
+    if (data.confidence) S.currentConf = data.confidence / 100;
+    // Giữ lại toàn bộ câu hỏi đã gửi (không override bằng pending)
+    if (data.status === 'ASKING' && data.questions) {
+      // Merge: giữ câu đã trả lời + thêm câu mới server gửi về
+      const newIds = data.questions.map(q => q.id);
+      const merged = [...S.allQuestions];
+      for (const nq of data.questions) {
+        if (!merged.find(q => q.id === nq.id)) merged.push(nq);
+      }
+      data.questions = merged;
+    }
+
+    renderResult(data);
+    document.getElementById('dynamicArea').scrollIntoView({ behavior: 'smooth' });
+
+  } catch (e) {
+    console.error(e);
+    alert('Lỗi kết nối server!');
+  }
+}
+
+/* MYCIN CF mirror */
+function mycin(cfOld, cfE) {
+  let cf1 = cfOld * 2 - 1, cf2 = cfE, cfN;
+  if (cf1 >= 0 && cf2 >= 0)    cfN = cf1 + cf2 * (1 - cf1);
+  else if (cf1 < 0 && cf2 < 0) cfN = cf1 + cf2 * (1 + cf1);
+  else                          cfN = (cf1 + cf2) / (1 - Math.min(Math.abs(cf1), Math.abs(cf2)));
+  return Math.max(0.01, Math.min(0.99, +((cfN + 1) / 2).toFixed(4)));
+}
+
+/* ============================================================
+   FORM ACTIONS
+============================================================ */
+function attachFormListeners() {
+  const el = id => document.getElementById(id);
+  if (el('btnPreviewForm')) el('btnPreviewForm').onclick = doPreview;
+  if (el('btnMakeForm'))    el('btnMakeForm').onclick    = doGenerate;
+  if (el('modalDownloadBtn')) el('modalDownloadBtn').onclick = () => {
+    bootstrap.Modal.getInstance(el('previewModal'))?.hide();
+    doGenerate();
+  };
+}
+
+function legalPayload() {
+  const d = S.currentData || {};
+  return {
+    species_name:    d.species || S.species,
+    vietnamese_name: d.vietnamese_name || S.vn_name,
+    legal_group:     d.inferred_legal_group || d.legal?.legal_group || d.legal?.legal_advice?.group_name,
+  };
+}
+
+async function doPreview() {
+  const btn = document.getElementById('btnPreviewForm');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Đang tạo...';
+  try {
+    const res    = await fetch('/preview_legal_form', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(legalPayload()) });
+    const result = await res.json();
+    if (result.status === 'success') {
+      document.getElementById('previewContent').textContent = result.content;
+      new bootstrap.Modal(document.getElementById('previewModal')).show();
+    } else alert('Lỗi: ' + (result.message || 'Không thể tạo mẫu đơn'));
+  } catch (e) { alert('Lỗi kết nối server.'); }
+  finally { btn.innerHTML = orig; }
+}
+
+async function doGenerate() {
+  const btn = document.getElementById('btnMakeForm');
+  const orig = btn?.innerHTML;
+  if (btn) { btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Đang tạo file...'; btn.disabled = true; }
+  try {
+    const res    = await fetch('/generate_legal_doc', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(legalPayload()) });
+    const result = await res.json();
+    if (result.status === 'success') window.location.href = result.download_url;
+    else alert('Lỗi: ' + result.message);
+  } catch (e) { alert('Không thể tạo đơn.'); }
+  finally { if (btn) { btn.innerHTML = orig; btn.disabled = false; } }
+}
+
+/* ============================================================
+   CHATBOT FUNCTIONS
+============================================================ */
+function toggleChat() {
+  const chatWindow = document.getElementById('chat-window');
+  chatWindow.classList.toggle('active');
+}
+
+function handleChatKeyPress(event) {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const message = input.value.trim();
+  if (!message) return;
+
+  // Add user message to chat
+  addMessage(message, 'user');
+  input.value = '';
+
+  // Show typing indicator
+  const typing = document.getElementById('chat-typing');
+  typing.style.display = 'block';
+
+  try {
+    const response = await fetch('/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: message })
+    });
+
+    const data = await response.json();
+    typing.style.display = 'none';
+
+    if (data.reply) {
+      addMessage(data.reply, 'bot');
+    } else {
+      addMessage('Xin lỗi, tôi không thể trả lời câu hỏi này.', 'bot');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    typing.style.display = 'none';
+    addMessage('Có lỗi xảy ra khi kết nối với server.', 'bot');
+  }
+}
+
+function addMessage(text, sender) {
+  const chatBody = document.getElementById('chat-body');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `chat-message ${sender}`;
+  messageDiv.textContent = text;
+  chatBody.insertBefore(messageDiv, document.getElementById('chat-typing'));
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+</script>
+</body>
+</html>

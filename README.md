@@ -55,6 +55,7 @@ Nhận đầu vào là ảnh, trả ra xác suất dự đoán (Ví dụ: {"Rùa
 
 Script giải thích (Grad-CAM): D:\hoctap\HK6\DACN1\src\utils\gradcam.py
 Xuất ra ảnh bôi đỏ vùng đặc trưng để tăng tính thuyết phục.
+mô hình sau huấn luyện lưu ở D:\hoctap\HK6\DACN1\models
 
 ### Bước 6: Xây dựng Động cơ suy diễn Hệ chuyên gia 
 Biến file JSON thành cỗ máy logic để tra cứu luật và đối chiếu đặc điểm.

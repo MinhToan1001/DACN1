@@ -1,48 +1,23 @@
-import os
 import pandas as pd
-from pathlib import Path
-from tqdm import tqdm
 
-def sync_images_with_csv(csv_path, images_dir):
-    print("⏳ Đang đọc CSV...")
+# 1. Đọc file dataset_cleaned.csv gốc
+dataset_path = "D:/hoctap/HK6/DACN1/dataset/dataset_cleaned.csv"
+df_dataset = pd.read_csv(dataset_path)
 
-    df_cleaned = pd.read_csv(csv_path, encoding='latin-1')
+# 2. Thống kê: Đếm số lượng ảnh theo từng tên khoa học
+# Mỗi dòng là 1 ảnh, nên value_counts() sẽ trả về số lượng ảnh của từng loài
+thong_ke = df_dataset['scientific_name'].value_counts().reset_index()
 
-    # Lấy tên file KHÔNG có extension
-    valid_filenames = set(
-        Path(str(p)).stem for p in df_cleaned['image_id'].dropna()
-    )
+# 3. Đổi tên cột cho khớp với logic trong file extract_species_info.py của bạn
+# Trong extract_species_info.py bạn dùng cột "Tên loài (Thư mục)" và "Số lượng ảnh"
+thong_ke.columns = ['Tên loài (Thư mục)', 'Số lượng ảnh']
 
-    print(f"📋 CSV giữ lại: {len(valid_filenames)} ảnh")
+# In kết quả ra màn hình (chỉ lấy tên khoa học và số lượng ảnh như bạn yêu cầu)
+print("=== THỐNG KÊ SỐ LƯỢNG ẢNH THEO TÊN KHOA HỌC ===")
+print(thong_ke)
 
-    images_path = Path(images_dir)
-    all_images = list(images_path.rglob("*.[jp][pn]*[g]"))
+# 4. Lưu lại thành file CSV thống kê mới
+output_path = "D:/hoctap/HK6/DACN1/dataset/thong_ke_du_lieu_moi.csv"
+thong_ke.to_csv(output_path, index=False, encoding='utf-8-sig')
 
-    print(f"📁 Thư mục có: {len(all_images)} ảnh")
-
-    deleted_count = 0
-    kept_count = 0
-
-    print("🗑️ Đang xử lý...")
-
-    for img_path in tqdm(all_images):
-        img_name = img_path.stem  # 🔥 FIX CHÍNH Ở ĐÂY
-
-        if img_name not in valid_filenames:
-            try:
-                img_path.unlink()
-                deleted_count += 1
-            except Exception as e:
-                print(f"Lỗi xóa {img_path}: {e}")
-        else:
-            kept_count += 1
-
-    print("\n🎉 DONE")
-    print(f"✅ Giữ: {kept_count}")
-    print(f"❌ Xóa: {deleted_count}")
-# ====================== THỰC THI ======================
-if __name__ == "__main__":
-    csv_path = r"D:/HocTap/HK6/DACN1/dataset/dataset_cleaned.csv"
-    images_dir = r"D:/HocTap/HK6/DACN1/images"
-    
-    sync_images_with_csv(csv_path, images_dir)
+print(f"\n[Thành công] Đã tạo lại file thống kê tại: {output_path}")

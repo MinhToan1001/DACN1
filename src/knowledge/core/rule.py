@@ -1,5 +1,5 @@
 from typing import List, Tuple, Dict
-from core.fact_base import FactBase
+from knowledge.core.fuzzy_logic import FactBase
 
 class Rule:
     """Dai dien cho 1 luat suy dien gom: IF (premises), THEN (conclusion) va CF."""

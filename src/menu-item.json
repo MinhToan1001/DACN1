@@ -1,0 +1,80 @@
+[
+  {
+    "section": "Chung",
+    "items": [
+      {
+        "label": "Dashboard",
+        "href": "/admin/dashboard",
+        "icon": "dashboard"
+      }
+    ]
+  },
+  {
+    "section": "Tương tác khách hàng",
+    "subtitle": "Chăm sóc hỗ trợ",
+    "items": [
+      {
+        "label": "Email gửi về",
+        "href": "/admin/manage-contacts",
+        "icon": "inbox"
+      }
+    ]
+  },
+  {
+    "section": "Quản lý",
+    "items": [
+      {
+        "label": "Động vật",
+        "href": "/admin/manage-animals",
+        "icon": "paw"
+      },
+      {
+        "label": "Rừng",
+        "href": "/admin/manage-forests",
+        "icon": "forest"
+      },
+      {
+        "label": "Bài báo",
+        "href": "/admin/manage-news",
+        "icon": "news"
+      },
+      {
+        "label": "Dự án",
+        "href": "/admin/manage-projects",
+        "icon": "project"
+      },
+      {
+        "label": "Quỹ ủng hộ",
+        "href": "/admin/register",
+        "icon": "fund"
+      }
+    ]
+  },
+  {
+    "section": "Cài đặt",
+    "subtitle": "Extra More Things",
+    "items": [
+      {
+        "label": "Menu Levels",
+        "icon": "menu",
+        "children": [
+          {
+            "label": "Level 1",
+            "href": "/admin/menu/level1"
+          }
+        ]
+      },
+      {
+        "label": "Disabled Menu",
+        "href": "#",
+        "icon": "x",
+        "disabled": true
+      },
+      {
+        "label": "Đăng xuất",
+        "href": "/admin/sample",
+        "icon": "logout"
+      }
+    ]
+  }
+]

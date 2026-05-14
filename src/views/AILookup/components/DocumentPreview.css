@@ -1,0 +1,62 @@
+/* General wrapper for the preview to allow scrolling */
+.document-preview-a4-wrapper {
+    background-color: #f0f2f5;
+    padding: 2rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.document-preview-a4 {
+    background: white;
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 2cm;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13pt;
+    line-height: 1.6;
+    color: black;
+}
+
+.document-preview-a4 p,
+.document-preview-a4 h2 {
+    margin: 0 0 1em 0;
+}
+
+.document-preview-a4 p:last-child {
+    margin-bottom: 0;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.preview-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 12pt;
+}
+
+.preview-table th,
+.preview-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.preview-table th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}

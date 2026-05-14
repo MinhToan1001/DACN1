@@ -1,0 +1,185 @@
+:root {
+    --color-01: #021008;
+    --color-02: #232323;
+    --color-03: #315740;
+}
+svg {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+/* Header */
+.fixed-top {
+    transition: background-color 0.1s ease, box-shadow 0.3s ease;
+}
+
+.navbar .container {
+    flex-wrap: nowrap !important;
+}
+
+.scrolled-past {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled-past .navbar-nav .nav-link {
+    color: var(--color-01);
+    text-shadow: 0px 0px 0px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo .brand-name {
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    padding-left: 5px;
+    color: var(--color-01);
+}
+
+.logo img {
+    width: 56px;
+    height: 56px;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px;
+    margin-left: 15px;
+    font-weight: 500;
+    color: var(--color-01);
+    /* color: #fff; */
+    transition: color 0.6s;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: var(--color-03) !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--color-03);
+    bottom: 0px;
+    left: calc(50% - 35px);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.navbar-nav .nav-link.active::after,
+.navbar-nav .nav-link:hover::after{
+    
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navbar-nav .nav-link:last-child:hover::after,
+.navbar-nav .nav-link:last-child.active::after {
+    display: none;
+}
+
+/* End header */
+/* Main */
+#content {
+    margin-top: 100px;
+}
+
+#content .head {
+    text-align: center;
+    padding: 40px;
+    background-color: #eee;
+}
+
+#content .head .header {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+#content .head nav .breadcrumb {
+    justify-content: center;
+}
+
+#content .head nav .breadcrumb a {
+    color: var(--color-03);
+}
+
+#content .top {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: #8e8d8d;
+    font-weight: 350;
+}
+.inner_main_content {
+    font-weight: 350;
+    font-size: 18px;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inner_main_content p {
+    text-align: justify;
+    text-indent: 2rem;
+    font-size: 17px !important;
+}
+.inner_main_content img {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.inner_main_content span {
+    font-style: italic;
+    font-size: 15px !important;
+    margin-bottom: 20px;
+}
+#content .inner_main_content .share {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: 30px;
+    text-indent: 0;
+}
+#content .socials-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding-left: 0;
+}
+#content .socials-list li {
+    font-size: 18px;
+}
+#content .socials-list li a {
+    color: var(--color-02);
+    transition: color 0.3s;
+}
+#content .socials-list li a:hover {
+    color: var(--color-01);
+    cursor: pointer;
+}
+
+#content .navigator {
+    display: flex;
+    justify-content: space-between;
+}
+#content .navigator span,
+#content .navigator svg {
+    color: #292929;
+}
+#content .navigator .next a,
+#content .navigator .prev a {
+    text-decoration: none;
+}
+/* End main */

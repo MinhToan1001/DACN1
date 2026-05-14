@@ -1,0 +1,275 @@
+/* Project */
+#project {
+    margin-top: 120px;
+    margin-bottom: 60px;
+}
+
+#project .row {
+    justify-content: center;
+    align-items: center;
+}
+#project .col-lg-7 {
+    margin-bottom: 30px;
+}
+#project .row img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+#project .row h2 {
+    color: var(--color-02);
+    font-size: 40px;
+    font-weight: 800;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    position: relative;
+    text-transform: uppercase;
+}
+#project .row h2:before {
+    position: absolute;
+    content: '';
+    width: 70px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    background-color: var(--color-03);
+}
+
+#project .row p {
+    font-size: 18px;
+}
+#project .progress-bar {
+    background-color: var(--color-01);
+}
+#project .status {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+#project .status .donated {
+    font-weight: 700;
+    font-size: 18px;
+    color: #232323;
+}
+#project .status .goal {
+    font-weight: 700;
+    font-size: 18px;
+    color: #9a9a9a;
+}
+#project .socials-list {
+    display: flex;
+    margin-top: 30px;
+    padding-left: 0;
+}
+#project .socials-list li {
+    margin-right: 20px;
+    font-size: 18px;
+}
+#project .socials-list li a {
+    color: var(--color-02);
+    transition: color 0.3s;
+}
+#project .socials-list li a:hover {
+    color: var(--color-01);
+    cursor: pointer;
+}
+#project .button-group {
+    display: flex;
+}
+#project .button {
+    border-radius: 0;
+}
+#project .follow button {
+    margin-left: 20px;
+    padding: 8px 30px;
+    font-size: 17px;
+    background-color: transparent;
+    color: var(--color-01);
+    border: 2px solid var(--color-01);
+}
+#project .follow span {
+    margin-left: 15px;
+}
+/* End project */
+/* Story */
+#story {
+    margin-top: 100px;
+}
+#story .col-lg-7 {
+    padding-right: 50px;
+}
+#story h4 {
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+#story p {
+    text-align: justify;
+    text-indent: 2rem;
+    margin-bottom: 0;
+    line-height: 2;
+}
+#story .line {
+    margin-top: 20px;
+    border: 2px solid #315740;
+}
+#story .slogan {
+    margin-top: 20px;
+    color: var(--color-01);
+    font-size: 24px;
+    font-weight: 500;
+}
+#story ul li{
+    margin-top: 15px;
+    font-size: 18px;
+}
+#story ul li .icon {
+    color: var(--color-01);
+}
+#story ul li span {
+    margin-left: 10px;
+}
+#story .box {
+    background-image: url("https://www.worldanimalprotection.org/cdn-cgi/image/width=1920,format=auto/globalassets/images/elephants/1033551-elephant.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 50px 40px;
+    position: relative;
+
+}
+#story .box::before {
+    content: " ";
+    background-color: #315740;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#story .box .content {
+    font-size: 20px;
+    color: #fff;
+    position: relative;
+    z-index: 99;
+}
+#story .box .content p {
+    text-align: left;
+    font-size: 28px;
+    font-weight: 700;
+}
+#story .box .content span {
+    margin-left: 32px;
+    color: #d1d1d1;
+}
+#story .secure {
+    margin-top: 70px;
+    padding: 30px 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+#story .secure img {
+    margin-left: 10px;
+}
+#story .secure .title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 0;
+    color: #3a3939;
+}
+#story .secure .descript {
+    color: #999999;
+    font-weight: 300;
+    text-indent: 0;
+    margin-left: 30px;
+}
+.video {
+    margin-top: 60px;
+    background-image: url("../../assets/image/section_2_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 70px 0;
+    position: relative;
+}
+.video .col-lg-6 {
+    padding-right: 20px !important;
+    margin: 30px 0;
+}
+.video::before {
+    content: " ";
+    background-color: #315740;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video .row {
+    position: relative;
+    z-index: 99;
+}
+.video p {
+    text-indent: 0 !important;
+}
+.video .title-head {
+    font-size: 18px;
+    font-weight: 700;
+    color: #7a9484;
+}
+.video .title-main {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 700;
+}
+.video span {
+    color: #cae1d3;
+    font-size: 22px;
+    font-weight: 350;
+}
+.video button {
+    padding: 10px 40px;
+    margin-top: 25px;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #315740;
+}
+/* End story */
+/* FAQ */
+#faq {
+    margin-top: 50px;
+}
+#faq .col-lg-6 {
+    padding-right: 30px;
+}
+#faq h3 {
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+#faq .quest {
+    color: var(--color-01);
+    font-weight: 600;
+    font-size: 18px;
+}
+#faq .ans {
+    font-size: 17px;
+    font-weight: 350;
+}
+/* End FAQ */
+/* Responsive */
+@media screen and (max-width : 500px) {
+    #story .box .content {
+        font-size: 13px;
+    }
+    #story .box .content p {
+        font-size: 15px;
+    }
+
+    #story .secure .title {
+        font-size: 18px;
+    }
+    #story .secure .descript {
+        font-size: 13px
+    }
+}
+/* End responsive */

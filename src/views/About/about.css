@@ -1,0 +1,649 @@
+:root {
+    --color-01: #021008;
+    --color-02: #232323;
+    --color-03: #315740;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Button CSS */
+.button {
+    position: relative;
+    padding: 10px 25px;
+    border: 0;
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+    color: #fff;
+}
+
+.button-left {
+    background: linear-gradient(to right, #315740 50%,
+            #3f7253 50%);
+    background-size: 200% 100%;
+    background-position: right;
+}
+
+.button-left:hover {
+    background-position: left;
+}
+
+/* End button CSS */
+
+/* Hero */
+#hero-section {
+    background-image: url("../../assets/image/about_bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 250px 0;
+}
+
+#hero-section h1 {
+    margin-left: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 65px;
+    font-weight: 800;
+}
+
+#hero-section p {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#hero-section .button {
+    margin-top: 15px;
+}
+
+#hero-section .button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#hero-section p,
+#hero-section h1,
+#hero-section .button {
+    opacity: 0;
+    transform: translateY(100px);
+    animation: slide-up 1s forwards ease-in-out;
+}
+
+@keyframes slide-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* End hero */
+/* About */
+#about {
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+#about .image-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#about .image-box img {
+    transition: transform 0.5s;
+}
+
+#about .image-box:hover img {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#about .content-box {
+    margin-top: 30px;
+    padding-left: 20px;
+}
+
+#about .content-box h2 {
+    position: relative;
+    display: block;
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 900;
+    padding-top: 11px;
+    text-transform: uppercase;
+}
+
+#about .content-box h2:before {
+    position: absolute;
+    content: '';
+    width: 70px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    background-color: var(--color-03);
+}
+
+#about .content-box h4 {
+    display: block;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    margin-bottom: 21px;
+    color: var(--color-03);
+}
+
+#about .content-box p {
+    color: #71747A;
+    margin-bottom: 30px;
+}
+
+#about .content-box ul li {
+    position: relative;
+    display: block;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--color-02);
+    margin-bottom: 14px;
+}
+
+/* End about */
+/* Journey */
+#journey {
+    background-image: url(../../assets/image/recent_bg.jpg);
+}
+
+#journey .container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#journey h2 {
+    text-align: center;
+    position: relative;
+    display: block;
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 900;
+    padding-top: 11px;
+    text-transform: uppercase;
+}
+
+#journey h2:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 0px;
+    left: calc(50% - 60px);
+}
+
+#journey h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #5cb874;
+    bottom: 1px;
+    left: calc(50% - 20px);
+}
+
+#journey .space-holder {
+    position: relative;
+    width: 100%;
+}
+
+#journey .sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#journey .horizontal {
+    position: absolute;
+    height: 100%;
+    will-change: transform;
+}
+
+#journey .cards {
+    position: relative;
+    height: 100%;
+    padding: 0 0 0 0px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#journey .sample-card {
+    position: relative;
+    width: 50vw;
+    background-color: #fff;
+    margin-left: 100px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    border: 2px solid #eee;
+    padding: 30px;
+}
+
+#journey .sample-card .box-header {
+    position: relative;
+}
+
+#journey .sample-card .box-header .main-img {
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+#journey .sample-card .box-header .main-img img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+}
+
+#journey .sample-card .box-header .main-img:hover img {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#journey .sample-card .box-header .date-box {
+    position: absolute;
+    background-color: var(--color-03);
+    padding: 10px 25px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+    right: 15px;
+    bottom: -20px;
+    z-index: 99;
+}
+
+#journey .sample-card .date-box p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+#journey .sample-card .date-box span {
+    font-size: 15px;
+}
+
+#journey .sample-card .title {
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+#journey .sample-card .title a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-02);
+    transition: color 0.3s;
+    font-size: 20px;
+}
+
+#journey .sample-card .title:hover a {
+    color: var(--color-03);
+}
+
+#about a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* End journey */
+/* Team */
+#team {
+    padding: 60px 0;
+}
+
+#team h2 {
+    text-align: center;
+    position: relative;
+    display: block;
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 900;
+    padding-top: 11px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+#team h2:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 0px;
+    left: calc(50% - 60px);
+}
+
+#team h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #5cb874;
+    bottom: 1px;
+    left: calc(50% - 20px);
+}
+
+#team .team-member {
+    justify-content: center;
+}
+
+#team .team-member .leader-infor {
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* #team .team-member .leader-infor .image {
+    aspect-ratio: 8 / 9;
+}
+
+#team .team-member .leader-infor .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+#team .team-member .leader-infor:hover {
+    cursor: pointer;
+}
+
+#team .team-member .leader-infor:hover .cards__rect-1 {
+    left: 10%;
+}
+
+#team .team-member .leader-infor:hover .cards__rect-1 .shadow-1 {
+    left: -20%;
+}
+
+#team .team-member .leader-infor:hover .cards__rect-2 {
+    left: 60%;
+}
+
+#team .team-member .leader-infor:hover .cards__rect-2:before {
+    left: -100%;
+}
+
+#team .team-member .leader-infor:hover .cards__rect-2:after {
+    left: 80%;
+}
+
+#team .team-member .leader-infor:hover .cards__rect-2 .shadow-2 {
+    left: -10%;
+}
+
+#team .team-member .leader-infor .cards__rect-1 {
+    background: #fff;
+    width: 200px;
+    height: 110px;
+    transform: skewX(-20deg);
+    display: block;
+    position: absolute;
+    top: 73%;
+    opacity: 0.9;
+    left: -100%;
+    z-index: 8;
+    transition: all 0.5s ease-in;
+}
+
+#team .team-member .leader-infor .cards__rect-1 p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    transform: skewX(20deg);
+    line-height: 6rem;
+}
+
+#team .team-member .leader-infor .cards__rect-1 .shadow-1 {
+    background: #315740;
+    width: 230px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    left: -200%;
+    z-index: -1;
+    transition: all 0.3s ease-in;
+}
+
+#team .team-member .leader-infor .cards__rect-2 {
+    width: 100px;
+    height: 70px;
+    background: #fff;
+    position: absolute;
+    top: 65%;
+    left: 1000%;
+    opacity: 0.9;
+    transform: skewX(-20deg);
+    z-index: 8;
+    transition: all 0.5s ease-in;
+}
+
+#team .team-member .leader-infor .cards__rect-2::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 40px;
+    background: #39B95C;
+    opacity: 1;
+    position: absolute;
+    left: 500%;
+    top: 10%;
+    transition: all 0.3s ease-in;
+}
+
+#team .team-member .leader-infor .cards__rect-2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 40px;
+    background: #315740;
+    opacity: 1;
+    position: absolute;
+    left: 500%;
+    top: 114%;
+    transition: all 0.5s ease-in;
+    transition-delay: 0.2s;
+}
+
+#team .team-member .leader-infor .cards__rect-2 .shadow-2 {
+    background: #39B95C;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: -10%;
+    left: 500%;
+    transition: all 0.5s ease-in;
+    transition-delay: 0.2s;
+} */
+
+#team .team-member .leader-infor .content_leader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#team .team-member .leader-infor .content_leader .list_icon {
+    font-size: 30px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#team .team-member .leader-infor .content_leader .list_icon li {
+    margin-bottom: 20px;
+}
+#team .content_leader .list_icon li a {
+    color: var(--color-03);
+    transition: color 0.3s;
+}
+
+#team .content_leader .list_icon li a:hover {
+    color: #000;
+}
+#team .team-member .leader-infor .content_leader img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+#team .team-member .content_leader .text-ld .name {
+    font-size: 30px;
+    color: #292929;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+#team .team-member .content_leader .text-ld .posi {
+    font-size: 18px;
+    color: #292929;
+    margin-top: 0;
+    font-style: italic;
+}
+
+#team .team-member .content_leader .text-ld .mail,
+#team .team-member .content_leader .text-ld .intro-text {
+    font-size: 18px;
+}
+
+
+/* End team */
+/* Join */
+#join {
+    padding-top: 50px;
+}
+
+#join .row {
+    align-items: center;
+    justify-content: center;
+}
+
+#join .content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+#join .content-box .head-title {
+    font-weight: bold;
+    color: var(--color-03);
+}
+
+#join .content-box h2 {
+    font-size: 50px;
+    font-weight: 800;
+}
+
+#join .content-box .infor {
+    color: #929499;
+    font-weight: 350;
+    margin: 20px 0;
+}
+
+#join .image-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#join .image-list img {
+    width: 70%;
+    aspect-ratio: 16 / 9;
+    margin-top: 20px;
+}
+
+#join a {
+    text-decoration: none;
+}
+
+/* End Join */
+@media screen and (max-width: 992px) {
+    #hero-section h1 {
+        font-size: 50px;
+    }
+    #team .team-member .content_leader .text-ld .mail,
+    #team .team-member .content_leader .text-ld .posi,
+    #team .team-member .content_leader .text-ld .name,
+    #team .team-member .content_leader .text-ld .intro-text {
+        text-align: center;
+    }
+
+    /* #join .content-box .head-title,
+    #join .content-box h2,
+    #join .content-box .infor,
+    #join .content-box .button{
+        justify-content: center;
+        text-align: center;
+    } */
+
+    #join {
+        text-align: center;
+    }
+    #join .content-box{
+        justify-content: center;
+        align-items: center;
+    }
+    #footer .col-6 {
+        width: 100% !important;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 786px) {
+    #journey .sample-card {
+        width: 100vw;
+    }
+
+    #hero-section h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #hero-section h1 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width : 400px) {
+    #hero-section h1 {
+        font-size: 30px;
+        font-weight: 700;
+    }
+    #join {
+        text-align: center;
+    }
+    #join .content-box{
+        justify-content: center;
+        align-items: center;
+    }
+    #footer .col-6 {
+        width: 100% !important;
+        text-align: center;
+    }
+}
+@media screen and (max-width : 100px) {
+        #footer .col-6 {
+            width: 100% !important;
+            text-align: center;
+        }
+    }

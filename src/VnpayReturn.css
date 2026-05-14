@@ -1,0 +1,11 @@
+#content {
+    margin-top: 100px;
+    text-align: center;
+}
+#content h2 {
+    font-weight: 800;
+    font-size: 40px;
+}
+#content p {
+    font-size: 20px;
+}

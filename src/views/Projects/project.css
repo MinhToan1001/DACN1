@@ -1,0 +1,219 @@
+:root {
+    --color-01: #315740;
+    --color-02: #232323;
+}
+.alert-position {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important; 
+    z-index: 9999 !important; 
+    font-size: 15px !important;
+}
+
+/* Hero Section */
+#hero {
+    /* height: 80vh; */
+    background-image: url("../../assets/image/donate_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 230px 0;
+    width: 100%;
+}
+
+#hero h1 {
+    color: #fff;
+    font-weight: 800;
+    text-align: center;
+    font-size: 60px;
+}
+
+/* End hero section */
+/* Main */
+#main {
+    margin-top: -60px;
+    margin-bottom: 50px;
+    padding: 50px 0;
+    background-color: #2c522d;
+    z-index: 100;
+    position: relative;
+}
+
+#main .container {
+    position: relative;
+}
+
+#main .image img {
+    width: 100%;
+}
+
+#main .content h6 {
+    font-weight: 800;
+    color: #BFDFB4;
+}
+
+#main .content h4 {
+    color: #fff;
+    font-weight: 800;
+    font-size: 35px;
+}
+
+#main .content p {
+    margin: 20px 0;
+    color: #dbd8d8;
+}
+
+#main ul {
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding-left: 0;
+    display: flex;
+    color: #fff;
+}
+
+#main ul li {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+#main ul li:hover {
+    color: #eee;
+    cursor: pointer;
+}
+
+#main .col-xl-5 .donate-box {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 40px; 
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 40%;
+}
+
+#main .col-xl-5 .donate-box label {
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+#main .col-xl-5 .donate-box .amount {
+    width: 300px;
+    height: 35px;
+    border: 0;
+    border-bottom: 1px solid #232323;
+    margin-bottom: 40px;
+}
+
+#main .col-xl-5 .donate-box .form-check-group {
+    margin-bottom: 20px;
+}
+
+#main .col-xl-5 .donate-box .input {
+    margin-top: 0;
+}
+
+#main .col-xl-5 .donate-box .form-check-radio {
+    margin-top: 15px;
+    position: relative;
+    height: 100%;
+    padding-left: 0;
+}
+
+#main .col-xl-5 .donate-box .form-check-radio .form-check-input:hover,
+#main .col-xl-5 .donate-box .form-check-radio .form-check-input:checked {
+  background-image: url(../../assets/image/Untitled.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+#main .col-xl-5 .donate-box .form-check-input:checked+.form-check-label,
+#main .col-xl-5 .donate-box .form-check-input:hover+.form-check-label {
+  color: white;
+}
+
+#main .col-xl-5 .donate-box .form-check-radio .form-check-input[type=radio] {
+  border-radius: .25rem;
+  border: 1px solid var(--color-01);
+  width: 100%;
+  margin-top: 0;
+  margin-left: 0;
+  padding: 25px 50px;
+  transition: all 0.2s;
+}
+#main .col-xl-5 .donate-box .form-check-radio .form-check-label {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 15px;
+    padding: 0;
+  }
+.title {
+    margin-top: 35px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #b4b2b2;
+}
+.online-content img {
+    width: 50%;
+    margin-top: 35px;
+}
+.offline-content {
+    width: 100%;
+}
+.offline-content .main-content {
+    margin-top: 35px;
+    text-align: justify;
+    color: #898888;
+}
+#main .button {
+    margin-top: 35px;
+    border-radius: 0;
+}
+
+#des h3 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+#des p {
+    margin-bottom: 0;
+    text-indent: 2em;
+    text-align: justify;
+    line-height: 2;
+}
+
+#des h4 {
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 20px;
+}
+#des .promise {
+    font-weight: 350;
+    text-align: left;
+    text-indent: 0;
+    font-size: 15px;
+}
+
+/* End main */
+
+/* Responsive */
+@media screen and (max-width : 1200px) {
+    #main .col-xl-5 .donate-box {
+        width: 100%;
+        position: relative;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width : 350px) {
+    #hero h1 {
+        font-size: 40px;
+    }
+}

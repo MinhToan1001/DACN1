@@ -1,0 +1,9 @@
+tensorflow
+flask
+pandas
+numpy
+pillow
+wikipedia
+google-generativeai
+icrawler
+Flask-Cors
